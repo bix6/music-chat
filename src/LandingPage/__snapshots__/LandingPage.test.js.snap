@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LandingPage Component Snapshot Test: Empty 1`] = `
+<Fragment>
+  <h1>
+    LandingPage
+  </h1>
+  <Link
+    to="/"
+  >
+    Home
+  </Link>
+</Fragment>
+`;

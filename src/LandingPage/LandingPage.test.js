@@ -3,21 +3,21 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import LandingPage from './LandingPage';
 
-describe('App Component', () => {
+describe('LandingPage Component', () => {
     it('Smoke Test: Renders Empty', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <BrowserRouter>
-                <App />
+                <LandingPage />
             </BrowserRouter>,
             div);
         ReactDOM.unmountComponentAtNode(div);
     })
 
     it('Snapshot Test: Empty', () => {
-        const wrapper = shallow(<App />);
+        const wrapper = shallow(<LandingPage />);
         expect(toJson(wrapper)).toMatchSnapshot();
     })
 })
