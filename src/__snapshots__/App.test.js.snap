@@ -1,16 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App Component Snapshot Test: Empty 1`] = `
-<Switch>
-  <Route
-    component={[Function]}
-    exact={true}
-    path="/"
-  />
-  <Route
-    component={[Function]}
-    exact={true}
-    path="/chat"
-  />
-</Switch>
+<ContextProvider
+  value={
+    Object {
+      "name": "",
+      "updateName": [Function],
+    }
+  }
+>
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/chat"
+    />
+  </Switch>
+</ContextProvider>
 `;

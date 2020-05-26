@@ -1,22 +1,25 @@
 import React from 'react';
 import './LandingPage.css';
 import ValidationError from '../ValidationError/ValidationError';
+import ChatContext from '../ChatContext';
 
 class LandingPage extends React.Component {
+    static contextType = ChatContext;
+
     state = {
-        name: '',
         touched: false
     };
 
     updateName = (name) => {
         this.setState({
-            name: name,
             touched: true
         });
+
+        this.context.updateName(name)
     }
 
     validateName = () => {
-        const name = this.state.name.trim();
+        const name = this.context.name.trim();
 
         if (name.length < 2) {
             return 'Name must be 2 characters or more'
@@ -40,8 +43,8 @@ class LandingPage extends React.Component {
                         <label htmlFor="choose-name">Name / Nickname:</label>
                         <input type="text" id="choose-name" name="choose-name" 
                             onChange= { e => { this.updateName(e.target.value) } }/>
-                        { this.state.touched && <ValidationError message={ this.validateName() }/> }
                         <button type="submit" disabled={ this.validateName() }>Chat</button>
+                        { this.state.touched && <ValidationError message={ this.validateName() }/> }
                     </form>
                 </main>
             </>

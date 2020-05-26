@@ -9,7 +9,7 @@ exports[`LandingPage Component Snapshot Test: Empty 1`] = `
   </header>
   <main>
     <p>
-      Share music across the globe. Choose a name to get started.
+      Share music across the globe. Enter your name to get started.
     </p>
     <form
       onSubmit={[Function]}
