@@ -18,6 +18,7 @@ class App extends React.Component {
             name: this.state.name,
             updateName: this.handleUpdateName
         };
+        
         return (
             <ChatContext.Provider value={ contextValue }>
                 <Switch>

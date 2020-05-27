@@ -2,6 +2,7 @@ import React from 'react';
 import './LandingPage.css';
 import ValidationError from '../ValidationError/ValidationError';
 import ChatContext from '../ChatContext';
+import HeaderComponent from '../HeaderComponent/HeaderComponent';
 
 class LandingPage extends React.Component {
     static contextType = ChatContext;
@@ -34,9 +35,7 @@ class LandingPage extends React.Component {
     render() {
         return (
             <>
-                <header>
-                    <h1>Music Chat</h1>
-                </header>
+                <HeaderComponent />
                 <main>
                     <p>Share music across the globe. Choose a name to get started.</p>
                     <form onSubmit={ e => this.handleSubmit(e) }>

@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChatPage Component Snapshot Test: Empty 1`] = `
-<h1>
-  Chat page
-</h1>
+<Fragment>
+  <HeaderComponent />
+  <main />
+</Fragment>
 `;
