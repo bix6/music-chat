@@ -37,7 +37,7 @@ class LandingPage extends React.Component {
             <>
                 <HeaderComponent />
                 <main>
-                    <p>Share music across the globe. Choose a name to get started.</p>
+                    <p>Share music across the globe. <br />Enter a name to get started.</p>
                     <form onSubmit={ e => this.handleSubmit(e) }>
                         <label htmlFor="choose-name">Name / Nickname:</label>
                         <input type="text" id="choose-name" name="choose-name" 
