@@ -1,37 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LandingPage Component Snapshot Test: Empty 1`] = `
-<Fragment>
-  <header>
-    <h1>
-      Music Chat
-    </h1>
-  </header>
-  <main>
-    <p>
-      Share music across the globe. Enter your name to get started.
-    </p>
-    <form
-      onSubmit={[Function]}
-    >
-      <label
-        htmlFor="choose-name"
-      >
-        Name / Nickname:
-      </label>
-      <input
-        id="choose-name"
-        name="choose-name"
-        onChange={[Function]}
-        type="text"
-      />
-      <button
-        disabled="Name must be 2 characters or more"
-        type="submit"
-      >
-        Chat
-      </button>
-    </form>
-  </main>
-</Fragment>
+<ContextProvider
+  value="Provided Value"
+>
+  <LandingPage />
+</ContextProvider>
 `;

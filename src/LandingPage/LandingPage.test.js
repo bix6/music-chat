@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { BrowserRouter } from 'react-router-dom';
 import LandingPage from './LandingPage';
+import ChatContext from '../ChatContext';
 
 describe('LandingPage Component', () => {
     it('Smoke Test: Renders Empty', () => {
@@ -17,7 +18,12 @@ describe('LandingPage Component', () => {
     })
 
     it('Snapshot Test: Empty', () => {
-        const wrapper = shallow(<LandingPage />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const TestComponent = () => (
+            <ChatContext.Provider value={{ name: '' }}>
+                <LandingPage />
+            </ChatContext.Provider>
+        )
+        const wrapper = shallow(<TestComponent />);
+        expect(toJson(wrapper.find(LandingPage).dive())).toMatchSnapshot();
     })
 })
