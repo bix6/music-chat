@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { BrowserRouter } from 'react-router-dom';
 import LandingPage from './LandingPage';
@@ -17,13 +17,14 @@ describe('LandingPage Component', () => {
         ReactDOM.unmountComponentAtNode(div);
     })
 
-    it.skip('Snapshot Test: Empty', () => {
+    it('Snapshot Test: Empty', () => {
         const TestComponent = () => (
             <ChatContext.Provider value={{ name: '' }}>
                 <LandingPage />
             </ChatContext.Provider>
         )
-        const wrapper = shallow(<TestComponent />);
-        expect(toJson(wrapper.find(LandingPage).dive())).toMatchSnapshot();
+        const wrapper = mount(<TestComponent />);
+        expect(toJson(wrapper.find(LandingPage))).toMatchSnapshot();
+        wrapper.unmount();
     })
 })

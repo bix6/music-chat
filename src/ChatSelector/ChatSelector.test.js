@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { BrowserRouter } from 'react-router-dom';
 import ChatSelector from './ChatSelector';
+import ChatContext from '../ChatContext';
 
 describe('ChatSelector Component', () => {
     it('Smoke Test: Renders Empty', () => {
@@ -16,8 +17,14 @@ describe('ChatSelector Component', () => {
         ReactDOM.unmountComponentAtNode(div);
     })
 
-    it.skip('Snapshot Test: Empty', () => {
-        const wrapper = shallow(<ChatSelector />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+    it('Snapshot Test: Empty', () => {
+        const TestComponent = () => (
+            <ChatContext.Provider value={{ chatroomList: ['Global', 'Artists', 'Songs'] }}>
+                <ChatSelector />
+            </ChatContext.Provider>
+        )
+        const wrapper = mount(<TestComponent />);
+        expect(toJson(wrapper.find(ChatSelector))).toMatchSnapshot();
+        wrapper.unmount();
     })
 })

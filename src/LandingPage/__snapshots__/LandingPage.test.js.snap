@@ -1,8 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LandingPage Component Snapshot Test: Empty 1`] = `
-<Fragment>
-  <HeaderComponent />
+<LandingPage>
+  <HeaderComponent>
+    <header>
+      <h1>
+        Music Chat
+      </h1>
+    </header>
+  </HeaderComponent>
   <main>
     <p>
       Share music across the globe. Choose a name to get started.
@@ -29,5 +35,5 @@ exports[`LandingPage Component Snapshot Test: Empty 1`] = `
       </button>
     </form>
   </main>
-</Fragment>
+</LandingPage>
 `;
