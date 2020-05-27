@@ -3,6 +3,8 @@
 exports[`ChatPage Component Snapshot Test: Empty 1`] = `
 <Fragment>
   <HeaderComponent />
-  <main />
+  <main>
+    <ChatSelector />
+  </main>
 </Fragment>
 `;

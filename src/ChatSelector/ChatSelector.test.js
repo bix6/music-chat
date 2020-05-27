@@ -3,27 +3,21 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { BrowserRouter } from 'react-router-dom';
-import LandingPage from './LandingPage';
-import ChatContext from '../ChatContext';
+import ChatSelector from './ChatSelector';
 
-describe('LandingPage Component', () => {
+describe('ChatSelector Component', () => {
     it('Smoke Test: Renders Empty', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <BrowserRouter>
-                <LandingPage />
+                <ChatSelector />
             </BrowserRouter>,
             div);
         ReactDOM.unmountComponentAtNode(div);
     })
 
     it.skip('Snapshot Test: Empty', () => {
-        const TestComponent = () => (
-            <ChatContext.Provider value={{ name: '' }}>
-                <LandingPage />
-            </ChatContext.Provider>
-        )
-        const wrapper = shallow(<TestComponent />);
-        expect(toJson(wrapper.find(LandingPage).dive())).toMatchSnapshot();
+        const wrapper = shallow(<ChatSelector />);
+        expect(toJson(wrapper)).toMatchSnapshot();
     })
 })

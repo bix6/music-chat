@@ -2,7 +2,10 @@ import React from 'react';
 
 const ChatContext = React.createContext({
     name: '',
-    updateName: () => {}
+    updateName: () => {},
+    chatroomList: [],
+    currentChatroom: '',
+    updateChatroom: () => {}
 });
 
 export default ChatContext;

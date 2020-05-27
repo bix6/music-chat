@@ -4,7 +4,14 @@ exports[`App Component Snapshot Test: Empty 1`] = `
 <ContextProvider
   value={
     Object {
+      "chatroomList": Array [
+        "Global",
+        "Artists",
+        "Songs",
+      ],
+      "currentChatroom": "Global",
       "name": "",
+      "updateChatroom": [Function],
       "updateName": [Function],
     }
   }

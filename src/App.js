@@ -6,17 +6,26 @@ import ChatContext from './ChatContext';
 
 class App extends React.Component {
     state = {
-        name: ''
+        name: '',
+        chatroomList: ['Global', 'Artists', 'Songs'],
+        currentChatroom: 'Global',
     };
 
     handleUpdateName = (name) => {
-        this.setState({ name: name })
-    };
+        this.setState({ name: name });
+    }
+
+    handleUpdateChatroom = (chatroom) => {
+        this.setState({ currentChatroom: chatroom });
+    }
 
     render() {
         const contextValue = {
             name: this.state.name,
-            updateName: this.handleUpdateName
+            updateName: this.handleUpdateName,
+            chatroomList: this.state.chatroomList,
+            currentChatroom: this.state.currentChatroom,
+            updateChatroom: this.handleUpdateChatroom
         };
         
         return (
