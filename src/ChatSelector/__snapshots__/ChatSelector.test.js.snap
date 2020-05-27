@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ChatSelector Component Snapshot Test: Empty 1`] = `
+exports[`ChatSelector Component Snapshot Test: Default, empty chatroomList 1`] = `
 <ChatSelector>
   <div
     className="chat-selector"
@@ -14,29 +14,7 @@ exports[`ChatSelector Component Snapshot Test: Empty 1`] = `
       id="chat-select"
       name="chat-select"
       onChange={[Function]}
-    >
-      <option
-        className="chat-select-option"
-        key="0"
-        value="Global"
-      >
-        Global
-      </option>
-      <option
-        className="chat-select-option"
-        key="1"
-        value="Artists"
-      >
-        Artists
-      </option>
-      <option
-        className="chat-select-option"
-        key="2"
-        value="Songs"
-      >
-        Songs
-      </option>
-    </select>
+    />
   </div>
 </ChatSelector>
 `;

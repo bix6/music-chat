@@ -17,9 +17,9 @@ describe('ChatSelector Component', () => {
         ReactDOM.unmountComponentAtNode(div);
     })
 
-    it('Snapshot Test: Empty', () => {
+    it('Snapshot Test: Default, empty chatroomList', () => {
         const TestComponent = () => (
-            <ChatContext.Provider value={{ chatroomList: ['Global', 'Artists', 'Songs'] }}>
+            <ChatContext.Provider value={{ chatroomList: [] }}>
                 <ChatSelector />
             </ChatContext.Provider>
         )

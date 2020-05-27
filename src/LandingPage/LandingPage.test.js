@@ -17,7 +17,7 @@ describe('LandingPage Component', () => {
         ReactDOM.unmountComponentAtNode(div);
     })
 
-    it('Snapshot Test: Empty', () => {
+    it('Snapshot Test: Default, Empty Name', () => {
         const TestComponent = () => (
             <ChatContext.Provider value={{ name: '' }}>
                 <LandingPage />

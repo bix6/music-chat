@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LandingPage Component Snapshot Test: Empty 1`] = `
+exports[`LandingPage Component Snapshot Test: Default, Empty Name 1`] = `
 <LandingPage>
   <HeaderComponent>
     <header>
