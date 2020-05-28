@@ -5,7 +5,7 @@ import ChatPage from './ChatPage/ChatPage';
 
 class App extends React.Component {
     state = {
-        username: '',
+        username: 'NONAME',
     };
 
     updateUsername = (username) => {
