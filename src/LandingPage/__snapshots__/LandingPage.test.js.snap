@@ -3,8 +3,22 @@
 exports[`LandingPage Component Snapshot Test: Default, Empty Name 1`] = `
 <LandingPage>
   <HeaderComponent>
-    <header>
-      <h1>
+    <header
+      style={
+        Object {
+          "margin": "2rem 0",
+          "textAlign": "center",
+        }
+      }
+    >
+      <h1
+        style={
+          Object {
+            "fontFamily": "monospace",
+            "fontSize": "4rem",
+          }
+        }
+      >
         Music Chat
       </h1>
     </header>

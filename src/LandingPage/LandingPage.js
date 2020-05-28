@@ -2,7 +2,7 @@ import React from 'react';
 import './LandingPage.css';
 import ValidationError from '../shared-components/ValidationError/ValidationError';
 import ChatContext from '../ChatContext';
-import HeaderComponent from '../HeaderComponent/HeaderComponent';
+import HeaderComponent from '../shared-components/HeaderComponent/HeaderComponent';
 
 class LandingPage extends React.Component {
     static contextType = ChatContext;
