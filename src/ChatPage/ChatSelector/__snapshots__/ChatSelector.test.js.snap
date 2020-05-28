@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatSelector Component Snapshot Test: Default 1`] = `
+<div>
+  <label
+    htmlFor="chat-select"
+  >
+    Chat Room:
+  </label>
+  <select
+    id="chat-select"
+    name="chat-select"
+    onChange={[Function]}
+  />
+</div>
+`;
