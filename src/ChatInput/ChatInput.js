@@ -1,7 +1,7 @@
 import React from 'react';
 import './ChatInput.css';
 import ChatContext from '../ChatContext';
-import ValidationError from '../ValidationError/ValidationError';
+import ValidationError from '../shared-components/ValidationError/ValidationError';
 
 class ChatInput extends React.Component {
     static contextType = ChatContext;

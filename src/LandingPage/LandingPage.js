@@ -1,6 +1,6 @@
 import React from 'react';
 import './LandingPage.css';
-import ValidationError from '../ValidationError/ValidationError';
+import ValidationError from '../shared-components/ValidationError/ValidationError';
 import ChatContext from '../ChatContext';
 import HeaderComponent from '../HeaderComponent/HeaderComponent';
 
