@@ -1,28 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LandingPage Component Snapshot Test: Default, Empty Name 1`] = `
-<LandingPage>
-  <HeaderComponent>
-    <header
-      style={
-        Object {
-          "margin": "2rem 0",
-          "textAlign": "center",
-        }
-      }
-    >
-      <h1
-        style={
-          Object {
-            "fontFamily": "monospace",
-            "fontSize": "4rem",
-          }
-        }
-      >
-        Music Chat
-      </h1>
-    </header>
-  </HeaderComponent>
+exports[`LandingPage Component Snapshot Test: Default 1`] = `
+<Fragment>
+  <HeaderComponent />
   <main>
     <p>
       Share music across the globe. 
@@ -33,13 +13,13 @@ exports[`LandingPage Component Snapshot Test: Default, Empty Name 1`] = `
       onSubmit={[Function]}
     >
       <label
-        htmlFor="choose-name"
+        htmlFor="choose-username"
       >
         Name / Nickname:
       </label>
       <input
-        id="choose-name"
-        name="choose-name"
+        id="choose-username"
+        name="choose-username"
         onChange={[Function]}
         type="text"
       />
@@ -51,5 +31,5 @@ exports[`LandingPage Component Snapshot Test: Default, Empty Name 1`] = `
       </button>
     </form>
   </main>
-</LandingPage>
+</Fragment>
 `;

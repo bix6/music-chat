@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { BrowserRouter } from 'react-router-dom';
 import LandingPage from './LandingPage';
-import ChatContext from '../ChatContext';
 
 describe('LandingPage Component', () => {
-    it('Smoke Test: Renders Empty', () => {
+    it('Smoke Test: Renders Default', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <BrowserRouter>
@@ -17,14 +16,8 @@ describe('LandingPage Component', () => {
         ReactDOM.unmountComponentAtNode(div);
     })
 
-    it('Snapshot Test: Default, Empty Name', () => {
-        const TestComponent = () => (
-            <ChatContext.Provider value={{ name: '' }}>
-                <LandingPage />
-            </ChatContext.Provider>
-        )
-        const wrapper = mount(<TestComponent />);
-        expect(toJson(wrapper.find(LandingPage))).toMatchSnapshot();
-        wrapper.unmount();
+    it('Snapshot Test: Default', () => {
+       const wrapper = shallow(<LandingPage />);
+       expect(toJson(wrapper)).toMatchSnapshot();
     })
 })

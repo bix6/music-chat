@@ -6,15 +6,15 @@ import ChatContext from './ChatContext';
 
 class App extends React.Component {
     state = {
-        name: '',
+        username: '',
         chatroomList: ['Global', 'Artists', 'Songs'],
         currentChatroom: 'Global',
         messages: {
             'Global': [
                 'Jack: Music Chat',
                 'Jac: Hear the sounds of the symphony',
-                'Ja: Yes I can hear',
-                'J: The end'
+                'Ja: Yes I can hear the cacophony',
+                'J: Phony, real phony'
             ],
             'Artists': [
                 'Jerry: Have you heard of Timbo?',
@@ -30,8 +30,8 @@ class App extends React.Component {
         }
     };
 
-    handleUpdateName = (name) => {
-        this.setState({ name: name });
+    updateUsername = (username) => {
+        this.setState({ username: username });
     }
 
     handleUpdateChatroom = (chatroom) => {
@@ -39,7 +39,7 @@ class App extends React.Component {
     }
 
     handleSendMessage = (messageIn) => {
-        let message = this.state.name + ': ' + messageIn;
+        let message = this.state.username + ': ' + messageIn;
         const currentChatroom = this.state.currentChatroom;
         let messages = this.state.messages;
         messages[currentChatroom].push(message);
@@ -50,8 +50,7 @@ class App extends React.Component {
 
     render() {
         const contextValue = {
-            name: this.state.name,
-            updateName: this.handleUpdateName,
+            username: this.state.username,
             chatroomList: this.state.chatroomList,
             currentChatroom: this.state.currentChatroom,
             updateChatroom: this.handleUpdateChatroom,
@@ -62,7 +61,10 @@ class App extends React.Component {
         return (
             <ChatContext.Provider value={ contextValue }>
                 <Switch>
-                    <Route exact path='/' component={ LandingPage } />
+                    <Route 
+                        exact path='/' 
+                        render={ (props) => <LandingPage {...props} updateUsername={ this.updateUsername }/> } 
+                    />
                     <Route exact path='/chat' component={ ChatPage } />
                 </Switch>
             </ChatContext.Provider>

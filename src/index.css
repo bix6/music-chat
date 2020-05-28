@@ -3,7 +3,7 @@ Start Here
 This file contains resets (Eric Meyer + Normalize) followed by Custom Styles
 Ctrl-F "start custom styles" 
 This holds base styles to apply to the entire app
-Many files in this project use inline styling in the Component.js file
+Many Components in this project use inline styling in the Component.js files
 */
 
 
@@ -445,4 +445,30 @@ body {
 main {
     margin: 2rem auto;
     max-width: 700px;
+}
+
+
+/* App Styles */
+main {
+    text-align: center;
+}
+
+p {
+    margin-top: 3rem;
+    font-size: 2rem;
+    line-height: 2.4rem;
+}
+
+form {
+    margin-top: 3rem;
+}
+
+input {
+    border: 1px solid orange;
+    border-radius: 3px;
+    padding: .3rem 0 .3rem 1rem;
+}
+
+button {
+    margin-left: 1rem;
 }

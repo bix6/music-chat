@@ -20,8 +20,8 @@ exports[`App Component Snapshot Test: Empty 1`] = `
         "Global": Array [
           "Jack: Music Chat",
           "Jac: Hear the sounds of the symphony",
-          "Ja: Yes I can hear",
-          "J: The end",
+          "Ja: Yes I can hear the cacophony",
+          "J: Phony, real phony",
         ],
         "Songs": Array [
           "Chester: I wrote a song",
@@ -29,18 +29,17 @@ exports[`App Component Snapshot Test: Empty 1`] = `
           "Chester: You, Hubert. It's about you Hubert",
         ],
       },
-      "name": "",
       "sendMessage": [Function],
       "updateChatroom": [Function],
-      "updateName": [Function],
+      "username": "",
     }
   }
 >
   <Switch>
     <Route
-      component={[Function]}
       exact={true}
       path="/"
+      render={[Function]}
     />
     <Route
       component={[Function]}
