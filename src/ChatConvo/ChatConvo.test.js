@@ -1,23 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { BrowserRouter } from 'react-router-dom';
-import ChatPage from './ChatPage';
+import ChatConvo from './ChatConvo';
 
-describe('ChatPage Component', () => {
+describe('ChatConvo Component', () => {
     it.skip('Smoke Test: Renders Empty', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <BrowserRouter>
-                <ChatPage />
+                <ChatConvo />
             </BrowserRouter>,
             div);
         ReactDOM.unmountComponentAtNode(div);
     })
 
-    it('Snapshot Test: Empty', () => {
-        const wrapper = shallow(<ChatPage />);
+    it.skip('Snapshot Test: Empty', () => {
+        const wrapper = shallow(<ChatConvo />);
         expect(toJson(wrapper)).toMatchSnapshot();
     })
 })

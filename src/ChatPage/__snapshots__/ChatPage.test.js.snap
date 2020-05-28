@@ -5,6 +5,7 @@ exports[`ChatPage Component Snapshot Test: Empty 1`] = `
   <HeaderComponent />
   <main>
     <ChatSelector />
+    <ChatConvo />
   </main>
 </Fragment>
 `;

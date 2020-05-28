@@ -11,7 +11,9 @@ exports[`LandingPage Component Snapshot Test: Default, Empty Name 1`] = `
   </HeaderComponent>
   <main>
     <p>
-      Share music across the globe. Choose a name to get started.
+      Share music across the globe. 
+      <br />
+      Enter a name to get started.
     </p>
     <form
       onSubmit={[Function]}

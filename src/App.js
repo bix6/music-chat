@@ -9,6 +9,25 @@ class App extends React.Component {
         name: '',
         chatroomList: ['Global', 'Artists', 'Songs'],
         currentChatroom: 'Global',
+        messages: {
+            'Global': [
+                'Jack: Music Chat',
+                'Jac: Hear the sounds of the symphony',
+                'Ja: Yes I can hear',
+                'J: The end'
+            ],
+            'Artists': [
+                'Jerry: Have you heard of Timbo?',
+                'Timbo: Yes',
+                'Jerry: He is really good',
+                'Timbo: No'
+            ],
+            'Songs': [
+                'Chester: I wrote a song',
+                'Hubert: About what?',
+                'Chester: You, Hubert. It\'s about you Hubert',
+            ]
+        }
     };
 
     handleUpdateName = (name) => {
@@ -25,7 +44,8 @@ class App extends React.Component {
             updateName: this.handleUpdateName,
             chatroomList: this.state.chatroomList,
             currentChatroom: this.state.currentChatroom,
-            updateChatroom: this.handleUpdateChatroom
+            updateChatroom: this.handleUpdateChatroom,
+            messages: this.state.messages
         };
         
         return (
