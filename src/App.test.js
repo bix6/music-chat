@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
 describe('App Component', () => {
-    it('Smoke Test: Renders Empty', () => {
+    it('Smoke Test: Renders Default', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <BrowserRouter>
@@ -16,7 +16,7 @@ describe('App Component', () => {
         ReactDOM.unmountComponentAtNode(div);
     })
 
-    it('Snapshot Test: Empty', () => {
+    it('Snapshot Test: Default', () => {
         const wrapper = shallow(<App />);
         expect(toJson(wrapper)).toMatchSnapshot();
     })

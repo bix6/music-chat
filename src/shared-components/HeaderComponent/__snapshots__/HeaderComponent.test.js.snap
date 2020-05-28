@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeaderComponent Component Snapshot Test: Empty 1`] = `
+exports[`HeaderComponent Component Snapshot Test: Default 1`] = `
 <header
   style={
     Object {

@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import HeaderComponent from './HeaderComponent';
 
 describe('HeaderComponent Component', () => {
-    it('Smoke Test: Renders Empty', () => {
+    it('Smoke Test: Renders Default', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <BrowserRouter>
@@ -16,7 +16,7 @@ describe('HeaderComponent Component', () => {
         ReactDOM.unmountComponentAtNode(div);
     })
 
-    it('Snapshot Test: Empty', () => {
+    it('Snapshot Test: Default', () => {
         const wrapper = shallow(<HeaderComponent />);
         expect(toJson(wrapper)).toMatchSnapshot();
     })

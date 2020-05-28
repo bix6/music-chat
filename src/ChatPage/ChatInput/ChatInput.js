@@ -1,11 +1,7 @@
 import React from 'react';
-import './ChatInput.css';
-import ChatContext from '../ChatContext';
-import ValidationError from '../shared-components/ValidationError/ValidationError';
+import ValidationError from '../../shared-components/ValidationError/ValidationError';
 
 class ChatInput extends React.Component {
-    static contextType = ChatContext;
-
     state = {
         userInput: '',
         touched: false
@@ -20,7 +16,7 @@ class ChatInput extends React.Component {
 
     handleSendClicked = (e) => {
         e.preventDefault();
-        this.context.sendMessage(this.state.userInput);
+        this.props.sendMessage(this.state.userInput);
     }
 
     handleSearchClicked = (e) => {
@@ -37,8 +33,8 @@ class ChatInput extends React.Component {
 
     render() {
         return (
-            <div className="ChatInput">
-                <form className='chat-input-form' >
+            <div>
+                <form>
                     <label htmlFor='input-box'>Message:</label>
                     <textarea id='input-box' name='input-box' onChange={ e => this.updateUserInput(e) }/>
                     <button type='submit' onClick={ e => this.handleSendClicked(e) } disabled={ !this.state.touched }>Send</button>

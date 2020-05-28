@@ -1,0 +1,3 @@
+#chat-convo-li:nth-child(odd) {
+    background-color: lightblue;
+}

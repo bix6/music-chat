@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import ValidationError from './ValidationError';
 
 describe('ValidationError Component', () => {
-    it('Smoke Test: Renders Empty', () => {
+    it('Smoke Test: Renders Default', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <BrowserRouter>
@@ -16,7 +16,7 @@ describe('ValidationError Component', () => {
         ReactDOM.unmountComponentAtNode(div);
     })
 
-    it('Snapshot Test: Empty', () => {
+    it('Snapshot Test: Default', () => {
         const wrapper = shallow(<ValidationError />);
         expect(toJson(wrapper)).toMatchSnapshot();
     })

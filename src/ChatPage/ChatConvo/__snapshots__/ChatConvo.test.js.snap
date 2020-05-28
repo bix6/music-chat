@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatConvo Component Snapshot Test: Default 1`] = `
+<div
+  style={
+    Object {
+      "border": "1px solid black",
+      "margin": "2rem auto",
+      "maxWidth": "600px",
+      "overflowY": "auto",
+      "padding": "1rem",
+      "textAlign": "left",
+    }
+  }
+>
+  <ol>
+    <li
+      id="chat-convo-li"
+      key="0"
+      style={
+        Object {
+          "lineHeight": "2rem",
+        }
+      }
+    >
+      Bixbot: chat loading... (maybe)
+    </li>
+  </ol>
+</div>
+`;
