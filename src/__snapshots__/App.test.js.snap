@@ -30,6 +30,7 @@ exports[`App Component Snapshot Test: Empty 1`] = `
         ],
       },
       "name": "",
+      "sendMessage": [Function],
       "updateChatroom": [Function],
       "updateName": [Function],
     }

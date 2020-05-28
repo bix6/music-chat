@@ -38,6 +38,16 @@ class App extends React.Component {
         this.setState({ currentChatroom: chatroom });
     }
 
+    handleSendMessage = (messageIn) => {
+        let message = this.state.name + ': ' + messageIn;
+        const currentChatroom = this.state.currentChatroom;
+        let messages = this.state.messages;
+        messages[currentChatroom].push(message);
+        this.setState({
+            messages: messages
+        })
+    }
+
     render() {
         const contextValue = {
             name: this.state.name,
@@ -45,7 +55,8 @@ class App extends React.Component {
             chatroomList: this.state.chatroomList,
             currentChatroom: this.state.currentChatroom,
             updateChatroom: this.handleUpdateChatroom,
-            messages: this.state.messages
+            messages: this.state.messages,
+            sendMessage: this.handleSendMessage
         };
         
         return (

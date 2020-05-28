@@ -6,7 +6,8 @@ const ChatContext = React.createContext({
     chatroomList: [],
     currentChatroom: '',
     updateChatroom: () => {},
-    messages: {}
+    messages: {},
+    sendMessage: () => {}
 });
 
 export default ChatContext;

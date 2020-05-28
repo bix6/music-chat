@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatInput Component Snapshot Test: Default 1`] = `
+<div
+  className="ChatInput"
+>
+  <form
+    className="chat-input-form"
+  >
+    <label
+      htmlFor="input-box"
+    >
+      Message:
+    </label>
+    <textarea
+      id="input-box"
+      name="input-box"
+      onChange={[Function]}
+    />
+    <button
+      disabled={true}
+      onClick={[Function]}
+      type="submit"
+    >
+      Send
+    </button>
+    <button
+      disabled={true}
+      onClick={[Function]}
+      type="submit"
+    >
+      Search
+    </button>
+  </form>
+</div>
+`;

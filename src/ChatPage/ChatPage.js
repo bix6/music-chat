@@ -3,6 +3,7 @@ import './ChatPage.css';
 import HeaderComponent from '../HeaderComponent/HeaderComponent';
 import ChatSelector from '../ChatSelector/ChatSelector';
 import ChatConvo from '../ChatConvo/ChatConvo';
+import ChatInput from '../ChatInput/ChatInput';
 
 class ChatPage extends React.Component {
     render() {
@@ -12,6 +13,7 @@ class ChatPage extends React.Component {
                 <main>
                     <ChatSelector />
                     <ChatConvo />
+                    <ChatInput />
                 </main>
             </>
         )
