@@ -15,9 +15,7 @@ class ChatInput extends React.Component {
     }
 
     validateUserInput = () => {
-        const userInput = this.state.userInput.trim();
-
-        if (userInput.length < 1) {
+        if (this.state.userInput.trim().length < 1) {
             return 'Input cannot be empty'
         }
     }
@@ -48,13 +46,13 @@ class ChatInput extends React.Component {
                     <button 
                         type='submit' 
                         onClick={ e => this.handleSendClicked(e) } 
-                        disabled={ !this.state.touched }>
+                        disabled={ !this.state.touched || this.validateUserInput() }>
                             Send
                     </button>
                     <button 
                         type='submit' 
                         onClick={ e => this.handleSearchClicked(e) } 
-                        disabled={ !this.state.touched }>
+                        disabled={ !this.state.touched || this.validateUserInput() }>
                             Search
                     </button>
                     { this.state.touched && <ValidationError message={ this.validateUserInput() }/> }
