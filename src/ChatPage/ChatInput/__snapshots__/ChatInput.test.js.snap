@@ -19,14 +19,14 @@ exports[`ChatInput Component Snapshot Test: Default 1`] = `
       onClick={[Function]}
       type="submit"
     >
-      Send
+      Send Message
     </button>
     <button
       disabled={true}
       onClick={[Function]}
       type="submit"
     >
-      Search
+      Search YouTube
     </button>
   </form>
 </div>

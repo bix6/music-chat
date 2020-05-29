@@ -3,6 +3,7 @@ import HeaderComponent from '../shared-components/HeaderComponent/HeaderComponen
 import ChatSelector from './ChatSelector/ChatSelector';
 import ChatConvo from './ChatConvo/ChatConvo';
 import ChatInput from './ChatInput/ChatInput';
+import SearchResults from './SearchResults/SearchResults';
 
 class ChatPage extends React.Component {
     state = {
@@ -26,7 +27,8 @@ class ChatPage extends React.Component {
                 'Hubert: About what?',
                 'Chester: You, Hubert. It\'s about you Hubert',
             ]
-        }
+        },
+        searchResults: null
     }
 
     updateCurrentChatroom = (chatroom) => {
@@ -42,6 +44,16 @@ class ChatPage extends React.Component {
         })
     }
 
+    setSearchResults = (searchResults) => {
+        this.setState({ searchResults: searchResults})
+    }
+
+    embedVideo = (index) => {
+        const videoId = this.state.searchResults[index].videoId;
+        this.sendMessage(`YOUTUBE_IFRAME ${ videoId }`)
+        this.setState({ searchResults: null})
+    }
+
     render() {
         return (
             <>
@@ -54,7 +66,12 @@ class ChatPage extends React.Component {
                         currentChatroom={ this.state.currentChatroom }
                         messages={ this.state.messages }/>
                     <ChatInput 
-                        sendMessage={ this.sendMessage }/>
+                        sendMessage={ this.sendMessage }
+                        setSearchResults={ this.setSearchResults }/>
+                    { this.state.searchResults 
+                        && <SearchResults 
+                            searchResults={ this.state.searchResults }
+                            embedVideo={ this.embedVideo }/> }
                 </main>
             </>
         )
