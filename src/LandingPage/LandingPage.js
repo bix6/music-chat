@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderComponent from '../shared-components/HeaderComponent/HeaderComponent';
-import ValidationError from '../shared-components/ValidationError/ValidationError';
+import DisplayError from '../shared-components/DisplayError/DisplayError';
 
 class LandingPage extends React.Component {
     state = {
@@ -40,7 +40,7 @@ class LandingPage extends React.Component {
                         <input type="text" id="choose-username" name="choose-username" 
                             onChange= { e =>  this.updateUsername(e.target.value) }/>
                         <button type="submit" disabled={ this.validateUsername() }>Chat</button>
-                        { this.state.touched && <ValidationError message={ this.validateUsername() }/> }
+                        { this.state.touched && <DisplayError message={ this.validateUsername() }/> }
                     </form>
                 </main>
             </>

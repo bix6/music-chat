@@ -1,10 +1,12 @@
 import React from 'react';
-import ValidationError from '../../shared-components/ValidationError/ValidationError';
+import DisplayError from '../../shared-components/DisplayError/DisplayError';
+import config from '../../config';
 
 class ChatInput extends React.Component {
     state = {
         userInput: '',
-        touched: false
+        touched: false,
+        error: ''
     };
 
     updateUserInput = (userInput) => {
@@ -25,12 +27,38 @@ class ChatInput extends React.Component {
         this.props.sendMessage(this.state.userInput);
         this.setState({
             userInput: '',
-            touched: false
+            touched: false,
         })
     }
 
     handleSearchClicked = (e) => {
         e.preventDefault();
+
+        const queryString = `https://www.googleapis.com/youtube/v3/search?
+            part=snippet&
+            maxResults=25&
+            key=${ config.YOUTUBE_API_KEY }&
+            q=${ this.state.userInput }`;
+
+        fetch(queryString)
+            .then(res => {
+                if (!res.ok) {
+                    console.log(res.statusText);
+                    throw new Error(res.statusText);
+                }
+                return res.json();
+            })
+            .then(resJson => {
+                console.log(resJson);
+                this.setState({ 
+                    userInput: '',
+                    touched: false,
+                    error: '' 
+                })
+            })
+            .catch(error => {
+                this.setState({ error: error.message })
+            })
     }
 
     render() {
@@ -55,7 +83,8 @@ class ChatInput extends React.Component {
                         disabled={ !this.state.touched || this.validateUserInput() }>
                             Search
                     </button>
-                    { this.state.touched && <ValidationError message={ this.validateUserInput() }/> }
+                    { this.state.touched && <DisplayError message={ this.validateUserInput() }/> }
+                    { !!this.state.error && <DisplayError message={ this.state.error }/> }
                 </form>
             </div>
         )

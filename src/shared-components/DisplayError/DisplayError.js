@@ -6,7 +6,7 @@ const errorStyles = {
     margin: '1rem 0',
 }
 
-export default function ValidationError(props) {
+export default function DisplayError(props) {
     if (props.message) {
         return (
             <div style={ errorStyles }>{ props.message }</div>
