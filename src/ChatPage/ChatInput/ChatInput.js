@@ -7,20 +7,11 @@ class ChatInput extends React.Component {
         touched: false
     };
 
-    updateUserInput = (e) => {
+    updateUserInput = (userInput) => {
         this.setState({ 
-            userInput: e.target.value,
+            userInput: userInput,
             touched: true
         });
-    }
-
-    handleSendClicked = (e) => {
-        e.preventDefault();
-        this.props.sendMessage(this.state.userInput);
-    }
-
-    handleSearchClicked = (e) => {
-        e.preventDefault();
     }
 
     validateUserInput = () => {
@@ -31,14 +22,41 @@ class ChatInput extends React.Component {
         }
     }
 
+    handleSendClicked = (e) => {
+        e.preventDefault();
+        this.props.sendMessage(this.state.userInput);
+        this.setState({
+            userInput: '',
+            touched: false
+        })
+    }
+
+    handleSearchClicked = (e) => {
+        e.preventDefault();
+    }
+
     render() {
         return (
             <div>
                 <form>
                     <label htmlFor='input-box'>Message:</label>
-                    <textarea id='input-box' name='input-box' onChange={ e => this.updateUserInput(e) }/>
-                    <button type='submit' onClick={ e => this.handleSendClicked(e) } disabled={ !this.state.touched }>Send</button>
-                    <button type='submit' onClick={ e => this.handleSearchClicked(e) } disabled={ !this.state.touched }>Search</button>
+                    <textarea 
+                        id='input-box' 
+                        name='input-box' 
+                        onChange={ e => this.updateUserInput(e.target.value) }
+                        value={ this.state.userInput }/>
+                    <button 
+                        type='submit' 
+                        onClick={ e => this.handleSendClicked(e) } 
+                        disabled={ !this.state.touched }>
+                            Send
+                    </button>
+                    <button 
+                        type='submit' 
+                        onClick={ e => this.handleSearchClicked(e) } 
+                        disabled={ !this.state.touched }>
+                            Search
+                    </button>
                     { this.state.touched && <ValidationError message={ this.validateUserInput() }/> }
                 </form>
             </div>

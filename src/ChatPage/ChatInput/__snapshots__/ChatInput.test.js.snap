@@ -12,6 +12,7 @@ exports[`ChatInput Component Snapshot Test: Default 1`] = `
       id="input-box"
       name="input-box"
       onChange={[Function]}
+      value=""
     />
     <button
       disabled={true}
