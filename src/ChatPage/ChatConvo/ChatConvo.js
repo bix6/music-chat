@@ -57,6 +57,7 @@ class ChatConvo extends React.Component {
                             encrypted-media="true" 
                             gyroscope="true" 
                             picture-in-picture="true"
+                            title={ "embeded videoId: " + videoId}
                             allowFullScreen />
                 </li>);
        })
