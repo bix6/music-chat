@@ -7,7 +7,7 @@
 - "It's for people to chat about music and stuff right?"
     - TODO Clarify the use case for people
 - Will people get usernames?
-    - Eventually
+    - TODO user accounts
 - Ideally can search more platforms besides youtube
     - TODO I should do this but it will take time for each API
     - TODO Also how to make this user friendly and not a billion buttons/inputs
@@ -23,6 +23,14 @@
 - Likes the idea
 
 ### Henry
+- Interesting
+- Simple and intriguing
+- Why would I use this instead of just searching on youtube?
+- Basic functionality is working
+- More introduction on the landing page
+    - TODO better landing instructions
+- Would use for fun to talk to the boys if they were all on
+    - TODO show users in the current chatroom
 
 ### Dick
 - Loves the deployment
@@ -45,7 +53,7 @@
     - TODO make dick happy
 - J: What would make the app better?
 - D: User Accounts and saved chat history
-    - TODO user accounts (2nd request)
+    - TODO user accounts 
     - TODO saved chat (code api)
 - D: How do you intend this to be different than just a group message? I could do the same thing on Slack.
     - TODO differentiate music features
@@ -53,4 +61,5 @@
 - D: I wouldn't but i'm not the target market
     - TODO get dick hooked
 
-
+### Ahmed
+- "Emoji Emoji This is mindblowingly cool! Love the functionality"
