@@ -5,7 +5,7 @@ exports[`ChatSelector Component Snapshot Test: Default 1`] = `
   <label
     htmlFor="chat-select"
   >
-    Chat Room:
+    Chat Room
   </label>
   <select
     id="chat-select"

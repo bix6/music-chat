@@ -83,7 +83,7 @@ class ChatInput extends React.Component {
         return (
             <div>
                 <form>
-                    <label htmlFor='input-box'>Message:</label>
+                    <label htmlFor='input-box'>Message</label>
                     <textarea 
                         id='input-box' 
                         name='input-box' 

@@ -36,9 +36,11 @@ class LandingPage extends React.Component {
                 <main>
                     <p>Share music across the globe. <br />Enter a name to get started.</p>
                     <form onSubmit={ e => this.handleSubmit(e) }>
-                        <label htmlFor="choose-username">Name / Nickname:</label>
+                        <label htmlFor="choose-username">Name / Nickname</label>
+                        <br />
                         <input type="text" id="choose-username" name="choose-username" 
                             onChange= { e =>  this.updateUsername(e.target.value) }/>
+                        <br />
                         <button type="submit" disabled={ this.validateUsername() }>Chat</button>
                         { this.state.touched && <DisplayError message={ this.validateUsername() }/> }
                     </form>

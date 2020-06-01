@@ -15,14 +15,16 @@ exports[`LandingPage Component Snapshot Test: Default 1`] = `
       <label
         htmlFor="choose-username"
       >
-        Name / Nickname:
+        Name / Nickname
       </label>
+      <br />
       <input
         id="choose-username"
         name="choose-username"
         onChange={[Function]}
         type="text"
       />
+      <br />
       <button
         disabled="Name must be 2 characters or more"
         type="submit"

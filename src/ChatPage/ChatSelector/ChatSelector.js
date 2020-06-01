@@ -15,7 +15,7 @@ class ChatSelector extends React.Component {
     render() {
         return (
             <div>
-                <label htmlFor="chat-select">Chat Room:</label>
+                <label htmlFor="chat-select">Chat Room</label>
                 <select name="chat-select" id="chat-select" onChange= { e => this.props.updateCurrentChatroom(e.target.value) }>
                     { this.createSelectOptions() }
                 </select>

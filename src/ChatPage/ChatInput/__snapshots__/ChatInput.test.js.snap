@@ -6,7 +6,7 @@ exports[`ChatInput Component Snapshot Test: Default 1`] = `
     <label
       htmlFor="input-box"
     >
-      Message:
+      Message
     </label>
     <textarea
       id="input-box"

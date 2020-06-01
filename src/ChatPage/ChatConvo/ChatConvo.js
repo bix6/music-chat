@@ -25,6 +25,7 @@ class ChatConvo extends React.Component {
     }
 
     // TODO make messages objects with keys for message, iframe, username, etc.
+    // TODO make this individual components or split into functions?
     createConvoListElems = () => {
        /* Create li elems for each message in the current chatroom */
        return this.props.messages[this.props.currentChatroom].map((message, i) => {

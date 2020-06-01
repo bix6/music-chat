@@ -45,15 +45,26 @@ p {
 }
 
 form {
-    margin-top: 3rem;
+    margin-top: 4rem;
+}
+
+label {
+    display: block;
+    margin: 0rem auto;
 }
 
 input {
     border: 1px solid orange;
     border-radius: 3px;
     padding: .3rem 0 .3rem 1rem;
+    margin: .5rem auto;
 }
 
 button {
-    margin-left: 1rem;
+    display: block;
+    margin: .5rem auto;
+}
+
+iframe {
+    width: 100%;
 }
