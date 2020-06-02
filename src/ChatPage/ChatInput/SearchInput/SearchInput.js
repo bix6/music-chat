@@ -72,25 +72,23 @@ class SearchInput extends React.Component {
 
     render() {
         return (
-            <div>
-                <form>
-                    <label htmlFor='search-input'>Search + Embed</label>
-                    <input
-                        type='text'
-                        id='search-input' 
-                        name='search-input' 
-                        onChange={ e => this.updateUserInput(e.target.value) }
-                        value={ this.state.userInput }/>
-                    <button 
-                        type='submit' 
-                        onClick={ e => this.handleSearchClicked(e) } 
-                        disabled={ !this.state.touched || this.validateUserInput() }>
-                            Search YouTube
-                    </button>
-                    { this.state.touched && <DisplayError message={ this.validateUserInput() }/> }
-                    { !!this.state.error && <DisplayError message={ this.state.error }/> }
-                </form>
-            </div>
+            <form>
+                <label htmlFor='search-input'>Search + Embed</label>
+                <input
+                    type='text'
+                    id='search-input' 
+                    name='search-input' 
+                    onChange={ e => this.updateUserInput(e.target.value) }
+                    value={ this.state.userInput }/>
+                <button 
+                    type='submit' 
+                    onClick={ e => this.handleSearchClicked(e) } 
+                    disabled={ !this.state.touched || this.validateUserInput() }>
+                        Search YouTube
+                </button>
+                { this.state.touched && <DisplayError message={ this.validateUserInput() }/> }
+                { !!this.state.error && <DisplayError message={ this.state.error }/> }
+            </form>
         )
     }
 }

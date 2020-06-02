@@ -69,3 +69,20 @@ button {
 iframe {
     width: 100%;
 }
+
+a:link {
+    color: orange;
+    text-decoration: none;
+}
+
+a:visited {
+    color: orange
+}
+
+a:hover {
+    color: yellow
+}
+
+a:active {
+    color: green;
+}

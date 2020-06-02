@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const headerStyles = {
     textAlign: 'center',
@@ -13,7 +14,9 @@ const h1Styles = {
 export default function HeaderComponent() {
     return (
         <header style={ headerStyles }>
-            <h1 style={ h1Styles }>Music Chat</h1>
+            <Link to="/">
+                <h1 style={ h1Styles }>Music Chat</h1>
+            </Link>
         </header>
     );
 }

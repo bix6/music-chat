@@ -9,15 +9,19 @@ exports[`HeaderComponent Component Snapshot Test: Default 1`] = `
     }
   }
 >
-  <h1
-    style={
-      Object {
-        "fontFamily": "monospace",
-        "fontSize": "4rem",
-      }
-    }
+  <Link
+    to="/"
   >
-    Music Chat
-  </h1>
+    <h1
+      style={
+        Object {
+          "fontFamily": "monospace",
+          "fontSize": "4rem",
+        }
+      }
+    >
+      Music Chat
+    </h1>
+  </Link>
 </header>
 `;
