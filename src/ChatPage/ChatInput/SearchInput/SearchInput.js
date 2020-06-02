@@ -73,7 +73,7 @@ class SearchInput extends React.Component {
     render() {
         return (
             <form>
-                <label htmlFor='search-input'>Search + Embed</label>
+                <label htmlFor='search-input'>{ 'Search & Embed' }</label>
                 <input
                     type='text'
                     id='search-input' 

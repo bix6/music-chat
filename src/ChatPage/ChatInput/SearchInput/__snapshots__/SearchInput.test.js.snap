@@ -5,7 +5,7 @@ exports[`SearchInput Component Snapshot Test: Default 1`] = `
   <label
     htmlFor="search-input"
   >
-    Search + Embed
+    Search & Embed
   </label>
   <input
     id="search-input"

@@ -12,5 +12,6 @@ exports[`ChatSelector Component Snapshot Test: Default 1`] = `
     name="chat-select"
     onChange={[Function]}
   />
+  <p />
 </div>
 `;

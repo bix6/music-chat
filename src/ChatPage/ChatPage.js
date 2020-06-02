@@ -7,7 +7,28 @@ import SearchResults from './SearchResults/SearchResults';
 
 class ChatPage extends React.Component {
     state = {
-        chatroomList: ['Global', 'Playlists', 'Mood', 'Artists', 'Songs'],
+        chatroomList: [
+            {
+                name: 'Global',
+                description: 'Welcome to the World Wide Music Chat!'
+            },
+            {
+                name: 'Playlists',
+                description: 'A place to discuss your favorite playlists.'
+            },
+            {
+                name: 'Mood',
+                description: 'How do you feel today?'
+            },
+            {
+                name: 'Artists',
+                description: 'Keep up to date on your favorite artists.'
+            },
+            {
+                name: 'Songs',
+                description: 'All the single songs'
+            }
+        ],
         currentChatroom: 'Global',
         messages: {
             'Global': [
@@ -72,6 +93,7 @@ class ChatPage extends React.Component {
                 <main>
                     <ChatSelector 
                         chatroomList={ this.state.chatroomList }
+                        currentChatroom={ this.state.currentChatroom }
                         updateCurrentChatroom={ this.updateCurrentChatroom }/>
                     <ChatConvo 
                         currentChatroom={ this.state.currentChatroom }

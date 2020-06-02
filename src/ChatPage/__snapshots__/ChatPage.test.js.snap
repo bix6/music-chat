@@ -7,13 +7,29 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
     <ChatSelector
       chatroomList={
         Array [
-          "Global",
-          "Playlists",
-          "Mood",
-          "Artists",
-          "Songs",
+          Object {
+            "description": "Welcome to the World Wide Music Chat!",
+            "name": "Global",
+          },
+          Object {
+            "description": "A place to discuss your favorite playlists.",
+            "name": "Playlists",
+          },
+          Object {
+            "description": "How do you feel today?",
+            "name": "Mood",
+          },
+          Object {
+            "description": "Keep up to date on your favorite artists.",
+            "name": "Artists",
+          },
+          Object {
+            "description": "All the single songs",
+            "name": "Songs",
+          },
         ]
       }
+      currentChatroom="Global"
       updateCurrentChatroom={[Function]}
     />
     <ChatConvo
