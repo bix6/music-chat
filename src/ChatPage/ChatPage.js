@@ -7,14 +7,25 @@ import SearchResults from './SearchResults/SearchResults';
 
 class ChatPage extends React.Component {
     state = {
-        chatroomList: ['Global', 'Artists', 'Songs'],
+        chatroomList: ['Global', 'Playlists', 'Mood', 'Artists', 'Songs'],
         currentChatroom: 'Global',
         messages: {
             'Global': [
-                'Jack: Music Chat',
-                'Jac: Hear the sounds of the symphony',
-                'Ja: Yes I can hear the cacophony',
+                'Jack: Music Chat Baby!!!!!',
+                'Jac: Just gonna talk to myself',
+                'Ja: A cacophony of Jacks',
                 'J: Phony, real phony'
+            ],
+            'Playlists': [
+                'Dalbert: Please let me share playlists',
+                'Jack: Ok',
+                'Dalbert: Please send Lorde to my estate',
+                'Jack: She will be escorted by 20 Golden Kiwis'
+            ],
+            'Mood': [
+                'Brownie: My mood is sassy cuz it is hot and I\'m listening to Milkshake',
+                'Basil: I am so chilled out listening to Baby Take Off Your Cool',
+                'Brownie: Damn that\'s fresh Basil'
             ],
             'Artists': [
                 'Jerry: Have you heard of Timbo?',
@@ -25,7 +36,7 @@ class ChatPage extends React.Component {
             'Songs': [
                 'Chester: I wrote a song',
                 'Hubert: About what?',
-                'Chester: You, Hubert. It\'s about you Hubert',
+                'Chester: You, Hubert. It\'s about you Hubert.',
             ]
         },
         searchResults: null
