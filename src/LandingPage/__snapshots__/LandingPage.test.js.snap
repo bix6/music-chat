@@ -5,9 +5,13 @@ exports[`LandingPage Component Snapshot Test: Default 1`] = `
   <HeaderComponent />
   <main>
     <p>
-      Share music across the globe. 
+      Welcome to Your Musical Home on the Internet.
       <br />
-      Enter a name to get started.
+      Discuss music with friends and strangers across the globe.
+      <br />
+      Swap between chat rooms at your leisure and easily embed music from your favorite services.
+      <br />
+      Enter your name below to get started.
     </p>
     <form
       onSubmit={[Function]}

@@ -19,7 +19,7 @@
     - Mood: today i'm feeling happy so I've been listening to xyz cuz of xyz
         - Need a way to get users to scroll aimlessly through 
         - TODOD for now, add a mood room
-- TODO put a description of each chat at the top
+- TODOD put a description of each chat at the top
 - Likes the idea
 
 ### Henry

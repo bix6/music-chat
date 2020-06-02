@@ -41,7 +41,7 @@ main {
 p {
     margin-top: 3rem;
     font-size: 2rem;
-    line-height: 2.4rem;
+    line-height: 4rem;
 }
 
 form {
@@ -51,6 +51,7 @@ form {
 label {
     display: block;
     margin: 0rem auto;
+    font-size: 2rem;
 }
 
 input {

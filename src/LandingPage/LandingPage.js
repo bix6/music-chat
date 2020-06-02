@@ -34,7 +34,15 @@ class LandingPage extends React.Component {
             <>
                 <HeaderComponent />
                 <main>
-                    <p>Share music across the globe. <br />Enter a name to get started.</p>
+                    <p>
+                        Welcome to Your Musical Home on the Internet.
+                        <br />
+                        Discuss music with friends and strangers across the globe.
+                        <br />
+                        Swap between chat rooms at your leisure and easily embed music from your favorite services.
+                        <br />
+                        Enter your name below to get started.
+                    </p>
                     <form onSubmit={ e => this.handleSubmit(e) }>
                         <label htmlFor="choose-username">Name / Nickname</label>
                         <br />
