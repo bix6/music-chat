@@ -8,6 +8,8 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
       chatroomList={
         Array [
           "Global",
+          "Playlists",
+          "Mood",
           "Artists",
           "Songs",
         ]
@@ -25,15 +27,26 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
             "Timbo: No",
           ],
           "Global": Array [
-            "Jack: Music Chat",
-            "Jac: Hear the sounds of the symphony",
-            "Ja: Yes I can hear the cacophony",
+            "Jack: Music Chat Baby!!!!!",
+            "Jac: Just gonna talk to myself",
+            "Ja: A cacophony of Jacks",
             "J: Phony, real phony",
+          ],
+          "Mood": Array [
+            "Brownie: My mood is sassy cuz it is hot and I'm listening to Milkshake",
+            "Basil: I am so chilled out listening to Baby Take Off Your Cool",
+            "Brownie: Damn that's fresh Basil",
+          ],
+          "Playlists": Array [
+            "Dalbert: Please let me share playlists",
+            "Jack: Ok",
+            "Dalbert: Please send Lorde to my estate",
+            "Jack: She will be escorted by 20 Golden Kiwis",
           ],
           "Songs": Array [
             "Chester: I wrote a song",
             "Hubert: About what?",
-            "Chester: You, Hubert. It's about you Hubert",
+            "Chester: You, Hubert. It's about you Hubert.",
           ],
         }
       }
