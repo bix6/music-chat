@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageInput Component Snapshot Test: Default 1`] = `
+<form>
+  <label
+    htmlFor="message-input"
+  >
+    Message
+  </label>
+  <textarea
+    id="message-input"
+    name="message-input"
+    onChange={[Function]}
+    value=""
+  />
+  <button
+    disabled={true}
+    onClick={[Function]}
+    type="submit"
+  >
+    Send Message
+  </button>
+</form>
+`;

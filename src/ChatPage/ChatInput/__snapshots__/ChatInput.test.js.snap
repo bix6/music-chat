@@ -2,32 +2,7 @@
 
 exports[`ChatInput Component Snapshot Test: Default 1`] = `
 <div>
-  <form>
-    <label
-      htmlFor="input-box"
-    >
-      Message
-    </label>
-    <textarea
-      id="input-box"
-      name="input-box"
-      onChange={[Function]}
-      value=""
-    />
-    <button
-      disabled={true}
-      onClick={[Function]}
-      type="submit"
-    >
-      Send Message
-    </button>
-    <button
-      disabled={true}
-      onClick={[Function]}
-      type="submit"
-    >
-      Search YouTube
-    </button>
-  </form>
+  <MessageInput />
+  <SearchInput />
 </div>
 `;

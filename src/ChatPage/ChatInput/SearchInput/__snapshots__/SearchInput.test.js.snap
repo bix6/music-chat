@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchInput Component Snapshot Test: Default 1`] = `
+<div>
+  <form>
+    <label
+      htmlFor="search-input"
+    >
+      Search + Embed
+    </label>
+    <input
+      id="search-input"
+      name="search-input"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      disabled={true}
+      onClick={[Function]}
+      type="submit"
+    >
+      Search YouTube
+    </button>
+  </form>
+</div>
+`;
