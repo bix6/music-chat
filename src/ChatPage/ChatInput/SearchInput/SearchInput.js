@@ -6,7 +6,8 @@ class SearchInput extends React.Component {
     state = {
         userInput: '',
         touched: false,
-        error: ''
+        error: '',
+        loadingMessage: ''
     };
 
     updateUserInput = (userInput) => {
@@ -25,9 +26,14 @@ class SearchInput extends React.Component {
     handleSearchClicked = (e) => {
         e.preventDefault();
 
+        this.setState({
+            loadingMessage: 'Searching YouTube...'
+        });
+
         const queryString = `https://www.googleapis.com/youtube/v3/search?` + 
             `part=snippet&` +
             `maxResults=10&` +
+            `type=video&` +
             `key=${ config.YOUTUBE_API_KEY }&` +
             `q=${ this.state.userInput }`;
 
@@ -62,7 +68,8 @@ class SearchInput extends React.Component {
                 this.setState({ 
                     userInput: '',
                     touched: false,
-                    error: '' 
+                    error: '',
+                    loadingMessage: '' 
                 })
             })
             .catch(error => {
@@ -88,6 +95,7 @@ class SearchInput extends React.Component {
                 </button>
                 { this.state.touched && <DisplayError message={ this.validateUserInput() }/> }
                 { !!this.state.error && <DisplayError message={ this.state.error }/> }
+                { !!this.state.loadingMessage && <div>{ this.state.loadingMessage }</div>}
             </form>
         )
     }
