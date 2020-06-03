@@ -17,11 +17,9 @@ const chatConvoLiStyles = {
 class ChatConvo extends React.Component {
     static defaultProps = {
         messages: {
-            loading: [
-                'Bixbot: chat loading... (maybe)',
-            ]
+            Loading: ['Bixbot: chat loading... (maybe)']
         },
-        currentChatroom: 'loading'
+        currentChatroom: 'Loading'
     }
 
     // TODO make messages objects with keys for message, iframe, username, etc.
