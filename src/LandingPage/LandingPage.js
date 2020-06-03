@@ -18,8 +18,11 @@ class LandingPage extends React.Component {
     validateUsername = () => {
         const username = this.state.username.trim();
 
-        if (username.length < 2) {
-            return 'Name must be 2 characters or more'
+        if (username.length < 1) {
+            return 'Name must be 1 character or more'
+        }
+        if (username.toLowerCase() === 'bixbot') {
+            return 'This username is reserved'
         }
     }
 

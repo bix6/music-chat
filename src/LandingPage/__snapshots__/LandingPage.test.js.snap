@@ -30,7 +30,7 @@ exports[`LandingPage Component Snapshot Test: Default 1`] = `
       />
       <br />
       <button
-        disabled="Name must be 2 characters or more"
+        disabled="Name must be 1 character or more"
         type="submit"
       >
         Chat
