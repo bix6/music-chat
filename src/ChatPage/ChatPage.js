@@ -27,6 +27,10 @@ class ChatPage extends React.Component {
             {
                 name: 'Songs',
                 description: 'All the single songs'
+            },
+            {
+                name: 'Doin\' Time',
+                description: 'Chat about Doin\' time by Sublime (and now Lana)'
             }
         ],
         currentChatroom: 'Global',
@@ -58,6 +62,14 @@ class ChatPage extends React.Component {
                 'Chester: I wrote a song',
                 'Hubert: About what?',
                 'Chester: You, Hubert. It\'s about you Hubert.',
+            ],
+            'Doin\' Time': [
+                'Nick: Alright! Now we can chat about individual songs.',
+                'Jack: Summertime and the coding is not easy.',
+                'Nick: Ain\'t no thang.',
+                'Jack: So which version would you pick: Sublime or Lana?',
+                'Nick: ...'
+
             ]
         },
         searchResults: null

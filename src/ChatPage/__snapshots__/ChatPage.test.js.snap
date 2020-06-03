@@ -27,6 +27,10 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
             "description": "All the single songs",
             "name": "Songs",
           },
+          Object {
+            "description": "Chat about Doin' time by Sublime (and now Lana)",
+            "name": "Doin' Time",
+          },
         ]
       }
       currentChatroom="Global"
@@ -41,6 +45,13 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
             "Timbo: Yes",
             "Jerry: He is really good",
             "Timbo: No",
+          ],
+          "Doin' Time": Array [
+            "Nick: Alright! Now we can chat about individual songs.",
+            "Jack: Summertime and the coding is not easy.",
+            "Nick: Ain't no thang.",
+            "Jack: So which version would you pick: Sublime or Lana?",
+            "Nick: ...",
           ],
           "Global": Array [
             "Jack: Music Chat Baby!!!!!",

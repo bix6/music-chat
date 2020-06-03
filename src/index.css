@@ -80,9 +80,9 @@ a:visited {
 }
 
 a:hover {
-    color: yellow
+    color: blueviolet
 }
 
 a:active {
-    color: green;
+    color: purple;
 }

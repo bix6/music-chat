@@ -37,7 +37,6 @@ class SearchInput extends React.Component {
             `key=${ config.YOUTUBE_API_KEY }&` +
             `q=${ this.state.userInput }`;
 
-        // TODO why is this unsafe/can it be made safe?
         function unescapeHtml(unsafe) {
             return unsafe
                 .replace(/&amp;/g, "&")
