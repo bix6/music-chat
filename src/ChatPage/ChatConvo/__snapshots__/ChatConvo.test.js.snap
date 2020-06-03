@@ -14,17 +14,7 @@ exports[`ChatConvo Component Snapshot Test: Default 1`] = `
   }
 >
   <ol>
-    <li
-      id="chat-convo-li"
-      key="0"
-      style={
-        Object {
-          "lineHeight": "2rem",
-        }
-      }
-    >
-      Bixbot: chat loading... (maybe)
-    </li>
+    Bixbot: Error Retrieving Message
   </ol>
 </div>
 `;

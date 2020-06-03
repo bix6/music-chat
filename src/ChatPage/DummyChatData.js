@@ -27,40 +27,160 @@ const chatroomList = [
 
 const messages = {
     'Global': [
-        'Jack: Music Chat Baby!!!!!',
-        'Jac: Just gonna talk to myself',
-        'Ja: A cacophony of Jacks',
-        'J: Phony, real phony'
+        {
+            username: 'Jack',
+            contentType: 'text',
+            message: 'Music Chat Baby!!!!!',
+            contentId: null
+        },
+        {
+            username: 'Alicia',
+            contentType: 'text',
+            message: 'You Don\'t Know My Name.',
+            contentId: null
+        },
+        {
+            username: 'Jack',
+            contentType: 'text',
+            message: 'But you\'re Unbreakable.',
+            contentId: null
+        },
+        {
+            username: 'Alicia',
+            contentType: 'text',
+            message: 'If I Ain\'t Got You, who would I be?',
+            contentId: null
+        },
+        {
+            username: 'Jack',
+            contentType: 'youtube video',
+            message: null,
+            contentId: 'rywUS-ohqeE'
+        }
     ],
     'Playlists': [
-        'Dalbert: Please let me share playlists',
-        'Jack: Ok',
-        'Dalbert: Please send Lorde to my estate',
-        'Jack: She will be escorted by 20 Golden Kiwis'
+        {
+            username: 'Dalbert',
+            contentType: 'text',
+            message: 'Please let me share playlists',
+            contentId: null
+        },
+        {
+            username: 'Jack',
+            contentType: 'text',
+            message: 'Ok',
+            contentId: null
+        },
+        {
+            username: 'Dalbert',
+            contentType: 'text',
+            message: 'Please send Lorde to my estate',
+            contentId: null
+        },
+        {
+            username: 'Jack',
+            contentType: 'text',
+            message: 'She will be escorted by 20 Golden Kiwis',
+            contentId: null
+        },
     ],
     'Mood': [
-        'Brownie: My mood is sassy cuz it is hot and I\'m listening to Milkshake',
-        'Basil: I am so chilled out listening to Baby Take Off Your Cool',
-        'Brownie: Damn that\'s fresh Basil'
+        {
+            username: 'Brownie',
+            contentType: 'text',
+            message: 'My mood is sassy cuz it is hot and I\'m listening to Milkshake',
+            contentId: null
+        },
+        {
+            username: 'Basil',
+            contentType: 'text',
+            message: 'I am so chilled out listening to Baby Take Off Your Cool',
+            contentId: null
+        },
+        {
+            username: 'Brownie',
+            contentType: 'text',
+            message: 'Damn that\'s fresh Basil',
+            contentId: null
+        },
     ],
     'Artists': [
-        'Jerry: Have you heard of Timbo?',
-        'Timbo: Yes',
-        'Jerry: He is really good',
-        'Timbo: No'
+        {
+            username: 'Jerry',
+            contentType: 'text',
+            message: 'Have you heard of Timbo?',
+            contentId: null
+        },
+        {
+            username: 'Timbo',
+            contentType: 'text',
+            message: 'Yes',
+            contentId: null
+        },
+        {
+            username: 'Jerry',
+            contentType: 'text',
+            message: 'He is really good',
+            contentId: null
+        },
+        {
+            username: 'Timbo',
+            contentType: 'text',
+            message: 'No',
+            contentId: null
+        },
     ],
     'Songs': [
-        'Chester: I wrote a song',
-        'Hubert: About what?',
-        'Chester: You, Hubert. It\'s about you Hubert.',
+        {
+            username: 'Chester',
+            contentType: 'text',
+            message: 'I wrote a song',
+            contentId: null
+        },
+        {
+            username: 'Hubert',
+            contentType: 'text',
+            message: 'About what?',
+            contentId: null
+        },
+        {
+            username: 'Chester',
+            contentType: 'text',
+            message: 'You, Hubert. It\'s about you Hubert',
+            contentId: null
+        },
     ],
     'Doin\' Time': [
-        'Nick: Alright! Now we can chat about individual songs.',
-        'Jack: Summertime and the coding is not easy.',
-        'Nick: Ain\'t no thang.',
-        'Jack: So which version would you pick: Sublime or Lana?',
-        'Nick: ...'
-
+        {
+            username: 'Nick',
+            contentType: 'text',
+            message: 'Alright! Now we can chat about individual songs.',
+            contentId: null
+        },
+        {
+            username: 'Jack',
+            contentType: 'text',
+            message: 'Summertime and the coding is not easy',
+            contentId: null
+        },
+        {
+            username: 'Nick',
+            contentType: 'text',
+            message: 'Ain\'t no thang',
+            contentId: null
+        },
+        {
+            username: 'Jack',
+            contentType: 'text',
+            message: 'So which version would you pick: Sublime or Lana?',
+            contentId: null
+        },
+        {
+            username: 'Nick',
+            contentType: 'text',
+            message: '...',
+            contentId: null
+        },
     ]
 };
 

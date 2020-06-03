@@ -29,7 +29,12 @@ class ChatPage extends React.Component {
     }
 
     sendMessage = (messageIn) => {
-        let message = this.props.username + ': ' + messageIn;
+        const message = {
+            username: this.props.username,
+            contentType: 'text',
+            message: messageIn,
+            contentId: null
+        }
         let messages = this.state.messages;
         messages[this.state.currentChatroom].push(message);
         this.setState({
@@ -42,9 +47,18 @@ class ChatPage extends React.Component {
     }
 
     embedVideo = (index) => {
-        const videoId = this.state.searchResults[index].videoId;
-        this.sendMessage(`YOUTUBE_IFRAME ${ videoId }`)
-        this.setState({ searchResults: null})
+        const message = {
+            username: this.props.username,
+            contentType: 'youtube video',
+            message: null,
+            contentId: this.state.searchResults[index].videoId
+        }
+        let messages = this.state.messages;
+        messages[this.state.currentChatroom].push(message);
+        this.setState({
+            messages: messages,
+            searchResults: null
+        })
     }
 
     render() {

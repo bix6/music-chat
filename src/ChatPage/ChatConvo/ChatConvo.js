@@ -17,48 +17,55 @@ const chatConvoLiStyles = {
 class ChatConvo extends React.Component {
     static defaultProps = {
         messages: {
-            Loading: ['Bixbot: chat loading... (maybe)']
+            Loading: ['Bixbot: Chat loading... ']
         },
         currentChatroom: 'Loading'
     }
 
-    // TODO make messages objects with keys for message, iframe, username, etc.
-    // TODO make this individual components or split into functions?
+    createMessageLi = (messageObj, i) => {
+        const message = messageObj.username + ': ' + messageObj.message;
+
+        return (
+            <li 
+                key={ i } 
+                style={ chatConvoLiStyles}
+                id='chat-convo-li'>
+                    { message }
+            </li>);
+    }
+
+    createYoutubeVideoLi = (messageObj, i) => {
+        const src = `https://www.youtube.com/embed/${ messageObj.contentId }`;
+        const title = `Embeded YouTube videoId: ${ messageObj.contentId }`;
+
+        return (
+            <li 
+                key={ i } 
+                style={ chatConvoLiStyles}
+                id='chat-convo-li'>
+                    { messageObj.username + ': ' }
+                    <iframe width='480px' // Fallback size; gets set dynamically in css
+                        height='270px' 
+                        src={ src }
+                        frameBorder='0'
+                        encrypted-media="true" 
+                        gyroscope="true" 
+                        picture-in-picture="true"
+                        title={ title }
+                        allowFullScreen />
+            </li>);
+    }
+
+    /* Create li elems for each messageObj in the current chatroom */
     createConvoListElems = () => {
-       /* Create li elems for each message in the current chatroom */
-       return this.props.messages[this.props.currentChatroom].map((message, i) => {
-            const iframeStartIndex = message.search(`YOUTUBE_IFRAME`);
-
-            if (iframeStartIndex === -1) {
-                return (
-                    <li 
-                        key={ i } 
-                        style={ chatConvoLiStyles}
-                        id='chat-convo-li'>
-                            { message }
-                    </li>);
+        return this.props.messages[this.props.currentChatroom].map((messageObj, i) => {
+            if (messageObj.contentType === 'text') {
+                return this.createMessageLi(messageObj, i)
             }
-
-            const usernameWithColon = message.slice(0, message.search(':') + 1);
-            const videoId = message.slice(iframeStartIndex + 15); // TODO make this not arbitrary
-            const embedURL = `https://www.youtube.com/embed/${ videoId }`
-
-            return (
-                <li 
-                    key={ i } 
-                    style={ chatConvoLiStyles}
-                    id='chat-convo-li'>
-                        { usernameWithColon }
-                        <iframe width='480px' // TODO set this dynamically
-                            height='270px' 
-                            src={ embedURL } 
-                            frameBorder='0'
-                            encrypted-media="true" 
-                            gyroscope="true" 
-                            picture-in-picture="true"
-                            title={ "embeded videoId: " + videoId}
-                            allowFullScreen />
-                </li>);
+            else if (messageObj.contentType === 'youtube video') {
+                return this.createYoutubeVideoLi(messageObj, i);
+            }
+            return 'Bixbot: Error Retrieving Message';
        })
    }
 
