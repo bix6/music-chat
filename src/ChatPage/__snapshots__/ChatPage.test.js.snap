@@ -28,7 +28,7 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
             "name": "Songs",
           },
           Object {
-            "description": "Chat about Doin' time by Sublime (and now Lana)",
+            "description": "Chat about Doin' Time by Sublime (and now Lana)",
             "name": "Doin' Time",
           },
         ]

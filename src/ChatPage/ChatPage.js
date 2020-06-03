@@ -30,7 +30,7 @@ class ChatPage extends React.Component {
             },
             {
                 name: 'Doin\' Time',
-                description: 'Chat about Doin\' time by Sublime (and now Lana)'
+                description: 'Chat about Doin\' Time by Sublime (and now Lana)'
             }
         ],
         currentChatroom: 'Global',
