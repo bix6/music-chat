@@ -5,8 +5,8 @@ class ChatSelector extends React.Component {
         chatroomList: []
     }
 
+    /* Create an option elem for each chatroom in the chatroom list */
     createSelectOptions = () => {
-        /* Create an option elem for each chatroom in the chatroom list */
         return this.props.chatroomList.map((chatroomObj, i) => {
             return <option value={ chatroomObj.name } key={ i }>{ chatroomObj.name }</option>
         })

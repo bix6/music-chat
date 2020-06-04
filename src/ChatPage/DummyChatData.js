@@ -28,31 +28,31 @@ const chatroomList = [
 const messages = {
     'Global': [
         {
-            username: 'Jack',
+            username: 'Alicia',
             contentType: 'text',
             message: 'Music Chat Baby!!!!!',
             contentId: null
         },
         {
-            username: 'Alicia',
+            username: 'Jack',
             contentType: 'text',
             message: 'You Don\'t Know My Name.',
             contentId: null
         },
         {
-            username: 'Jack',
+            username: 'Alicia',
             contentType: 'text',
             message: 'But you\'re Unbreakable.',
             contentId: null
         },
         {
-            username: 'Alicia',
+            username: 'Jack',
             contentType: 'text',
             message: 'If I Ain\'t Got You, who would I be?',
             contentId: null
         },
         {
-            username: 'Jack',
+            username: 'Alicia',
             contentType: 'youtube video',
             message: null,
             contentId: 'rywUS-ohqeE'
