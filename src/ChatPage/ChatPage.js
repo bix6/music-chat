@@ -28,6 +28,30 @@ class ChatPage extends React.Component {
     this.setState({ currentChatroom: chatroom });
   };
 
+  createChatroom = (chatroom, description) => {
+    let chatroomList = this.state.chatroomList;
+    let newChatroom = {
+      name: chatroom,
+      description: description,
+    };
+    let messages = this.state.messages;
+    let newMessage = [
+      {
+        username: "Bixbot",
+        contentType: "text",
+        message: `Chatroom created by ${
+          this.props.username
+        } on ${new Date().toLocaleDateString()}`,
+        contentId: null,
+      },
+    ];
+
+    this.setState({
+      chatroomList: [...chatroomList, newChatroom],
+      messages: { ...messages, [chatroom]: newMessage },
+    });
+  };
+
   sendMessage = (messageIn) => {
     const message = {
       username: this.props.username,
@@ -70,6 +94,7 @@ class ChatPage extends React.Component {
             chatroomList={this.state.chatroomList}
             currentChatroom={this.state.currentChatroom}
             updateCurrentChatroom={this.updateCurrentChatroom}
+            createChatroom={this.createChatroom}
           />
           <ChatConvo
             currentChatroom={this.state.currentChatroom}

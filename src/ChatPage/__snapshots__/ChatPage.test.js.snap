@@ -33,6 +33,7 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
           },
         ]
       }
+      createChatroom={[Function]}
       currentChatroom="Global"
       updateCurrentChatroom={[Function]}
     />

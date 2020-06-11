@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChatSelector Component Snapshot Test: Default 1`] = `
-<div>
+<form
+  onSubmit={[Function]}
+>
   <label
     htmlFor="chat-select"
   >
@@ -13,5 +15,35 @@ exports[`ChatSelector Component Snapshot Test: Default 1`] = `
     onChange={[Function]}
   />
   <p />
-</div>
+  <label
+    htmlFor="new-chatroom"
+  >
+    New Chatroom:
+  </label>
+  <input
+    id="new-chatroom"
+    name="new-chatroom"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <label
+    htmlFor="new-chatroom-description"
+  >
+    Description:
+  </label>
+  <input
+    id="new-chatroom-description"
+    name="new-chatroom-description"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <button
+    disabled="Chatroom must be 1 character or more"
+    type="submit"
+  >
+    Create Chatroom
+  </button>
+</form>
 `;
