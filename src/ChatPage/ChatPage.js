@@ -5,6 +5,7 @@ import ChatConvo from "./ChatConvo/ChatConvo";
 import ChatInput from "./ChatInput/ChatInput";
 import SearchResults from "./SearchResults/SearchResults";
 import { chatroomList, messages } from "./DummyChatData";
+import NewChatroom from "./NewChatroom/NewChatroom";
 
 class ChatPage extends React.Component {
   state = {
@@ -94,8 +95,8 @@ class ChatPage extends React.Component {
             chatroomList={this.state.chatroomList}
             currentChatroom={this.state.currentChatroom}
             updateCurrentChatroom={this.updateCurrentChatroom}
-            createChatroom={this.createChatroom}
           />
+          <NewChatroom createChatroom={this.createChatroom} />
           <ChatConvo
             currentChatroom={this.state.currentChatroom}
             messages={this.state.messages}
