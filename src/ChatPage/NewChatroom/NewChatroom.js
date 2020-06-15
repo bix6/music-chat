@@ -1,5 +1,6 @@
 import React from "react";
 import DisplayError from "../../shared-components/DisplayError/DisplayError";
+import "./NewChatroom.css";
 
 class NewChatroom extends React.Component {
   state = {
@@ -60,10 +61,22 @@ class NewChatroom extends React.Component {
     }, 3000);
   };
 
+  handleCancel = () => {
+    this.setState({
+      newChatroom: "",
+      chatroomTouched: false,
+      newDescription: "",
+      descriptionTouched: false,
+      successMessage: "",
+    });
+    this.props.hideNewChatroom();
+  };
+
   render() {
     return (
       <form
         className="new-chatroom-form"
+        style={{ display: this.props.newChatroomDisplay }}
         onSubmit={(e) => this.handleSubmit(e)}
       >
         <label htmlFor="new-chatroom">New Chatroom:</label>
@@ -89,6 +102,9 @@ class NewChatroom extends React.Component {
           }
         >
           Create Chatroom
+        </button>
+        <button type="button" onClick={this.handleCancel}>
+          Cancel
         </button>
         {this.state.chatroomTouched && (
           <DisplayError message={this.validateNewChatroom()} />

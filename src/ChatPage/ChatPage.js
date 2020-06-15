@@ -11,6 +11,7 @@ class ChatPage extends React.Component {
   state = {
     chatroomList: ["Loading"],
     currentChatroom: "Loading",
+    newChatroomDisplay: "none",
     messages: {
       Loading: ["Bixbot: Chat loading..."],
     },
@@ -27,6 +28,14 @@ class ChatPage extends React.Component {
 
   updateCurrentChatroom = (chatroom) => {
     this.setState({ currentChatroom: chatroom });
+  };
+
+  displayNewChatroom = () => {
+    this.setState({ newChatroomDisplay: "block" });
+  };
+
+  hideNewChatroom = () => {
+    this.setState({ newChatroomDisplay: "none" });
   };
 
   createChatroom = (chatroom, description) => {
@@ -86,6 +95,12 @@ class ChatPage extends React.Component {
     });
   };
 
+  closeSearch = () => {
+    this.setState({
+      searchResults: null,
+    });
+  };
+
   render() {
     return (
       <>
@@ -96,7 +111,14 @@ class ChatPage extends React.Component {
             currentChatroom={this.state.currentChatroom}
             updateCurrentChatroom={this.updateCurrentChatroom}
           />
-          <NewChatroom createChatroom={this.createChatroom} />
+          <button type="button" onClick={this.displayNewChatroom}>
+            Create Chatroom
+          </button>
+          <NewChatroom
+            createChatroom={this.createChatroom}
+            newChatroomDisplay={this.state.newChatroomDisplay}
+            hideNewChatroom={this.hideNewChatroom}
+          />
           <ChatConvo
             currentChatroom={this.state.currentChatroom}
             messages={this.state.messages}
@@ -109,6 +131,7 @@ class ChatPage extends React.Component {
             <SearchResults
               searchResults={this.state.searchResults}
               embedVideo={this.embedVideo}
+              closeSearch={this.closeSearch}
             />
           )}
         </main>

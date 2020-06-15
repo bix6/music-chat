@@ -4,6 +4,11 @@ exports[`NewChatroom Component Snapshot Test: Default 1`] = `
 <form
   className="new-chatroom-form"
   onSubmit={[Function]}
+  style={
+    Object {
+      "display": undefined,
+    }
+  }
 >
   <label
     htmlFor="new-chatroom"
@@ -34,6 +39,12 @@ exports[`NewChatroom Component Snapshot Test: Default 1`] = `
     type="submit"
   >
     Create Chatroom
+  </button>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Cancel
   </button>
 </form>
 `;

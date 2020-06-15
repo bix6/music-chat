@@ -1,4 +1,5 @@
 import React from "react";
+import "./SearchResults.css";
 
 class SearchResults extends React.Component {
   static defaultProps = {
@@ -28,7 +29,17 @@ class SearchResults extends React.Component {
   };
 
   render() {
-    return <ol>{this.createListItems()}</ol>;
+    return (
+      <ol className="search-results-ol">
+        {/* TODO remove br, style in css? */}
+        <br />
+        <button type="button" onClick={this.props.closeSearch}>
+          Cancel
+        </button>
+        <br />
+        {this.createListItems()}
+      </ol>
+    );
   }
 }
 
