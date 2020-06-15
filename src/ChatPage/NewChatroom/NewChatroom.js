@@ -41,26 +41,6 @@ class NewChatroom extends React.Component {
     }
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.createChatroom(
-      this.state.newChatroom,
-      this.state.newDescription
-    );
-    this.setState({
-      newChatroom: "",
-      chatroomTouched: false,
-      newDescription: "",
-      descriptionTouched: false,
-      successMessage: "Chatroom Created",
-    });
-    setTimeout(() => {
-      this.setState({
-        successMessage: "",
-      });
-    }, 3000);
-  };
-
   handleCancel = () => {
     this.setState({
       newChatroom: "",
@@ -69,7 +49,21 @@ class NewChatroom extends React.Component {
       descriptionTouched: false,
       successMessage: "",
     });
-    this.props.hideNewChatroom();
+    this.props.closeNewChatroom();
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.createChatroom(
+      this.state.newChatroom,
+      this.state.newDescription
+    );
+    this.setState({
+      successMessage: "Chatroom Created. Closing Overlay...",
+    });
+    setTimeout(() => {
+      this.handleCancel();
+    }, 1000);
   };
 
   render() {

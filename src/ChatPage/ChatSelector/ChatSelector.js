@@ -31,6 +31,7 @@ class ChatSelector extends React.Component {
         <select
           name="chat-select"
           id="chat-select"
+          value={this.props.currentChatroom}
           onChange={(e) => this.props.updateCurrentChatroom(e.target.value)}
         >
           {this.createSelectOptions()}

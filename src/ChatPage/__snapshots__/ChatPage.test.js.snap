@@ -43,8 +43,8 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
       Create Chatroom
     </button>
     <NewChatroom
+      closeNewChatroom={[Function]}
       createChatroom={[Function]}
-      hideNewChatroom={[Function]}
       newChatroomDisplay="none"
     />
     <ChatConvo

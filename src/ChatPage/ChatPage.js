@@ -34,7 +34,7 @@ class ChatPage extends React.Component {
     this.setState({ newChatroomDisplay: "block" });
   };
 
-  hideNewChatroom = () => {
+  closeNewChatroom = () => {
     this.setState({ newChatroomDisplay: "none" });
   };
 
@@ -59,6 +59,7 @@ class ChatPage extends React.Component {
     this.setState({
       chatroomList: [...chatroomList, newChatroom],
       messages: { ...messages, [chatroom]: newMessage },
+      currentChatroom: chatroom,
     });
   };
 
@@ -117,7 +118,7 @@ class ChatPage extends React.Component {
           <NewChatroom
             createChatroom={this.createChatroom}
             newChatroomDisplay={this.state.newChatroomDisplay}
-            hideNewChatroom={this.hideNewChatroom}
+            closeNewChatroom={this.closeNewChatroom}
           />
           <ChatConvo
             currentChatroom={this.state.currentChatroom}
