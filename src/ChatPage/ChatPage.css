@@ -1,0 +1,23 @@
+.chat-page-main {
+  position: relative;
+  margin: 0 1rem;
+}
+
+.chat-selector-form {
+  margin: 1rem;
+}
+
+.chat-page-main > button {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+}
+
+.chat-selector-form p {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+iframe {
+  width: 100%;
+}

@@ -1,16 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MessageInput Component Snapshot Test: Default 1`] = `
-<form>
+<form
+  className="message-input-form"
+>
   <label
     htmlFor="message-input"
   >
-    Message
+    Chat:
   </label>
-  <textarea
+  <input
     id="message-input"
     name="message-input"
     onChange={[Function]}
+    type="text"
     value=""
   />
   <button
@@ -18,7 +21,7 @@ exports[`MessageInput Component Snapshot Test: Default 1`] = `
     onClick={[Function]}
     type="submit"
   >
-    Send Message
+    Send
   </button>
 </form>
 `;

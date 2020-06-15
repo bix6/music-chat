@@ -1,19 +1,6 @@
 import React from "react";
 import "./ChatConvo.css";
 
-const chatConvoStyles = {
-  textAlign: "left",
-  margin: "2rem auto",
-  maxWidth: "600px",
-  border: "1px solid black",
-  overflowY: "auto",
-  padding: "1rem",
-};
-
-const chatConvoLiStyles = {
-  lineHeight: "2rem",
-};
-
 class ChatConvo extends React.Component {
   static defaultProps = {
     messages: {
@@ -26,7 +13,7 @@ class ChatConvo extends React.Component {
     const message = messageObj.username + ": " + messageObj.message;
 
     return (
-      <li key={i} style={chatConvoLiStyles} id="chat-convo-li">
+      <li key={i} className="chat-convo-li">
         {message}
       </li>
     );
@@ -37,7 +24,7 @@ class ChatConvo extends React.Component {
     const title = `Embeded YouTube videoId: ${messageObj.contentId}`;
 
     return (
-      <li key={i} style={chatConvoLiStyles} id="chat-convo-li">
+      <li key={i} className="chat-convo-li">
         {messageObj.username + ": "}
         <iframe
           width="480px" // Fallback size; gets set dynamically in css
@@ -70,7 +57,7 @@ class ChatConvo extends React.Component {
 
   render() {
     return (
-      <div style={chatConvoStyles}>
+      <div className="chat-convo-div">
         <ol>{this.createConvoListElems()}</ol>
       </div>
     );

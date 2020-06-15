@@ -3,7 +3,9 @@
 exports[`ChatPage Component Snapshot Test: Default 1`] = `
 <Fragment>
   <HeaderComponent />
-  <main>
+  <main
+    className="chat-page-main"
+  >
     <ChatSelector
       chatroomList={
         Array [

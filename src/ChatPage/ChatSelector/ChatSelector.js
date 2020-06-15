@@ -26,8 +26,8 @@ class ChatSelector extends React.Component {
     });
 
     return (
-      <form>
-        <label htmlFor="chat-select">Chat Room</label>
+      <form className="chat-selector-form">
+        <label htmlFor="chat-select">Chatroom: </label>
         <select
           name="chat-select"
           id="chat-select"

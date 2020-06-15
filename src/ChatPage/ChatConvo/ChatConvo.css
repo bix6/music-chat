@@ -1,3 +1,14 @@
-#chat-convo-li:nth-child(odd) {
+.chat-convo-div {
+  padding: 0.5rem;
+  text-align: left;
+  border: 3px solid darkblue;
+  overflow-y: auto;
+}
+
+.chat-convo-li {
+  line-height: 2rem;
+}
+
+.chat-convo-li:nth-child(odd) {
   background-color: lightblue;
 }

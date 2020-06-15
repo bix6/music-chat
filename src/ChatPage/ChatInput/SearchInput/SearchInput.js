@@ -1,6 +1,7 @@
 import React from "react";
 import DisplayError from "../../../shared-components/DisplayError/DisplayError";
 import config from "../../../config";
+import "./SearchInput.css";
 
 class SearchInput extends React.Component {
   state = {
@@ -81,8 +82,8 @@ class SearchInput extends React.Component {
 
   render() {
     return (
-      <form>
-        <label htmlFor="search-input">{"Search & Embed"}</label>
+      <form className="search-input-form">
+        <label htmlFor="search-input">{"Embed:"}</label>
         <input
           type="text"
           id="search-input"
@@ -95,7 +96,7 @@ class SearchInput extends React.Component {
           onClick={(e) => this.handleSearchClicked(e)}
           disabled={!this.state.touched || this.validateUserInput()}
         >
-          Search YouTube
+          Search
         </button>
         {this.state.touched && (
           <DisplayError message={this.validateUserInput()} />

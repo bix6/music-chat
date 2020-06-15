@@ -6,6 +6,7 @@ import ChatInput from "./ChatInput/ChatInput";
 import SearchResults from "./SearchResults/SearchResults";
 import { chatroomList, messages } from "./DummyChatData";
 import NewChatroom from "./NewChatroom/NewChatroom";
+import "./ChatPage.css";
 
 class ChatPage extends React.Component {
   state = {
@@ -106,7 +107,7 @@ class ChatPage extends React.Component {
     return (
       <>
         <HeaderComponent />
-        <main>
+        <main className="chat-page-main">
           <ChatSelector
             chatroomList={this.state.chatroomList}
             currentChatroom={this.state.currentChatroom}

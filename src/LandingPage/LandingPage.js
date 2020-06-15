@@ -1,6 +1,7 @@
 import React from "react";
 import HeaderComponent from "../shared-components/HeaderComponent/HeaderComponent";
 import DisplayError from "../shared-components/DisplayError/DisplayError";
+import "./LandingPage.css";
 
 class LandingPage extends React.Component {
   state = {
@@ -36,7 +37,7 @@ class LandingPage extends React.Component {
     return (
       <>
         <HeaderComponent />
-        <main>
+        <main className="landing-page-main">
           <p>
             Welcome to Your Musical Home on the Internet. Discuss music with
             friends and strangers across the globe. Swap between chat rooms at

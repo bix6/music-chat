@@ -1,0 +1,9 @@
+.header-component {
+  text-align: center;
+}
+
+.header-component h1 {
+  font-size: 4rem;
+  font-family: monospace;
+  margin: 1.5rem 0 0 0;
+}

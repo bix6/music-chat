@@ -1,21 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const headerStyles = {
-  textAlign: "center",
-  margin: "2rem 0",
-};
-
-const h1Styles = {
-  fontSize: "4rem",
-  fontFamily: "monospace",
-};
+import "./HeaderComponent.css";
 
 export default function HeaderComponent() {
   return (
-    <header style={headerStyles}>
+    <header className="header-component">
       <Link to="/">
-        <h1 style={h1Styles}>Music Chat</h1>
+        <h1>Music Chat</h1>
       </Link>
     </header>
   );

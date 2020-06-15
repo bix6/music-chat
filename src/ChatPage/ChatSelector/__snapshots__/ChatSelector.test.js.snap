@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChatSelector Component Snapshot Test: Default 1`] = `
-<form>
+<form
+  className="chat-selector-form"
+>
   <label
     htmlFor="chat-select"
   >
-    Chat Room
+    Chatroom: 
   </label>
   <select
     id="chat-select"

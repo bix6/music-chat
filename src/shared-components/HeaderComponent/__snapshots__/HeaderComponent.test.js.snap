@@ -2,24 +2,12 @@
 
 exports[`HeaderComponent Component Snapshot Test: Default 1`] = `
 <header
-  style={
-    Object {
-      "margin": "2rem 0",
-      "textAlign": "center",
-    }
-  }
+  className="header-component"
 >
   <Link
     to="/"
   >
-    <h1
-      style={
-        Object {
-          "fontFamily": "monospace",
-          "fontSize": "4rem",
-        }
-      }
-    >
+    <h1>
       Music Chat
     </h1>
   </Link>
