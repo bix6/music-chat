@@ -1,8 +1,7 @@
 .chat-convo-div {
-  padding: 0.5rem;
   text-align: left;
-  border: 3px solid darkblue;
   overflow-y: auto;
+  max-height: 80vh; /*TODO this is arbitrary */
 }
 
 .chat-convo-li {

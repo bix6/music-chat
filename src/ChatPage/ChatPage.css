@@ -1,21 +1,27 @@
 .chat-page-main {
-  margin: 0 auto;
+  margin: 2rem auto;
+  padding: 0.5rem;
   max-width: 700px;
+  border: 3px solid darkmagenta;
+  border-radius: 5px;
 }
 
 .chat-selector-form {
-  margin: 1rem;
-  border: 1px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
+/* flex: default is 0 1 auto which is what we want for label, select and button */
 .chat-selector-form button {
-  float: right;
+  margin-left: 2rem;
 }
 
 .chat-selector-form p {
   text-align: center;
+  flex: 1 1 100%;
   margin: 1rem 0;
-  clear: both;
 }
 
 iframe {

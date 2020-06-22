@@ -1,211 +1,208 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChatPage Component Snapshot Test: Default 1`] = `
-<Fragment>
-  <HeaderComponent />
-  <main
-    className="chat-page-main"
-  >
-    <ChatSelector
-      chatroomList={
-        Array [
-          Object {
-            "description": "Welcome to the World Wide Music Chat!",
-            "name": "Global",
-          },
-          Object {
-            "description": "A place to discuss your favorite playlists.",
-            "name": "Playlists",
-          },
-          Object {
-            "description": "How do you feel today?",
-            "name": "Mood",
-          },
-          Object {
-            "description": "Keep up to date on your favorite artists.",
-            "name": "Artists",
-          },
-          Object {
-            "description": "All the single songs",
-            "name": "Songs",
-          },
-          Object {
-            "description": "Chat about Doin' Time by Sublime (and now Lana)",
-            "name": "Doin' Time",
-          },
-        ]
-      }
-      currentChatroom="Global"
-      displayNewChatroom={[Function]}
-      updateCurrentChatroom={[Function]}
-    />
-    <ChatConvo
-      currentChatroom="Global"
-      messages={
+<main
+  className="chat-page-main"
+>
+  <ChatSelector
+    chatroomList={
+      Array [
         Object {
-          "Artists": Array [
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "Have you heard of Timbo?",
-              "username": "Jerry",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "Yes",
-              "username": "Timbo",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "He is really good",
-              "username": "Jerry",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "No",
-              "username": "Timbo",
-            },
-          ],
-          "Doin' Time": Array [
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "Alright! Now we can chat about individual songs.",
-              "username": "Nick",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "Summertime and the coding is not easy",
-              "username": "Jack",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "Ain't no thang",
-              "username": "Nick",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "So which version would you pick: Sublime or Lana?",
-              "username": "Jack",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "...",
-              "username": "Nick",
-            },
-          ],
-          "Global": Array [
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "Music Chat Baby!!!!!",
-              "username": "Alicia",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "You Don't Know My Name.",
-              "username": "Jack",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "But you're Unbreakable.",
-              "username": "Alicia",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "If I Ain't Got You, who would I be?",
-              "username": "Jack",
-            },
-            Object {
-              "contentId": "rywUS-ohqeE",
-              "contentType": "youtube video",
-              "message": null,
-              "username": "Alicia",
-            },
-          ],
-          "Mood": Array [
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "My mood is sassy cuz it is hot and I'm listening to Milkshake",
-              "username": "Brownie",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "I am so chilled out listening to Baby Take Off Your Cool",
-              "username": "Basil",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "Damn that's fresh Basil",
-              "username": "Brownie",
-            },
-          ],
-          "Playlists": Array [
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "Please let me share playlists",
-              "username": "Dalbert",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "Ok",
-              "username": "Jack",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "Please send Lorde to my estate",
-              "username": "Dalbert",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "She will be escorted by 20 Golden Kiwis",
-              "username": "Jack",
-            },
-          ],
-          "Songs": Array [
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "I wrote a song",
-              "username": "Chester",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "About what?",
-              "username": "Hubert",
-            },
-            Object {
-              "contentId": null,
-              "contentType": "text",
-              "message": "You, Hubert. It's about you Hubert",
-              "username": "Chester",
-            },
-          ],
-        }
+          "description": "Welcome to the World Wide Music Chat!",
+          "name": "Global",
+        },
+        Object {
+          "description": "A place to discuss your favorite playlists.",
+          "name": "Playlists",
+        },
+        Object {
+          "description": "How do you feel today?",
+          "name": "Mood",
+        },
+        Object {
+          "description": "Keep up to date on your favorite artists.",
+          "name": "Artists",
+        },
+        Object {
+          "description": "All the single songs",
+          "name": "Songs",
+        },
+        Object {
+          "description": "Chat about Doin' Time by Sublime (and now Lana)",
+          "name": "Doin' Time",
+        },
+      ]
+    }
+    currentChatroom="Global"
+    displayNewChatroom={[Function]}
+    updateCurrentChatroom={[Function]}
+  />
+  <ChatConvo
+    currentChatroom="Global"
+    messages={
+      Object {
+        "Artists": Array [
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "Have you heard of Timbo?",
+            "username": "Jerry",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "Yes",
+            "username": "Timbo",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "He is really good",
+            "username": "Jerry",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "No",
+            "username": "Timbo",
+          },
+        ],
+        "Doin' Time": Array [
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "Alright! Now we can chat about individual songs.",
+            "username": "Nick",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "Summertime and the coding is not easy",
+            "username": "Jack",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "Ain't no thang",
+            "username": "Nick",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "So which version would you pick: Sublime or Lana?",
+            "username": "Jack",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "...",
+            "username": "Nick",
+          },
+        ],
+        "Global": Array [
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "Music Chat Baby!!!!!",
+            "username": "Alicia",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "You Don't Know My Name.",
+            "username": "Jack",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "But you're Unbreakable.",
+            "username": "Alicia",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "If I Ain't Got You, who would I be?",
+            "username": "Jack",
+          },
+          Object {
+            "contentId": "rywUS-ohqeE",
+            "contentType": "youtube video",
+            "message": null,
+            "username": "Alicia",
+          },
+        ],
+        "Mood": Array [
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "My mood is sassy cuz it is hot and I'm listening to Milkshake",
+            "username": "Brownie",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "I am so chilled out listening to Baby Take Off Your Cool",
+            "username": "Basil",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "Damn that's fresh Basil",
+            "username": "Brownie",
+          },
+        ],
+        "Playlists": Array [
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "Please let me share playlists",
+            "username": "Dalbert",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "Ok",
+            "username": "Jack",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "Please send Lorde to my estate",
+            "username": "Dalbert",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "She will be escorted by 20 Golden Kiwis",
+            "username": "Jack",
+          },
+        ],
+        "Songs": Array [
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "I wrote a song",
+            "username": "Chester",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "About what?",
+            "username": "Hubert",
+          },
+          Object {
+            "contentId": null,
+            "contentType": "text",
+            "message": "You, Hubert. It's about you Hubert",
+            "username": "Chester",
+          },
+        ],
       }
-    />
-    <ChatInput
-      sendMessage={[Function]}
-      setSearchResults={[Function]}
-    />
-  </main>
-</Fragment>
+    }
+  />
+  <ChatInput
+    sendMessage={[Function]}
+    setSearchResults={[Function]}
+  />
+</main>
 `;

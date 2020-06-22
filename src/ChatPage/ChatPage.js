@@ -105,38 +105,35 @@ class ChatPage extends React.Component {
 
   render() {
     return (
-      <>
-        <HeaderComponent />
-        <main className="chat-page-main">
-          <ChatSelector
-            chatroomList={this.state.chatroomList}
-            currentChatroom={this.state.currentChatroom}
-            updateCurrentChatroom={this.updateCurrentChatroom}
-            displayNewChatroom={this.displayNewChatroom}
+      <main className="chat-page-main">
+        <ChatSelector
+          chatroomList={this.state.chatroomList}
+          currentChatroom={this.state.currentChatroom}
+          updateCurrentChatroom={this.updateCurrentChatroom}
+          displayNewChatroom={this.displayNewChatroom}
+        />
+        {this.state.newChatroomDisplayed && (
+          <NewChatroom
+            createChatroom={this.createChatroom}
+            closeNewChatroom={this.closeNewChatroom}
           />
-          {this.state.newChatroomDisplayed && (
-            <NewChatroom
-              createChatroom={this.createChatroom}
-              closeNewChatroom={this.closeNewChatroom}
-            />
-          )}
-          <ChatConvo
-            currentChatroom={this.state.currentChatroom}
-            messages={this.state.messages}
+        )}
+        <ChatConvo
+          currentChatroom={this.state.currentChatroom}
+          messages={this.state.messages}
+        />
+        <ChatInput
+          sendMessage={this.sendMessage}
+          setSearchResults={this.setSearchResults}
+        />
+        {this.state.searchResults && (
+          <SearchResults
+            searchResults={this.state.searchResults}
+            embedVideo={this.embedVideo}
+            closeSearch={this.closeSearch}
           />
-          <ChatInput
-            sendMessage={this.sendMessage}
-            setSearchResults={this.setSearchResults}
-          />
-          {this.state.searchResults && (
-            <SearchResults
-              searchResults={this.state.searchResults}
-              embedVideo={this.embedVideo}
-              closeSearch={this.closeSearch}
-            />
-          )}
-        </main>
-      </>
+        )}
+      </main>
     );
   }
 }
