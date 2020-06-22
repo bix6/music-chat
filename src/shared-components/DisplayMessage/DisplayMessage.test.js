@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 import { BrowserRouter } from "react-router-dom";
-import DisplayError from "./DisplayError";
+import DisplayMessage from "./DisplayMessage";
 
-describe("DisplayError Component", () => {
+describe("DisplayMessage Component", () => {
   it("Smoke Test: Renders Default", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <BrowserRouter>
-        <DisplayError />
+        <DisplayMessage />
       </BrowserRouter>,
       div
     );
@@ -18,7 +18,7 @@ describe("DisplayError Component", () => {
   });
 
   it("Snapshot Test: Default", () => {
-    const wrapper = shallow(<DisplayError />);
+    const wrapper = shallow(<DisplayMessage />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 });
