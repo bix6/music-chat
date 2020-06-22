@@ -36,18 +36,8 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
         ]
       }
       currentChatroom="Global"
+      displayNewChatroom={[Function]}
       updateCurrentChatroom={[Function]}
-    />
-    <button
-      onClick={[Function]}
-      type="button"
-    >
-      Create Chatroom
-    </button>
-    <NewChatroom
-      closeNewChatroom={[Function]}
-      createChatroom={[Function]}
-      newChatroomDisplay="none"
     />
     <ChatConvo
       currentChatroom="Global"

@@ -1,21 +1,21 @@
 .chat-page-main {
-  position: relative;
-  margin: 0 1rem;
+  margin: 0 auto;
+  max-width: 700px;
 }
 
 .chat-selector-form {
   margin: 1rem;
+  border: 1px solid red;
 }
 
-.chat-page-main > button {
-  position: absolute;
-  top: 0;
-  right: 1rem;
+.chat-selector-form button {
+  float: right;
 }
 
 .chat-selector-form p {
   text-align: center;
   margin: 1rem 0;
+  clear: both;
 }
 
 iframe {
