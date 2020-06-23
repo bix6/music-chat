@@ -21,10 +21,8 @@ exports[`ChatSelector Component Snapshot Test: Default 1`] = `
       + Room
     </button>
   </form>
-  <div
-    className="h2-div"
-  >
-    <h2 />
-  </div>
+  <h2
+    className="chat-selector-h2"
+  />
 </Fragment>
 `;

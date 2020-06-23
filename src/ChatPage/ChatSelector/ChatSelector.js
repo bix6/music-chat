@@ -41,9 +41,7 @@ class ChatSelector extends React.Component {
             + Room
           </button>
         </form>
-        <div className="h2-div">
-          <h2>{curChatroomDescription}</h2>
-        </div>
+        <h2 className="chat-selector-h2">{curChatroomDescription}</h2>
       </>
     );
   }
