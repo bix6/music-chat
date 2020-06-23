@@ -1,7 +1,6 @@
 .chat-convo-div {
   text-align: left;
   overflow-y: auto;
-  max-height: 80vh; /*TODO this is arbitrary */
 }
 
 .chat-convo-li {
@@ -9,5 +8,9 @@
 }
 
 .chat-convo-li:nth-child(odd) {
-  background-color: lightblue;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.chat-convo-li:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.2);
 }

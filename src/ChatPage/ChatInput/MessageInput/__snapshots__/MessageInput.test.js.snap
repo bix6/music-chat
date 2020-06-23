@@ -2,26 +2,30 @@
 
 exports[`MessageInput Component Snapshot Test: Default 1`] = `
 <form
-  className="message-input-form"
+  className="chat-input-form"
 >
-  <label
-    htmlFor="message-input"
+  <div
+    className="chat-input-flex-div"
   >
-    Chat:
-  </label>
-  <input
-    id="message-input"
-    name="message-input"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <button
-    disabled={true}
-    onClick={[Function]}
-    type="submit"
-  >
-    Send
-  </button>
+    <label
+      htmlFor="message-input"
+    >
+      Chat:
+    </label>
+    <input
+      id="message-input"
+      name="message-input"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      disabled={true}
+      onClick={[Function]}
+      type="submit"
+    >
+      Send
+    </button>
+  </div>
 </form>
 `;

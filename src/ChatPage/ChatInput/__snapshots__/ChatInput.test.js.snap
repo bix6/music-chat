@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChatInput Component Snapshot Test: Default 1`] = `
-<div>
+<div
+  className="chat-input-div"
+>
   <MessageInput />
   <SearchInput />
 </div>

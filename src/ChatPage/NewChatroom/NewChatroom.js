@@ -1,5 +1,5 @@
 import React from "react";
-import DisplayError from "../../shared-components/DisplayError/DisplayError";
+import DisplayMessage from "../../shared-components/DisplayMessage/DisplayMessage";
 import "./NewChatroom.css";
 
 class NewChatroom extends React.Component {
@@ -101,10 +101,10 @@ class NewChatroom extends React.Component {
           Cancel
         </button>
         {this.state.chatroomTouched && (
-          <DisplayError message={this.validateNewChatroom()} />
+          <DisplayMessage message={this.validateNewChatroom()} />
         )}
         {this.state.descriptionTouched && (
-          <DisplayError message={this.validateNewChatroomDescription()} />
+          <DisplayMessage message={this.validateNewChatroomDescription()} />
         )}
         {!!this.state.successMessage && <div>{this.state.successMessage}</div>}
       </form>

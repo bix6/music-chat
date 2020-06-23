@@ -37,7 +37,7 @@ class ChatSelector extends React.Component {
           {this.createSelectOptions()}
         </select>
         <button type="button" onClick={this.props.displayNewChatroom}>
-            Create Chatroom
+          + Room
         </button>
         <p>{curChatroomDescription}</p>
       </form>

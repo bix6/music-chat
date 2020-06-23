@@ -17,7 +17,7 @@ exports[`ChatSelector Component Snapshot Test: Default 1`] = `
   <button
     type="button"
   >
-    Create Chatroom
+    + Room
   </button>
   <p />
 </form>

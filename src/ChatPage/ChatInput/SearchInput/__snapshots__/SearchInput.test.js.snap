@@ -2,26 +2,30 @@
 
 exports[`SearchInput Component Snapshot Test: Default 1`] = `
 <form
-  className="search-input-form"
+  className="chat-input-form"
 >
-  <label
-    htmlFor="search-input"
+  <div
+    className="chat-input-flex-div"
   >
-    Embed:
-  </label>
-  <input
-    id="search-input"
-    name="search-input"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <button
-    disabled={true}
-    onClick={[Function]}
-    type="submit"
-  >
-    Search
-  </button>
+    <label
+      htmlFor="search-input"
+    >
+      Embed:
+    </label>
+    <input
+      id="search-input"
+      name="search-input"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      disabled={true}
+      onClick={[Function]}
+      type="submit"
+    >
+      Search
+    </button>
+  </div>
 </form>
 `;

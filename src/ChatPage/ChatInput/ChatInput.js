@@ -4,7 +4,7 @@ import SearchInput from "./SearchInput/SearchInput";
 
 export default function ChatInput(props) {
   return (
-    <div>
+    <div className="chat-input-div">
       <MessageInput sendMessage={props.sendMessage} />
       <SearchInput setSearchResults={props.setSearchResults} />
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderComponent from "../shared-components/HeaderComponent/HeaderComponent";
-import DisplayError from "../shared-components/DisplayError/DisplayError";
+import DisplayMessage from "../shared-components/DisplayMessage/DisplayMessage";
 import "./LandingPage.css";
 
 class LandingPage extends React.Component {
@@ -58,7 +58,7 @@ class LandingPage extends React.Component {
               Chat
             </button>
             {this.state.touched && (
-              <DisplayError message={this.validateUsername()} />
+              <DisplayMessage message={this.validateUsername()} />
             )}
           </form>
         </main>

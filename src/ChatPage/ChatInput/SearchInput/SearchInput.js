@@ -1,5 +1,5 @@
 import React from "react";
-import DisplayError from "../../../shared-components/DisplayError/DisplayError";
+import DisplayMessage from "../../../shared-components/DisplayMessage/DisplayMessage";
 import config from "../../../config";
 import "./SearchInput.css";
 
@@ -82,27 +82,31 @@ class SearchInput extends React.Component {
 
   render() {
     return (
-      <form className="search-input-form">
-        <label htmlFor="search-input">{"Embed:"}</label>
-        <input
-          type="text"
-          id="search-input"
-          name="search-input"
-          onChange={(e) => this.updateUserInput(e.target.value)}
-          value={this.state.userInput}
-        />
-        <button
-          type="submit"
-          onClick={(e) => this.handleSearchClicked(e)}
-          disabled={!this.state.touched || this.validateUserInput()}
-        >
-          Search
-        </button>
+      <form className="chat-input-form">
+        <div className="chat-input-flex-div">
+          <label htmlFor="search-input">{"Embed:"}</label>
+          <input
+            type="text"
+            id="search-input"
+            name="search-input"
+            onChange={(e) => this.updateUserInput(e.target.value)}
+            value={this.state.userInput}
+          />
+          <button
+            type="submit"
+            onClick={(e) => this.handleSearchClicked(e)}
+            disabled={!this.state.touched || this.validateUserInput()}
+          >
+            Search
+          </button>
+        </div>
         {this.state.touched && (
-          <DisplayError message={this.validateUserInput()} />
+          <DisplayMessage message={this.validateUserInput()} />
         )}
-        {!!this.state.error && <DisplayError message={this.state.error} />}
-        {!!this.state.loadingMessage && <div>{this.state.loadingMessage}</div>}
+        {!!this.state.error && <DisplayMessage message={this.state.error} />}
+        {!!this.state.loadingMessage && (
+          <DisplayMessage message={this.state.loadingMessage} />
+        )}
       </form>
     );
   }

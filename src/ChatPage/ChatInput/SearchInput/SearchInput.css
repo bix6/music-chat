@@ -1,8 +1,1 @@
-.search-input-form {
-  display: flex;
-  align-items: baseline;
-}
 
-.search-input-form input {
-  flex: 1 1 80%;
-}

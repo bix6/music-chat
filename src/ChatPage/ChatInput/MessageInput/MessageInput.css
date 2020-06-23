@@ -1,8 +1,0 @@
-.message-input-form {
-  display: flex;
-  align-items: baseline;
-}
-
-.message-input-form input {
-  flex: 1 1 80%;
-}

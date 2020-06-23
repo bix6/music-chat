@@ -1,5 +1,4 @@
 import React from "react";
-import HeaderComponent from "../shared-components/HeaderComponent/HeaderComponent";
 import ChatSelector from "./ChatSelector/ChatSelector";
 import ChatConvo from "./ChatConvo/ChatConvo";
 import ChatInput from "./ChatInput/ChatInput";

@@ -1,5 +1,5 @@
 import React from "react";
-import DisplayError from "../../../shared-components/DisplayError/DisplayError";
+import DisplayMessage from "../../../shared-components/DisplayMessage/DisplayMessage";
 import "./MessageInput.css";
 
 class MessageInput extends React.Component {
@@ -32,24 +32,26 @@ class MessageInput extends React.Component {
 
   render() {
     return (
-      <form className="message-input-form">
-        <label htmlFor="message-input">Chat:</label>
-        <input
-          type="text"
-          id="message-input"
-          name="message-input"
-          onChange={(e) => this.updateUserInput(e.target.value)}
-          value={this.state.userInput}
-        />
-        <button
-          type="submit"
-          onClick={(e) => this.handleSendClicked(e)}
-          disabled={!this.state.touched || this.validateUserInput()}
-        >
-          Send
-        </button>
+      <form className="chat-input-form">
+        <div className="chat-input-flex-div">
+          <label htmlFor="message-input">Chat:</label>
+          <input
+            type="text"
+            id="message-input"
+            name="message-input"
+            onChange={(e) => this.updateUserInput(e.target.value)}
+            value={this.state.userInput}
+          />
+          <button
+            type="submit"
+            onClick={(e) => this.handleSendClicked(e)}
+            disabled={!this.state.touched || this.validateUserInput()}
+          >
+            Send
+          </button>
+        </div>
         {this.state.touched && (
-          <DisplayError message={this.validateUserInput()} />
+          <DisplayMessage message={this.validateUserInput()} />
         )}
       </form>
     );

@@ -1,27 +1,84 @@
 .chat-page-main {
-  margin: 2rem auto;
-  padding: 0.5rem;
+  margin: 0 auto;
   max-width: 700px;
-  border: 3px solid darkmagenta;
-  border-radius: 5px;
+  height: 100%;
+  border: 3px solid #43cbff;
+  background-image: linear-gradient(20deg, #9708cc 10%, #43cbff 100%);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.2rem 0.2rem 0.2rem;
 }
 
 .chat-selector-form {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  flex: 0 1 auto;
+  width: 100%;
 }
 
-/* flex: default is 0 1 auto which is what we want for label, select and button */
+.chat-selector-form label {
+  flex: 0 1 auto;
+}
+
+.chat-selector-form select {
+  flex: 1 1 auto;
+  text-align: center;
+  margin: 0 2rem 0 0.2rem;
+}
+
 .chat-selector-form button {
-  margin-left: 2rem;
 }
 
 .chat-selector-form p {
   text-align: center;
   flex: 1 1 100%;
   margin: 1rem 0;
+  background-color: #9708cc;
+  color: #44ffd2;
+}
+
+.chat-convo-div {
+  flex: 10 1 auto;
+  width: 100%;
+}
+
+.chat-input-div {
+  flex: 0 1 auto;
+  width: 100%;
+}
+
+.chat-input-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.chat-input-flex-div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.chat-input-form label {
+  flex: 1 1 auto;
+}
+
+.chat-input-form input {
+  flex: 100 1 auto;
+}
+
+.chat-input-form button {
+  flex: 1 1 auto;
+}
+
+.chat-input-form .display-message {
+  flex: 1 1 100%;
 }
 
 iframe {

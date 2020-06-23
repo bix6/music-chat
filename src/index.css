@@ -2,7 +2,6 @@
 body {
   width: 100vw;
   height: 100vh;
-  border: 1px solid white;
 }
 
 #root {
@@ -11,22 +10,24 @@ body {
   width: 100%;
   height: 100%;
   border: 1px solid white; /* TODO why does this border force the scroll bars to disappear (which is what I want) */
+  background-image: linear-gradient(135deg, #fccf31 10%, #f55555 100%);
 }
 
 /* Link Styles */
 a:link {
-  color: orange;
+  color: #9708cc;
   text-decoration: none;
 }
 
 a:visited {
-  color: orange;
+  color: #9708cc;
 }
 
 a:hover {
-  color: blueviolet;
+  color: #9708cc;
+  color: #44ffd2;
 }
 
 a:active {
-  color: purple;
+  color: #43cbff;
 }
