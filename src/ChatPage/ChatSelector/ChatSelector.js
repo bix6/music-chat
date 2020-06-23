@@ -39,7 +39,9 @@ class ChatSelector extends React.Component {
         <button type="button" onClick={this.props.displayNewChatroom}>
           + Room
         </button>
-        <h2>{curChatroomDescription}</h2>
+        <div className="h2-div">
+          <h2>{curChatroomDescription}</h2>
+        </div>
       </form>
     );
   }
