@@ -1,8 +1,10 @@
 # Music Chat
 
-**Status: Static Front End MVP Live**
+**Status: Static Front End MVP Live, API in Progress**
 
 ## [Live Site](https://music-chat.now.sh)
+
+## [API](https://github.com/bix6/music-chat-api)
 
 ## [Project Board](https://github.com/bix6/music-chat/projects/1)
 
