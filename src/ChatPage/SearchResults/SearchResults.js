@@ -30,15 +30,18 @@ class SearchResults extends React.Component {
 
   render() {
     return (
-      <ol className="search-results-ol">
-        {/* TODO remove br, style in css? */}
-        <br />
-        <button type="button" onClick={this.props.closeSearch}>
-          Cancel
-        </button>
-        <br />
-        {this.createListItems()}
-      </ol>
+      <div className="search-results-div">
+        <ol className="search-results-ol">
+          <button
+            type="button"
+            onClick={this.props.closeSearch}
+            className="cancel-button"
+          >
+            Cancel
+          </button>
+          {this.createListItems()}
+        </ol>
+      </div>
     );
   }
 }

@@ -1,15 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchResults Component Snapshot Test: Default 1`] = `
-<ol
-  className="search-results-ol"
+<div
+  className="search-results-div"
 >
-  <br />
-  <button
-    type="button"
+  <ol
+    className="search-results-ol"
   >
-    Cancel
-  </button>
-  <br />
-</ol>
+    <button
+      className="cancel-button"
+      type="button"
+    >
+      Cancel
+    </button>
+  </ol>
+</div>
 `;
