@@ -1,28 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ChatSelector Component Snapshot Test: Default 1`] = `
-<form
-  className="chat-selector-form"
->
-  <label
-    htmlFor="chat-select"
+<Fragment>
+  <form
+    className="chat-selector-form"
   >
-    Chatroom: 
-  </label>
-  <select
-    id="chat-select"
-    name="chat-select"
-    onChange={[Function]}
-  />
-  <button
-    type="button"
-  >
-    + Room
-  </button>
+    <label
+      htmlFor="chat-select"
+    >
+      Chatroom: 
+    </label>
+    <select
+      id="chat-select"
+      name="chat-select"
+      onChange={[Function]}
+    />
+    <button
+      type="button"
+    >
+      + Room
+    </button>
+  </form>
   <div
     className="h2-div"
   >
     <h2 />
   </div>
-</form>
+</Fragment>
 `;
