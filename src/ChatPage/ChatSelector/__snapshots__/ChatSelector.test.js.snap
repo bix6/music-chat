@@ -19,6 +19,6 @@ exports[`ChatSelector Component Snapshot Test: Default 1`] = `
   >
     + Room
   </button>
-  <p />
+  <h2 />
 </form>
 `;

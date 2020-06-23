@@ -26,23 +26,21 @@ class ChatSelector extends React.Component {
     });
 
     return (
-      <>
-        <form className="chat-selector-form">
-          <label htmlFor="chat-select">Chatroom: </label>
-          <select
-            name="chat-select"
-            id="chat-select"
-            value={this.props.currentChatroom}
-            onChange={(e) => this.props.updateCurrentChatroom(e.target.value)}
-          >
-            {this.createSelectOptions()}
-          </select>
-          <button type="button" onClick={this.props.displayNewChatroom}>
-            + Room
-          </button>
-        </form>
-        <p>{curChatroomDescription}</p>
-      </>
+      <form className="chat-selector-form">
+        <label htmlFor="chat-select">Chatroom: </label>
+        <select
+          name="chat-select"
+          id="chat-select"
+          value={this.props.currentChatroom}
+          onChange={(e) => this.props.updateCurrentChatroom(e.target.value)}
+        >
+          {this.createSelectOptions()}
+        </select>
+        <button type="button" onClick={this.props.displayNewChatroom}>
+          + Room
+        </button>
+        <h2>{curChatroomDescription}</h2>
+      </form>
     );
   }
 }
