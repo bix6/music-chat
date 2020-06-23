@@ -68,46 +68,51 @@ class NewChatroom extends React.Component {
 
   render() {
     return (
-      <form
-        className="new-chatroom-form"
-        style={{ display: this.props.newChatroomDisplay }}
-        onSubmit={(e) => this.handleSubmit(e)}
-      >
-        <label htmlFor="new-chatroom">New Chatroom:</label>
-        <input
-          type="text"
-          name="new-chatroom"
-          id="new-chatroom"
-          value={this.state.newChatroom}
-          onChange={(e) => this.updateNewChatroom(e.target.value)}
-        />
-        <label htmlFor="new-chatroom-description">Description:</label>
-        <input
-          type="text"
-          name="new-chatroom-description"
-          id="new-chatroom-description"
-          value={this.state.newDescription}
-          onChange={(e) => this.updateNewChatroomDescription(e.target.value)}
-        />
-        <button
-          type="submit"
-          disabled={
-            this.validateNewChatroom() || this.validateNewChatroomDescription()
-          }
+      <div className="new-chatroom-div">
+        <form
+          className="new-chatroom-form"
+          style={{ display: this.props.newChatroomDisplay }}
+          onSubmit={(e) => this.handleSubmit(e)}
         >
-          Create Chatroom
-        </button>
-        <button type="button" onClick={this.handleCancel}>
-          Cancel
-        </button>
-        {this.state.chatroomTouched && (
-          <DisplayMessage message={this.validateNewChatroom()} />
-        )}
-        {this.state.descriptionTouched && (
-          <DisplayMessage message={this.validateNewChatroomDescription()} />
-        )}
-        {!!this.state.successMessage && <div>{this.state.successMessage}</div>}
-      </form>
+          <label htmlFor="new-chatroom">New Chatroom:</label>
+          <input
+            type="text"
+            name="new-chatroom"
+            id="new-chatroom"
+            value={this.state.newChatroom}
+            onChange={(e) => this.updateNewChatroom(e.target.value)}
+          />
+          <label htmlFor="new-chatroom-description">Description:</label>
+          <input
+            type="text"
+            name="new-chatroom-description"
+            id="new-chatroom-description"
+            value={this.state.newDescription}
+            onChange={(e) => this.updateNewChatroomDescription(e.target.value)}
+          />
+          <button
+            type="submit"
+            disabled={
+              this.validateNewChatroom() ||
+              this.validateNewChatroomDescription()
+            }
+          >
+            Create Chatroom
+          </button>
+          <button type="button" onClick={this.handleCancel}>
+            Cancel
+          </button>
+          {this.state.chatroomTouched && (
+            <DisplayMessage message={this.validateNewChatroom()} />
+          )}
+          {this.state.descriptionTouched && (
+            <DisplayMessage message={this.validateNewChatroomDescription()} />
+          )}
+          {!!this.state.successMessage && (
+            <div>{this.state.successMessage}</div>
+          )}
+        </form>
+      </div>
     );
   }
 }

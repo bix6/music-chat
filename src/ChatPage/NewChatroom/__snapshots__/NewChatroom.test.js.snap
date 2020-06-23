@@ -1,50 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NewChatroom Component Snapshot Test: Default 1`] = `
-<form
-  className="new-chatroom-form"
-  onSubmit={[Function]}
-  style={
-    Object {
-      "display": undefined,
-    }
-  }
+<div
+  className="new-chatroom-div"
 >
-  <label
-    htmlFor="new-chatroom"
+  <form
+    className="new-chatroom-form"
+    onSubmit={[Function]}
+    style={
+      Object {
+        "display": undefined,
+      }
+    }
   >
-    New Chatroom:
-  </label>
-  <input
-    id="new-chatroom"
-    name="new-chatroom"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <label
-    htmlFor="new-chatroom-description"
-  >
-    Description:
-  </label>
-  <input
-    id="new-chatroom-description"
-    name="new-chatroom-description"
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <button
-    disabled="Chatroom must be 1 character or more"
-    type="submit"
-  >
-    Create Chatroom
-  </button>
-  <button
-    onClick={[Function]}
-    type="button"
-  >
-    Cancel
-  </button>
-</form>
+    <label
+      htmlFor="new-chatroom"
+    >
+      New Chatroom:
+    </label>
+    <input
+      id="new-chatroom"
+      name="new-chatroom"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <label
+      htmlFor="new-chatroom-description"
+    >
+      Description:
+    </label>
+    <input
+      id="new-chatroom-description"
+      name="new-chatroom-description"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <button
+      disabled="Chatroom must be 1 character or more"
+      type="submit"
+    >
+      Create Chatroom
+    </button>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Cancel
+    </button>
+  </form>
+</div>
 `;
