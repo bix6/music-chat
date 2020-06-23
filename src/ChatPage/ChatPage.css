@@ -41,6 +41,7 @@
   margin: 1rem 0;
   background-color: #9708cc;
   color: #44ffd2;
+  position: relative;
 }
 
 .chat-convo-div {
