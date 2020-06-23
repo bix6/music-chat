@@ -10,7 +10,7 @@ exports[`SearchInput Component Snapshot Test: Default 1`] = `
     <label
       htmlFor="search-input"
     >
-      Embed:
+      YouTube:
     </label>
     <input
       id="search-input"

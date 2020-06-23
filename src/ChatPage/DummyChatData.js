@@ -30,7 +30,7 @@ const messages = {
     {
       username: "Alicia",
       contentType: "text",
-      message: "Music Chat Baby!!!!!",
+      message: "Music Chat, Baby.",
       contentId: null,
     },
     {
@@ -62,7 +62,7 @@ const messages = {
     {
       username: "Dalbert",
       contentType: "text",
-      message: "Please let me share playlists",
+      message: "Let's share playlists",
       contentId: null,
     },
     {
@@ -80,7 +80,7 @@ const messages = {
     {
       username: "Jack",
       contentType: "text",
-      message: "She will be escorted by 20 Golden Kiwis",
+      message: "She'll be escorted by 20 Golden Kiwis",
       contentId: null,
     },
   ],
@@ -88,19 +88,19 @@ const messages = {
     {
       username: "Brownie",
       contentType: "text",
-      message: "My mood is sassy cuz it is hot and I'm listening to Milkshake",
+      message: "My mood is sassy cuz it's hot and I'm listening to Milkshake",
       contentId: null,
     },
     {
       username: "Basil",
       contentType: "text",
-      message: "I am so chilled out listening to Baby Take Off Your Cool",
+      message: "I'm so chilled out listening to Baby Take Off Your Cool",
       contentId: null,
     },
     {
       username: "Brownie",
       contentType: "text",
-      message: "Damn that's fresh Basil",
+      message: "Damn, that's fresh Basil",
       contentId: null,
     },
   ],
@@ -120,7 +120,7 @@ const messages = {
     {
       username: "Jerry",
       contentType: "text",
-      message: "He is really good",
+      message: "He's really good",
       contentId: null,
     },
     {
@@ -146,7 +146,7 @@ const messages = {
     {
       username: "Chester",
       contentType: "text",
-      message: "You, Hubert. It's about you Hubert",
+      message: "It's about you Hubert",
       contentId: null,
     },
   ],
@@ -154,7 +154,7 @@ const messages = {
     {
       username: "Nick",
       contentType: "text",
-      message: "Alright! Now we can chat about individual songs.",
+      message: "Alright we got songs.",
       contentId: null,
     },
     {
@@ -166,19 +166,7 @@ const messages = {
     {
       username: "Nick",
       contentType: "text",
-      message: "Ain't no thang",
-      contentId: null,
-    },
-    {
-      username: "Jack",
-      contentType: "text",
-      message: "So which version would you pick: Sublime or Lana?",
-      contentId: null,
-    },
-    {
-      username: "Nick",
-      contentType: "text",
-      message: "...",
+      message: "Ain't no thang...",
       contentId: null,
     },
   ],

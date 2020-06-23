@@ -84,7 +84,7 @@ class SearchInput extends React.Component {
     return (
       <form className="chat-input-form">
         <div className="chat-input-flex-div">
-          <label htmlFor="search-input">{"Embed:"}</label>
+          <label htmlFor="search-input">{"YouTube:"}</label>
           <input
             type="text"
             id="search-input"
@@ -105,7 +105,7 @@ class SearchInput extends React.Component {
         )}
         {!!this.state.error && <DisplayMessage message={this.state.error} />}
         {!!this.state.loadingMessage && (
-          <DisplayMessage message={this.state.loadingMessage} />
+          <DisplayMessage message={this.state.loadingMessage} color="white" />
         )}
       </form>
     );

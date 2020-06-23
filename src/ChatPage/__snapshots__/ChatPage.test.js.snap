@@ -57,7 +57,7 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
           Object {
             "contentId": null,
             "contentType": "text",
-            "message": "He is really good",
+            "message": "He's really good",
             "username": "Jerry",
           },
           Object {
@@ -71,7 +71,7 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
           Object {
             "contentId": null,
             "contentType": "text",
-            "message": "Alright! Now we can chat about individual songs.",
+            "message": "Alright we got songs.",
             "username": "Nick",
           },
           Object {
@@ -83,19 +83,7 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
           Object {
             "contentId": null,
             "contentType": "text",
-            "message": "Ain't no thang",
-            "username": "Nick",
-          },
-          Object {
-            "contentId": null,
-            "contentType": "text",
-            "message": "So which version would you pick: Sublime or Lana?",
-            "username": "Jack",
-          },
-          Object {
-            "contentId": null,
-            "contentType": "text",
-            "message": "...",
+            "message": "Ain't no thang...",
             "username": "Nick",
           },
         ],
@@ -103,7 +91,7 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
           Object {
             "contentId": null,
             "contentType": "text",
-            "message": "Music Chat Baby!!!!!",
+            "message": "Music Chat, Baby.",
             "username": "Alicia",
           },
           Object {
@@ -135,19 +123,19 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
           Object {
             "contentId": null,
             "contentType": "text",
-            "message": "My mood is sassy cuz it is hot and I'm listening to Milkshake",
+            "message": "My mood is sassy cuz it's hot and I'm listening to Milkshake",
             "username": "Brownie",
           },
           Object {
             "contentId": null,
             "contentType": "text",
-            "message": "I am so chilled out listening to Baby Take Off Your Cool",
+            "message": "I'm so chilled out listening to Baby Take Off Your Cool",
             "username": "Basil",
           },
           Object {
             "contentId": null,
             "contentType": "text",
-            "message": "Damn that's fresh Basil",
+            "message": "Damn, that's fresh Basil",
             "username": "Brownie",
           },
         ],
@@ -155,7 +143,7 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
           Object {
             "contentId": null,
             "contentType": "text",
-            "message": "Please let me share playlists",
+            "message": "Let's share playlists",
             "username": "Dalbert",
           },
           Object {
@@ -173,7 +161,7 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
           Object {
             "contentId": null,
             "contentType": "text",
-            "message": "She will be escorted by 20 Golden Kiwis",
+            "message": "She'll be escorted by 20 Golden Kiwis",
             "username": "Jack",
           },
         ],
@@ -193,7 +181,7 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
           Object {
             "contentId": null,
             "contentType": "text",
-            "message": "You, Hubert. It's about you Hubert",
+            "message": "It's about you Hubert",
             "username": "Chester",
           },
         ],
