@@ -59,7 +59,7 @@ class NewChatroom extends React.Component {
       this.state.newDescription
     );
     this.setState({
-      successMessage: "Chatroom Created. Closing Overlay...",
+      successMessage: "Success. Closing...",
     });
     setTimeout(() => {
       this.handleCancel();
