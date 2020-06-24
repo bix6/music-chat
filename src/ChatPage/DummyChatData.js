@@ -42,7 +42,7 @@ const messages = {
     {
       username: "Alicia",
       contentType: "text",
-      message: "But you're Unbreakable.",
+      message: "But I know you're Unbreakable.",
       contentId: "",
     },
     {

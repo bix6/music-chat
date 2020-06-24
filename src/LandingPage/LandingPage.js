@@ -22,7 +22,13 @@ class LandingPage extends React.Component {
     if (username.length < 1) {
       return "Name must be 1 character or more";
     }
-    if (username.toLowerCase() === "bixbot") {
+    if (
+      username.toLowerCase() === "bix" ||
+      username.toLowerCase() === "bix6" ||
+      username.toLowerCase() === "bixbot" ||
+      username.toLowerCase() === "bixby" ||
+      username.toLowerCase() === "jack"
+    ) {
       return "This username is reserved";
     }
   };
