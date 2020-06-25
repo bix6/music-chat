@@ -1,5 +1,4 @@
 import React from "react";
-import DisplayMessage from "../../../shared-components/DisplayMessage/DisplayMessage";
 import "./MessageInput.css";
 
 class MessageInput extends React.Component {
@@ -50,9 +49,6 @@ class MessageInput extends React.Component {
             Send
           </button>
         </div>
-        {this.state.touched && (
-          <DisplayMessage message={this.validateUserInput()} />
-        )}
       </form>
     );
   }

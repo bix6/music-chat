@@ -100,9 +100,6 @@ class SearchInput extends React.Component {
             Search
           </button>
         </div>
-        {this.state.touched && (
-          <DisplayMessage message={this.validateUserInput()} />
-        )}
         {!!this.state.error && <DisplayMessage message={this.state.error} />}
         {!!this.state.loadingMessage && (
           <DisplayMessage message={this.state.loadingMessage} color="white" />

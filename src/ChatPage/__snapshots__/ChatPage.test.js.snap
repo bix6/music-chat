@@ -43,25 +43,25 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
       Object {
         "Artists": Array [
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "Have you heard of Timbo?",
             "username": "Jerry",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "Yes",
             "username": "Timbo",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "He's really good",
             "username": "Jerry",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "No",
             "username": "Timbo",
@@ -69,19 +69,19 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
         ],
         "Doin' Time": Array [
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "Alright we got songs.",
             "username": "Nick",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "Summertime and the coding is not easy",
             "username": "Jack",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "Ain't no thang...",
             "username": "Nick",
@@ -89,25 +89,25 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
         ],
         "Global": Array [
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "Music Chat, Baby.",
             "username": "Alicia",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "You Don't Know My Name.",
             "username": "Jack",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
-            "message": "But you're Unbreakable.",
+            "message": "But I know you're Unbreakable.",
             "username": "Alicia",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "If I Ain't Got You, who would I be?",
             "username": "Jack",
@@ -115,25 +115,25 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
           Object {
             "contentId": "rywUS-ohqeE",
             "contentType": "youtube video",
-            "message": null,
+            "message": "",
             "username": "Alicia",
           },
         ],
         "Mood": Array [
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "My mood is sassy cuz it's hot and I'm listening to Milkshake",
             "username": "Brownie",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "I'm so chilled out listening to Baby Take Off Your Cool",
             "username": "Basil",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "Damn, that's fresh Basil",
             "username": "Brownie",
@@ -141,25 +141,25 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
         ],
         "Playlists": Array [
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "Let's share playlists",
             "username": "Dalbert",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "Ok",
             "username": "Jack",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "Please send Lorde to my estate",
             "username": "Dalbert",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "She'll be escorted by 20 Golden Kiwis",
             "username": "Jack",
@@ -167,19 +167,19 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
         ],
         "Songs": Array [
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "I wrote a song",
             "username": "Chester",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "About what?",
             "username": "Hubert",
           },
           Object {
-            "contentId": null,
+            "contentId": "",
             "contentType": "text",
             "message": "It's about you Hubert",
             "username": "Chester",
