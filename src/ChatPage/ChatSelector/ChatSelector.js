@@ -17,15 +17,17 @@ class ChatSelector extends React.Component {
     });
   };
 
+  // TODO why is the select not updating with the value correctly?
   render() {
+    // console.log(this.props.currentChatroom.name);
     return (
       <>
         <form className="chat-selector-form">
           <label htmlFor="chat-select">Chatroom: </label>
-          {/* TODO This select needed a value with the chatroom name before but now it doesnt? */}
           <select
             name="chat-select"
             id="chat-select"
+            value={this.props.currentChatroom.name}
             onChange={(e) => this.props.updateCurrentChatroom(e.target.value)}
           >
             {this.createSelectOptions()}

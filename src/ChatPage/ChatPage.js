@@ -89,11 +89,33 @@ class ChatPage extends React.Component {
       },
     ];
 
-    this.setState({
-      chatroomList: [...chatroomList, newChatroom],
-      messages: { ...messages, [chatroom]: newMessage },
-      currentChatroom: chatroom, // TODO set the id from the POST response here with the chatroom obj
-    });
+    const url = config.API_ENDPOINT + `/chatrooms`;
+    const options = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${config.API_KEY}`,
+      },
+      body: JSON.stringify(newChatroom),
+    };
+    fetch(url, options)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw Error(res.statusText);
+      })
+      .then((resJson) => {
+        console.log("resJson", resJson);
+        this.setState({
+          chatroomList: [...chatroomList, resJson],
+          messages: { ...messages, [resJson.name]: newMessage }, // TODO add the message in properly
+          currentChatroom: resJson,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   // TODO POST Message
