@@ -3,25 +3,52 @@ import ChatSelector from "./ChatSelector/ChatSelector";
 import ChatConvo from "./ChatConvo/ChatConvo";
 import ChatInput from "./ChatInput/ChatInput";
 import SearchResults from "./SearchResults/SearchResults";
-import { chatroomList, messages } from "./DummyChatData";
+import { messages } from "./DummyChatData";
 import NewChatroom from "./NewChatroom/NewChatroom";
 import "./ChatPage.css";
+import config from "../config";
 
 class ChatPage extends React.Component {
   state = {
-    chatroomList: ["Loading"],
-    currentChatroom: "Loading",
+    chatroomList: [],
+    currentChatroom: "",
     newChatroomDisplayed: false,
-    messages: {
-      Loading: ["Bixbot: Chat loading..."],
-    },
+    messages: {},
     searchResults: null,
   };
 
+  initChatrooms() {
+    const url = config.API_ENDPOINT + `/chatrooms`;
+    const options = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${config.API_KEY}`,
+      },
+    };
+    fetch(url, options)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw Error(res.statusText);
+      })
+      .then((resJson) => {
+        let currentChatroom = resJson[0].name;
+        this.setState({
+          chatroomList: resJson,
+          currentChatroom: currentChatroom,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   componentDidMount() {
+    this.initChatrooms();
+    console.log(this.state.chatroomList);
     this.setState({
-      chatroomList: chatroomList,
-      currentChatroom: "Global",
       messages: messages,
     });
   }

@@ -43,16 +43,19 @@ class ChatConvo extends React.Component {
 
   /* Create li elems for each messageObj in the current chatroom */
   createConvoListElems = () => {
-    return this.props.messages[this.props.currentChatroom].map(
-      (messageObj, i) => {
-        if (messageObj.contentType === "text") {
-          return this.createMessageLi(messageObj, i);
-        } else if (messageObj.contentType === "youtube video") {
-          return this.createYoutubeVideoLi(messageObj, i);
+    if (this.props.messages[this.props.currentChatroom]) {
+      return this.props.messages[this.props.currentChatroom].map(
+        (messageObj, i) => {
+          if (messageObj.contentType === "text") {
+            return this.createMessageLi(messageObj, i);
+          } else if (messageObj.contentType === "youtube video") {
+            return this.createYoutubeVideoLi(messageObj, i);
+          }
+          return <></>;
         }
-        return "Bixbot: Error Retrieving Message";
-      }
-    );
+      );
+    }
+    return <></>;
   };
 
   render() {
