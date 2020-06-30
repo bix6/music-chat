@@ -3,7 +3,6 @@ import ChatSelector from "./ChatSelector/ChatSelector";
 import ChatConvo from "./ChatConvo/ChatConvo";
 import ChatInput from "./ChatInput/ChatInput";
 import SearchResults from "./SearchResults/SearchResults";
-import { messages } from "./DummyChatData";
 import NewChatroom from "./NewChatroom/NewChatroom";
 import "./ChatPage.css";
 import config from "../config";
@@ -44,11 +43,38 @@ class ChatPage extends React.Component {
       });
   }
 
+  initMessages() {
+    // Get messages for chatroom #1 (global)
+    const url = config.API_ENDPOINT + `/messages/1`;
+    console.log(url);
+    const options = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${config.API_KEY}`,
+      },
+    };
+    fetch(url, options)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw Error(res.statusText);
+      })
+      .then((resJson) => {
+        let messages = this.state.messages;
+        messages[resJson[0].chatroom_id] = resJson;
+        this.setState({
+          messages: messages,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   componentDidMount() {
     this.initChatrooms();
-    this.setState({
-      messages: messages,
-    });
+    this.initMessages();
   }
 
   updateCurrentChatroom = (chatroomId) => {

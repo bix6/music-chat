@@ -18,9 +18,8 @@ class ChatConvo extends React.Component {
   };
 
   createYoutubeVideoLi = (messageObj, i) => {
-    const src = `https://www.youtube.com/embed/${messageObj.contentId}`;
-    const title = `Embeded YouTube videoId: ${messageObj.contentId}`;
-
+    const src = `https://www.youtube.com/embed/${messageObj.content_id}`;
+    const title = `Embeded YouTube videoId: ${messageObj.content_id}`;
     return (
       <li key={i} className="chat-convo-li">
         {messageObj.username + ": "}
@@ -41,12 +40,12 @@ class ChatConvo extends React.Component {
 
   /* Create li elems for each messageObj in the current chatroom */
   createConvoListElems = () => {
-    if (this.props.messages[this.props.currentChatroom.name]) {
-      return this.props.messages[this.props.currentChatroom.name].map(
+    if (this.props.messages[this.props.currentChatroom.id]) {
+      return this.props.messages[this.props.currentChatroom.id].map(
         (messageObj, i) => {
-          if (messageObj.contentType === "text") {
+          if (messageObj.content_type === "text") {
             return this.createMessageLi(messageObj, i);
-          } else if (messageObj.contentType === "youtube video") {
+          } else if (messageObj.content_type === "youtube video") {
             return this.createYoutubeVideoLi(messageObj, i);
           }
           return <></>;
