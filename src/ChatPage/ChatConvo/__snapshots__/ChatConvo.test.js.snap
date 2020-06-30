@@ -4,8 +4,6 @@ exports[`ChatConvo Component Snapshot Test: Default 1`] = `
 <div
   className="chat-convo-div"
 >
-  <ol>
-    Bixbot: Error Retrieving Message
-  </ol>
+  <ol />
 </div>
 `;

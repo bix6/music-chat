@@ -3,6 +3,7 @@ import React from "react";
 class ChatSelector extends React.Component {
   static defaultProps = {
     chatroomList: [],
+    currentChatroom: {},
   };
 
   // Create an option elem for each chatroom in the chatroom list
@@ -21,6 +22,7 @@ class ChatSelector extends React.Component {
       <>
         <form className="chat-selector-form">
           <label htmlFor="chat-select">Chatroom: </label>
+          {/* TODO This select needed a value with the chatroom name before but now it doesnt? */}
           <select
             name="chat-select"
             id="chat-select"

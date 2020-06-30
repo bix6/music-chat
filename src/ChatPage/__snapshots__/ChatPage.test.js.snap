@@ -5,40 +5,13 @@ exports[`ChatPage Component Snapshot Test: Default 1`] = `
   className="chat-page-main"
 >
   <ChatSelector
-    chatroomList={
-      Array [
-        Object {
-          "description": "Welcome to the World Wide Music Chat!",
-          "name": "Global",
-        },
-        Object {
-          "description": "A place to discuss your favorite playlists.",
-          "name": "Playlists",
-        },
-        Object {
-          "description": "How do you feel today?",
-          "name": "Mood",
-        },
-        Object {
-          "description": "Keep up to date on your favorite artists.",
-          "name": "Artists",
-        },
-        Object {
-          "description": "All the single songs",
-          "name": "Songs",
-        },
-        Object {
-          "description": "Chat about Doin' Time by Sublime (and now Lana)",
-          "name": "Doin' Time",
-        },
-      ]
-    }
-    currentChatroom="Global"
+    chatroomList={Array []}
+    currentChatroom={Object {}}
     displayNewChatroom={[Function]}
     updateCurrentChatroom={[Function]}
   />
   <ChatConvo
-    currentChatroom="Global"
+    currentChatroom={Object {}}
     messages={
       Object {
         "Artists": Array [
