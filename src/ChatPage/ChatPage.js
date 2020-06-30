@@ -11,7 +11,7 @@ import config from "../config";
 class ChatPage extends React.Component {
   state = {
     chatroomList: [],
-    currentChatroom: "",
+    currentChatroom: {},
     newChatroomDisplayed: false,
     messages: {},
     searchResults: null,
@@ -34,10 +34,9 @@ class ChatPage extends React.Component {
         throw Error(res.statusText);
       })
       .then((resJson) => {
-        let currentChatroom = resJson[0].name;
         this.setState({
           chatroomList: resJson,
-          currentChatroom: currentChatroom,
+          currentChatroom: resJson[0],
         });
       })
       .catch((err) => {
@@ -47,13 +46,19 @@ class ChatPage extends React.Component {
 
   componentDidMount() {
     this.initChatrooms();
-    console.log(this.state.chatroomList);
     this.setState({
       messages: messages,
     });
   }
 
-  updateCurrentChatroom = (chatroom) => {
+  updateCurrentChatroom = (chatroomId) => {
+    let chatroom = {};
+    for (let i = 0; i < this.state.chatroomList.length; i++) {
+      if (this.state.chatroomList[i].id === Number(chatroomId)) {
+        chatroom = this.state.chatroomList[i];
+        break;
+      }
+    }
     this.setState({ currentChatroom: chatroom });
   };
 
@@ -65,6 +70,7 @@ class ChatPage extends React.Component {
     this.setState({ newChatroomDisplayed: false });
   };
 
+  // TODO POST Chatroom
   createChatroom = (chatroom, description) => {
     let chatroomList = this.state.chatroomList;
     let newChatroom = {
@@ -86,10 +92,11 @@ class ChatPage extends React.Component {
     this.setState({
       chatroomList: [...chatroomList, newChatroom],
       messages: { ...messages, [chatroom]: newMessage },
-      currentChatroom: chatroom,
+      currentChatroom: chatroom, // TODO set the id from the POST response here with the chatroom obj
     });
   };
 
+  // TODO POST Message
   sendMessage = (messageIn) => {
     const message = {
       username: this.props.username,
@@ -98,7 +105,7 @@ class ChatPage extends React.Component {
       contentId: null,
     };
     let messages = this.state.messages;
-    messages[this.state.currentChatroom].push(message);
+    messages[this.state.currentChatroom].push(message); // TODO message format in state is changing
     this.setState({
       messages: messages,
     });
@@ -108,6 +115,7 @@ class ChatPage extends React.Component {
     this.setState({ searchResults: searchResults });
   };
 
+  // TODO POST Video
   embedVideo = (index) => {
     const message = {
       username: this.props.username,
@@ -116,7 +124,7 @@ class ChatPage extends React.Component {
       contentId: this.state.searchResults[index].videoId,
     };
     let messages = this.state.messages;
-    messages[this.state.currentChatroom].push(message);
+    messages[this.state.currentChatroom].push(message); // TODO message format in state is changing
     this.setState({
       messages: messages,
       searchResults: null,

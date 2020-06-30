@@ -9,7 +9,7 @@ class ChatSelector extends React.Component {
   createSelectOptions = () => {
     return this.props.chatroomList.map((chatroomObj, i) => {
       return (
-        <option value={chatroomObj.name} key={i}>
+        <option value={chatroomObj.id} key={i}>
           {chatroomObj.name}
         </option>
       );
@@ -17,14 +17,6 @@ class ChatSelector extends React.Component {
   };
 
   render() {
-    // TODO is there a better way to handle this?
-    let curChatroomDescription = null;
-    this.props.chatroomList.forEach((chatroomObj) => {
-      if (chatroomObj.name === this.props.currentChatroom) {
-        curChatroomDescription = chatroomObj.description;
-      }
-    });
-
     return (
       <>
         <form className="chat-selector-form">
@@ -32,7 +24,6 @@ class ChatSelector extends React.Component {
           <select
             name="chat-select"
             id="chat-select"
-            value={this.props.currentChatroom}
             onChange={(e) => this.props.updateCurrentChatroom(e.target.value)}
           >
             {this.createSelectOptions()}
@@ -41,7 +32,9 @@ class ChatSelector extends React.Component {
             + Room
           </button>
         </form>
-        <h2 className="chat-selector-h2">{curChatroomDescription}</h2>
+        <h2 className="chat-selector-h2">
+          {this.props.currentChatroom.description}
+        </h2>
       </>
     );
   }

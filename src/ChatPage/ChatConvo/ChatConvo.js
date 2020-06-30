@@ -3,10 +3,8 @@ import "./ChatConvo.css";
 
 class ChatConvo extends React.Component {
   static defaultProps = {
-    messages: {
-      Loading: ["Bixbot: Chat loading... "],
-    },
-    currentChatroom: "Loading",
+    messages: {},
+    currentChatroom: {},
   };
 
   createMessageLi = (messageObj, i) => {
@@ -43,8 +41,8 @@ class ChatConvo extends React.Component {
 
   /* Create li elems for each messageObj in the current chatroom */
   createConvoListElems = () => {
-    if (this.props.messages[this.props.currentChatroom]) {
-      return this.props.messages[this.props.currentChatroom].map(
+    if (this.props.messages[this.props.currentChatroom.name]) {
+      return this.props.messages[this.props.currentChatroom.name].map(
         (messageObj, i) => {
           if (messageObj.contentType === "text") {
             return this.createMessageLi(messageObj, i);
