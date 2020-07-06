@@ -43,10 +43,8 @@ class ChatPage extends React.Component {
       });
   }
 
-  initMessages() {
-    // Get messages for chatroom #1 (global)
-    const url = config.API_ENDPOINT + `/messages/1`;
-    console.log(url);
+  getMessagesByChatroom(chatroomId) {
+    const url = config.API_ENDPOINT + `/messages/${chatroomId}`;
     const options = {
       method: "GET",
       headers: {
@@ -72,6 +70,12 @@ class ChatPage extends React.Component {
         console.log(err);
       });
   }
+
+  // Get messages for chatroom #1 (global); default chatroom
+  initMessages() {
+    this.getMessagesByChatroom(1);
+  }
+
   componentDidMount() {
     this.initChatrooms();
     this.initMessages();
@@ -86,6 +90,7 @@ class ChatPage extends React.Component {
       }
     }
     this.setState({ currentChatroom: chatroom });
+    // Fetch new messages if needed
   };
 
   displayNewChatroom = () => {
@@ -96,7 +101,6 @@ class ChatPage extends React.Component {
     this.setState({ newChatroomDisplayed: false });
   };
 
-  // TODO POST Chatroom
   createChatroom = (chatroom, description) => {
     let chatroomList = this.state.chatroomList;
     let newChatroom = {
