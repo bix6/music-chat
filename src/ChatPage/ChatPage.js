@@ -16,6 +16,7 @@ class ChatPage extends React.Component {
     searchResults: null,
   };
 
+  // GET list of all chatrooms
   initChatrooms() {
     const url = config.API_ENDPOINT + `/chatrooms`;
     const options = {
@@ -43,7 +44,8 @@ class ChatPage extends React.Component {
       });
   }
 
-  getMessagesByChatroom(chatroomId) {
+  // GET messages for a given chatroom ID
+  getMessagesByChatroomId(chatroomId) {
     const url = config.API_ENDPOINT + `/messages/${chatroomId}`;
     const options = {
       method: "GET",
@@ -73,14 +75,17 @@ class ChatPage extends React.Component {
 
   // Get messages for chatroom #1 (global); default chatroom
   initMessages() {
-    this.getMessagesByChatroom(1);
+    this.getMessagesByChatroomId(1);
   }
 
+  // Init state on component mount
   componentDidMount() {
     this.initChatrooms();
     this.initMessages();
   }
 
+  // Change to a different chatroom
+  // Update the chatroom and GET messages
   updateCurrentChatroom = (chatroomId) => {
     let chatroom = {};
     for (let i = 0; i < this.state.chatroomList.length; i++) {
@@ -89,18 +94,21 @@ class ChatPage extends React.Component {
         break;
       }
     }
+    this.getMessagesByChatroomId(chatroomId);
     this.setState({ currentChatroom: chatroom });
-    // Fetch new messages if needed
   };
 
+  // Display interface for creating a new chatroom
   displayNewChatroom = () => {
     this.setState({ newChatroomDisplayed: true });
   };
 
+  // Hide interface for creating a new chatroom
   closeNewChatroom = () => {
     this.setState({ newChatroomDisplayed: false });
   };
 
+  // POST a new chatroom
   createChatroom = (chatroom, description) => {
     let chatroomList = this.state.chatroomList;
     let newChatroom = {
@@ -163,6 +171,7 @@ class ChatPage extends React.Component {
     });
   };
 
+  // Set search results from youtube search
   setSearchResults = (searchResults) => {
     this.setState({ searchResults: searchResults });
   };
@@ -183,6 +192,7 @@ class ChatPage extends React.Component {
     });
   };
 
+  // Close the search interface
   closeSearch = () => {
     this.setState({
       searchResults: null,
