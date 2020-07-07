@@ -19,7 +19,10 @@ class ChatSelector extends React.Component {
 
   // TODO why is the select not updating with the value correctly?
   render() {
-    // console.log(this.props.currentChatroom.name);
+    console.log(
+      "ChatSelector currentChatroom props",
+      this.props.currentChatroom
+    );
     return (
       <>
         <form className="chat-selector-form">

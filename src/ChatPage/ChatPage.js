@@ -104,6 +104,7 @@ class ChatPage extends React.Component {
   // Change to a different chatroom
   // Update the chatroom and GET messages
   updateCurrentChatroom = (chatroomId) => {
+    console.log("chatpage chatroomId received", chatroomId);
     this.clearError();
     let chatroom = {};
     for (let i = 0; i < this.state.chatroomList.length; i++) {
