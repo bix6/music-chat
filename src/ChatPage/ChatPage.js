@@ -14,10 +14,11 @@ class ChatPage extends React.Component {
     newChatroomDisplayed: false,
     messages: {},
     searchResults: null,
+    userId: 1, // TODO set this per user
   };
 
   // GET list of all chatrooms
-  initChatrooms() {
+  initChatrooms = () => {
     const url = config.API_ENDPOINT + `/chatrooms`;
     const options = {
       method: "GET",
@@ -42,11 +43,11 @@ class ChatPage extends React.Component {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   // GET messages for a given chatroom ID
-  getMessagesByChatroomId(chatroomId) {
-    const url = config.API_ENDPOINT + `/messages/${chatroomId}`;
+  getMessagesByChatroomId = (chatroomId) => {
+    const url = config.API_ENDPOINT + `/messages/chatroom/${chatroomId}`;
     const options = {
       method: "GET",
       headers: {
@@ -71,12 +72,12 @@ class ChatPage extends React.Component {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   // Get messages for chatroom #1 (global); default chatroom
-  initMessages() {
+  initMessages = () => {
     this.getMessagesByChatroomId(1);
-  }
+  };
 
   // Init state on component mount
   componentDidMount() {
@@ -144,12 +145,68 @@ class ChatPage extends React.Component {
         throw Error(res.statusText);
       })
       .then((resJson) => {
-        console.log("resJson", resJson);
         this.setState({
           chatroomList: [...chatroomList, resJson],
-          messages: { ...messages, [resJson.name]: newMessage }, // TODO add the message in properly
+          messages: { ...messages, [resJson.name]: newMessage }, // TODO POST the new message
           currentChatroom: resJson,
         });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  // GET a message by id and add it to state
+  // Used with postMessage() when a new message is POSTed
+  getMessageById = (messageId) => {
+    const url = config.API_ENDPOINT + `/messages/${messageId}`;
+    const options = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${config.API_KEY}`,
+      },
+    };
+    fetch(url, options)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw Error(res.statusText);
+      })
+      .then((resJson) => {
+        let messages = this.state.messages;
+        messages[resJson[0].chatroom_id].push(resJson[0]);
+        this.setState({
+          messages: messages,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  // POST a new message
+  postMessage = (message) => {
+    const url = config.API_ENDPOINT + `/messages`;
+    const options = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${config.API_KEY}`,
+      },
+      body: JSON.stringify(message),
+    };
+    fetch(url, options)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw Error(res.statusText);
+      })
+      .then((resJson) => {
+        // success; update messages in state
+        this.getMessageById(resJson.id);
       })
       .catch((err) => {
         console.log(err);
@@ -159,16 +216,13 @@ class ChatPage extends React.Component {
   // TODO POST Message
   sendMessage = (messageIn) => {
     const message = {
-      username: this.props.username,
-      contentType: "text",
+      content_type: "text",
       message: messageIn,
-      contentId: null,
+      content_id: "",
+      chatroom_id: this.state.currentChatroom.id,
+      person_id: 1, // TODO retrieve this
     };
-    let messages = this.state.messages;
-    messages[this.state.currentChatroom].push(message); // TODO message format in state is changing
-    this.setState({
-      messages: messages,
-    });
+    this.postMessage(message);
   };
 
   // Set search results from youtube search
