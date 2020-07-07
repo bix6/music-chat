@@ -46,8 +46,6 @@ class SearchInput extends React.Component {
         .replace(/&#39;/g, "'");
     }
 
-    console.log(queryString);
-
     fetch(queryString)
       .then((res) => {
         if (!res.ok) {

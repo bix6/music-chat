@@ -4,6 +4,7 @@ import ChatConvo from "./ChatConvo/ChatConvo";
 import ChatInput from "./ChatInput/ChatInput";
 import SearchResults from "./SearchResults/SearchResults";
 import NewChatroom from "./NewChatroom/NewChatroom";
+import DisplayMessage from "../shared-components/DisplayMessage/DisplayMessage";
 import "./ChatPage.css";
 import config from "../config";
 
@@ -15,10 +16,23 @@ class ChatPage extends React.Component {
     messages: {},
     searchResults: null,
     userId: 1, // TODO set this per user
+    error: null,
   };
 
+  // Clear error from state
+  clearError = () => {
+    this.setState({ error: null });
+  };
+
+  // Set error in state
+  setError = (error) => {
+    this.setState({ error });
+  };
+
+  // Init chatroom list in state
   // GET list of all chatrooms
   initChatrooms = () => {
+    this.clearError();
     const url = config.API_ENDPOINT + `/chatrooms`;
     const options = {
       method: "GET",
@@ -41,12 +55,13 @@ class ChatPage extends React.Component {
         });
       })
       .catch((err) => {
-        console.log(err);
+        this.setError(err);
       });
   };
 
   // GET messages for a given chatroom ID
   getMessagesByChatroomId = (chatroomId) => {
+    this.clearError();
     const url = config.API_ENDPOINT + `/messages/chatroom/${chatroomId}`;
     const options = {
       method: "GET",
@@ -70,11 +85,12 @@ class ChatPage extends React.Component {
         });
       })
       .catch((err) => {
-        console.log(err);
+        this.setError(err);
       });
   };
 
-  // Get messages for chatroom #1 (global); default chatroom
+  // Init messages in state
+  // GET messages for default chatroom (#1, global)
   initMessages = () => {
     this.getMessagesByChatroomId(1);
   };
@@ -88,6 +104,7 @@ class ChatPage extends React.Component {
   // Change to a different chatroom
   // Update the chatroom and GET messages
   updateCurrentChatroom = (chatroomId) => {
+    this.clearError();
     let chatroom = {};
     for (let i = 0; i < this.state.chatroomList.length; i++) {
       if (this.state.chatroomList[i].id === Number(chatroomId)) {
@@ -111,6 +128,7 @@ class ChatPage extends React.Component {
 
   // POST a new chatroom
   createChatroom = (chatroom, description) => {
+    this.clearError();
     let chatroomList = this.state.chatroomList;
     let newChatroom = {
       name: chatroom,
@@ -152,13 +170,14 @@ class ChatPage extends React.Component {
         });
       })
       .catch((err) => {
-        console.log(err);
+        this.setError(err);
       });
   };
 
   // GET a message by id and add it to state
   // Used with postMessage() when a new message is POSTed
   getMessageById = (messageId) => {
+    this.clearError();
     const url = config.API_ENDPOINT + `/messages/${messageId}`;
     const options = {
       method: "GET",
@@ -182,12 +201,13 @@ class ChatPage extends React.Component {
         });
       })
       .catch((err) => {
-        console.log(err);
+        this.setError(err);
       });
   };
 
   // POST a new message
   postMessage = (message) => {
+    this.clearError();
     const url = config.API_ENDPOINT + `/messages`;
     const options = {
       method: "POST",
@@ -209,7 +229,7 @@ class ChatPage extends React.Component {
         this.getMessageById(resJson.id);
       })
       .catch((err) => {
-        console.log(err);
+        this.setError(err);
       });
   };
 
@@ -262,6 +282,7 @@ class ChatPage extends React.Component {
           updateCurrentChatroom={this.updateCurrentChatroom}
           displayNewChatroom={this.displayNewChatroom}
         />
+        {this.state.error && <DisplayMessage message={this.state.error} />}
         {this.state.newChatroomDisplayed && (
           <NewChatroom
             createChatroom={this.createChatroom}
