@@ -17,12 +17,7 @@ class ChatSelector extends React.Component {
     });
   };
 
-  // TODO why is the select not updating with the value correctly?
   render() {
-    console.log(
-      "ChatSelector currentChatroom props",
-      this.props.currentChatroom
-    );
     return (
       <>
         <form className="chat-selector-form">
@@ -30,7 +25,7 @@ class ChatSelector extends React.Component {
           <select
             name="chat-select"
             id="chat-select"
-            value={this.props.currentChatroom.name}
+            value={this.props.currentChatroom.id}
             onChange={(e) => this.props.updateCurrentChatroom(e.target.value)}
           >
             {this.createSelectOptions()}

@@ -104,7 +104,6 @@ class ChatPage extends React.Component {
   // Change to a different chatroom
   // Update the chatroom and GET messages
   updateCurrentChatroom = (chatroomId) => {
-    console.log("chatpage chatroomId received", chatroomId);
     this.clearError();
     let chatroom = {};
     for (let i = 0; i < this.state.chatroomList.length; i++) {
@@ -113,12 +112,8 @@ class ChatPage extends React.Component {
         break;
       }
     }
-    console.log("chatpage chatroom", chatroom);
     this.getMessagesByChatroomId(chatroomId);
-    // this.setState({ currentChatroom: chatroom });
-    this.setState({ currentChatroom: chatroom }, () => {
-      console.log("chatpage state timeout", this.state.currentChatroom);
-    });
+    this.setState({ currentChatroom: chatroom });
   };
 
   // GET a message by id and add it to state
@@ -320,7 +315,6 @@ class ChatPage extends React.Component {
 
   // Render the Chat Page
   render() {
-    console.log("render state", this.state.currentChatroom);
     // TODO make scroll page work
     // this.scrollChatPage();
     // this.scrollChatPage2();
