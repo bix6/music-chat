@@ -16,6 +16,8 @@ The goal is to create the best possible place to share music online.
 Right now the app is simple so the use case is not super compelling.
 But once more features are added it will be worth it.
 
-## TODO colors
+## Colors
+
+My vision: the inside of a lava lamp :P
 
 https://coolors.co/9708cc-43cbff-fccf31-f55555-44ffd2
