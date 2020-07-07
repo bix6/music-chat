@@ -213,7 +213,7 @@ class ChatPage extends React.Component {
       });
   };
 
-  // TODO POST Message
+  // Create a new message and send it to postMessage()
   sendMessage = (messageIn) => {
     const message = {
       content_type: "text",
@@ -230,18 +230,17 @@ class ChatPage extends React.Component {
     this.setState({ searchResults: searchResults });
   };
 
-  // TODO POST Video
+  // Create a new video embed message and send it to postMessage()
   embedVideo = (index) => {
     const message = {
-      username: this.props.username,
-      contentType: "youtube video",
-      message: null,
-      contentId: this.state.searchResults[index].videoId,
+      content_type: "youtube video",
+      message: "",
+      content_id: this.state.searchResults[index].videoId,
+      chatroom_id: this.state.currentChatroom.id,
+      person_id: 1, // TODO retrieve this
     };
-    let messages = this.state.messages;
-    messages[this.state.currentChatroom].push(message); // TODO message format in state is changing
+    this.postMessage(message);
     this.setState({
-      messages: messages,
       searchResults: null,
     });
   };
@@ -253,6 +252,7 @@ class ChatPage extends React.Component {
     });
   };
 
+  // Render the Chat Page
   render() {
     return (
       <main className="chat-page-main">
