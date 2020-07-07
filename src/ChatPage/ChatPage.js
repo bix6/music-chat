@@ -115,11 +115,10 @@ class ChatPage extends React.Component {
     }
     console.log("chatpage chatroom", chatroom);
     this.getMessagesByChatroomId(chatroomId);
-    this.setState({ currentChatroom: chatroom });
-    setTimeout(() => {
+    // this.setState({ currentChatroom: chatroom });
+    this.setState({ currentChatroom: chatroom }, () => {
       console.log("chatpage state timeout", this.state.currentChatroom);
-    }, 2000);
-    console.log("chatpage state", this.state.currentChatroom);
+    });
   };
 
   // GET a message by id and add it to state
@@ -286,9 +285,46 @@ class ChatPage extends React.Component {
     });
   };
 
+  scrollChatPage() {
+    var chatConvoDiv = document.getElementsByClassName("chat-convo-div")[0];
+    if (chatConvoDiv) {
+      console.log("chatConvoDiv", chatConvoDiv);
+      console.log("scroll height", chatConvoDiv.scrollHeight);
+      console.log("scroll top", chatConvoDiv.scrollTop);
+      chatConvoDiv.scrollTop = chatConvoDiv.scrollHeight;
+      console.log("scroll top", chatConvoDiv.scrollTop);
+    }
+  }
+
+  scrollChatPage2() {
+    console.log(
+      "type",
+      typeof document.getElementsByClassName("chat-convo-li")
+    );
+    console.log("lis", document.getElementsByClassName("chat-convo-li"));
+    console.log(
+      "li 0",
+      document.getElementsByClassName("chat-convo-li").item(0)
+    );
+    console.log(
+      "lis length",
+      document.getElementsByClassName("chat-convo-li").length
+    );
+    if (document.getElementsByClassName("chat-convo-li").length > 0) {
+      var chatConvoLi = document
+        .getElementsByClassName("chat-convo-li")
+        .item(chatConvoLi.length - 1);
+      console.log("chatConvoLi", chatConvoLi);
+    }
+  }
+
   // Render the Chat Page
   render() {
     console.log("render state", this.state.currentChatroom);
+    // TODO make scroll page work
+    // this.scrollChatPage();
+    // this.scrollChatPage2();
+
     return (
       <main className="chat-page-main">
         <ChatSelector
