@@ -116,64 +116,6 @@ class ChatPage extends React.Component {
     this.setState({ currentChatroom: chatroom });
   };
 
-  // Display interface for creating a new chatroom
-  displayNewChatroom = () => {
-    this.setState({ newChatroomDisplayed: true });
-  };
-
-  // Hide interface for creating a new chatroom
-  closeNewChatroom = () => {
-    this.setState({ newChatroomDisplayed: false });
-  };
-
-  // POST a new chatroom
-  createChatroom = (chatroom, description) => {
-    this.clearError();
-    let chatroomList = this.state.chatroomList;
-    let newChatroom = {
-      name: chatroom,
-      description: description,
-    };
-    let messages = this.state.messages;
-    let newMessage = [
-      {
-        username: "Bixbot",
-        contentType: "text",
-        message: `Chatroom created by ${
-          this.props.username
-        } on ${new Date().toLocaleDateString()}`,
-        contentId: null,
-      },
-    ];
-
-    const url = config.API_ENDPOINT + `/chatrooms`;
-    const options = {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${config.API_KEY}`,
-      },
-      body: JSON.stringify(newChatroom),
-    };
-    fetch(url, options)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw Error(res.statusText);
-      })
-      .then((resJson) => {
-        this.setState({
-          chatroomList: [...chatroomList, resJson],
-          messages: { ...messages, [resJson.name]: newMessage }, // TODO POST the new message
-          currentChatroom: resJson,
-        });
-      })
-      .catch((err) => {
-        this.setError(err);
-      });
-  };
-
   // GET a message by id and add it to state
   // Used with postMessage() when a new message is POSTed
   getMessageById = (messageId) => {
@@ -195,7 +137,15 @@ class ChatPage extends React.Component {
       })
       .then((resJson) => {
         let messages = this.state.messages;
-        messages[resJson[0].chatroom_id].push(resJson[0]);
+        const chatroomId = resJson[0].chatroom_id;
+        // Need the else statement when creating a new chatroom
+        // since the chatroomId doesn't exist in the messages array yet
+        if (messages[chatroomId]) {
+          messages[chatroomId].push(resJson[0]);
+        } else {
+          messages[chatroomId] = [resJson[0]];
+        }
+
         this.setState({
           messages: messages,
         });
@@ -245,11 +195,6 @@ class ChatPage extends React.Component {
     this.postMessage(message);
   };
 
-  // Set search results from youtube search
-  setSearchResults = (searchResults) => {
-    this.setState({ searchResults: searchResults });
-  };
-
   // Create a new video embed message and send it to postMessage()
   embedVideo = (index) => {
     const message = {
@@ -263,6 +208,69 @@ class ChatPage extends React.Component {
     this.setState({
       searchResults: null,
     });
+  };
+
+  // Display interface for creating a new chatroom
+  displayNewChatroom = () => {
+    this.setState({ newChatroomDisplayed: true });
+  };
+
+  // Hide interface for creating a new chatroom
+  closeNewChatroom = () => {
+    this.setState({ newChatroomDisplayed: false });
+  };
+
+  // POST a new chatroom
+  createChatroom = (chatroom, description) => {
+    this.clearError();
+    let chatroomList = this.state.chatroomList;
+    let newChatroom = {
+      name: chatroom,
+      description: description,
+    };
+
+    const url = config.API_ENDPOINT + `/chatrooms`;
+    const options = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${config.API_KEY}`,
+      },
+      body: JSON.stringify(newChatroom),
+    };
+    fetch(url, options)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw Error(res.statusText);
+      })
+      .then((resJson) => {
+        // Set the chatroom in state
+        // Then post the first message
+        this.setState({
+          chatroomList: [...chatroomList, resJson],
+          currentChatroom: resJson,
+        });
+        const newMessage = {
+          content_type: "text",
+          message: `Chatroom created by ${
+            this.props.username
+          } on ${new Date().toLocaleDateString()}`,
+          content_id: "",
+          chatroom_id: resJson.id,
+          person_id: 3, // bixbot
+        };
+        this.postMessage(newMessage);
+      })
+      .catch((err) => {
+        this.setError(err);
+      });
+  };
+
+  // Set search results from youtube search
+  setSearchResults = (searchResults) => {
+    this.setState({ searchResults: searchResults });
   };
 
   // Close the search interface
