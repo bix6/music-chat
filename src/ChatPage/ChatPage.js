@@ -113,8 +113,13 @@ class ChatPage extends React.Component {
         break;
       }
     }
+    console.log("chatpage chatroom", chatroom);
     this.getMessagesByChatroomId(chatroomId);
     this.setState({ currentChatroom: chatroom });
+    setTimeout(() => {
+      console.log("chatpage state timeout", this.state.currentChatroom);
+    }, 2000);
+    console.log("chatpage state", this.state.currentChatroom);
   };
 
   // GET a message by id and add it to state
@@ -283,6 +288,7 @@ class ChatPage extends React.Component {
 
   // Render the Chat Page
   render() {
+    console.log("render state", this.state.currentChatroom);
     return (
       <main className="chat-page-main">
         <ChatSelector
