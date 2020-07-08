@@ -5,11 +5,12 @@ import ChatPage from "./ChatPage/ChatPage";
 
 class App extends React.Component {
   state = {
-    username: "NONAME",
+    username: "",
+    userId: "",
   };
 
-  updateUsername = (username) => {
-    this.setState({ username: username });
+  updateUsername = (username, id) => {
+    this.setState({ username: username, userId: id });
   };
 
   render() {
@@ -26,7 +27,11 @@ class App extends React.Component {
           exact
           path="/chat"
           render={(props) => (
-            <ChatPage {...props} username={this.state.username} />
+            <ChatPage
+              {...props}
+              username={this.state.username}
+              userId={this.state.userId}
+            />
           )}
         />
       </Switch>

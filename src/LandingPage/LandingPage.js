@@ -2,17 +2,24 @@ import React from "react";
 import HeaderComponent from "../shared-components/HeaderComponent/HeaderComponent";
 import DisplayMessage from "../shared-components/DisplayMessage/DisplayMessage";
 import "./LandingPage.css";
+import config from "../config";
 
 class LandingPage extends React.Component {
   state = {
     username: "",
     touched: false,
+    errorMessage: "",
   };
+
+  componentDidMount() {
+    // TODO check for cookie
+  }
 
   updateUsername = (username) => {
     this.setState({
       username: username,
       touched: true,
+      errorMessage: "",
     });
   };
 
@@ -22,21 +29,78 @@ class LandingPage extends React.Component {
     if (username.length < 1) {
       return "Name must be 1 character or more";
     }
-    if (
-      username.toLowerCase() === "bix" ||
-      username.toLowerCase() === "bix6" ||
-      username.toLowerCase() === "bixbot" ||
-      username.toLowerCase() === "bixby" ||
-      username.toLowerCase() === "jack"
-    ) {
+    if (username.toLowerCase() === "bixbot") {
       return "This username is reserved";
     }
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.updateUsername(this.state.username);
-    this.props.history.push("/chat");
+
+    // Check if the username exists
+    const url = config.API_ENDPOINT + `/persons/name/${this.state.username}`;
+    const options = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${config.API_KEY}`,
+      },
+    };
+    fetch(url, options)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw Error(res.statusText);
+      })
+      .then((resJson) => {
+        // if the username already exists, pass it up to parent component
+        if (resJson.id) {
+          this.props.updateUsername(resJson.name, resJson.id);
+          this.props.history.push("/chat");
+        }
+        // username doesn't exist so post it
+        else {
+          this.createNewUser();
+        }
+      })
+      .catch((error) => {
+        this.setState({
+          errorMessage: error.message,
+        });
+      });
+  };
+
+  // TODO do i need to uri encode? Test by sending a name with a space or something
+  createNewUser = () => {
+    const newUser = {
+      name: this.state.username,
+    };
+    const url = config.API_ENDPOINT + `/persons`;
+    const options = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${config.API_KEY}`,
+      },
+      body: JSON.stringify(newUser),
+    };
+    fetch(url, options)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw Error(res.statusText);
+      })
+      .then((resJson) => {
+        this.props.updateUsername(resJson.name, resJson.id);
+        this.props.history.push("/chat");
+      })
+      .catch((error) => {
+        this.setState({
+          errorMessage: error.message,
+        });
+      });
   };
 
   render() {
@@ -65,6 +129,9 @@ class LandingPage extends React.Component {
             </button>
             {this.state.touched && (
               <DisplayMessage message={this.validateUsername()} />
+            )}
+            {this.state.errorMessage && (
+              <DisplayMessage message={this.state.errorMessage} />
             )}
           </form>
         </main>

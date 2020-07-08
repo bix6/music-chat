@@ -15,7 +15,6 @@ class ChatPage extends React.Component {
     newChatroomDisplayed: false,
     messages: {},
     searchResults: null,
-    userId: 1, // TODO set this per user
     error: null,
   };
 
@@ -26,7 +25,7 @@ class ChatPage extends React.Component {
 
   // Set error in state
   setError = (error) => {
-    this.setState({ error });
+    this.setState({ error: error.message });
   };
 
   // Init chatroom list in state
@@ -190,7 +189,7 @@ class ChatPage extends React.Component {
       message: messageIn,
       content_id: "",
       chatroom_id: this.state.currentChatroom.id,
-      person_id: 1, // TODO retrieve this
+      person_id: this.props.userId,
     };
     this.postMessage(message);
   };
@@ -202,7 +201,7 @@ class ChatPage extends React.Component {
       message: "",
       content_id: this.state.searchResults[index].videoId,
       chatroom_id: this.state.currentChatroom.id,
-      person_id: 1, // TODO retrieve this
+      person_id: this.props.userId,
     };
     this.postMessage(message);
     this.setState({
@@ -287,20 +286,18 @@ class ChatPage extends React.Component {
       console.log("scroll height", chatConvoDiv.scrollHeight);
       console.log("scroll top", chatConvoDiv.scrollTop);
       chatConvoDiv.scrollTop = chatConvoDiv.scrollHeight;
+      chatConvoDiv.scrollTop = 200;
       console.log("scroll top", chatConvoDiv.scrollTop);
     }
   }
 
   scrollChatPage2() {
-    console.log(
-      "type",
-      typeof document.getElementsByClassName("chat-convo-li")
-    );
     console.log("lis", document.getElementsByClassName("chat-convo-li"));
     console.log(
       "li 0",
       document.getElementsByClassName("chat-convo-li").item(0)
     );
+    console.log("li 0", document.getElementsByClassName("chat-convo-li")[0]);
     console.log(
       "lis length",
       document.getElementsByClassName("chat-convo-li").length
