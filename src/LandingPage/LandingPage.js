@@ -44,6 +44,7 @@ class LandingPage extends React.Component {
       headers: {
         "content-type": "application/json",
         Authorization: `Bearer ${config.API_KEY}`,
+        credentials: "include",
       },
     };
     fetch(url, options)
@@ -59,7 +60,7 @@ class LandingPage extends React.Component {
           this.props.updateUsername(resJson.name, resJson.id);
           this.props.history.push("/chat");
         }
-        // username doesn't exist so post it
+        // username doesn't exist so POST it
         else {
           this.createNewUser();
         }
@@ -71,7 +72,6 @@ class LandingPage extends React.Component {
       });
   };
 
-  // TODO do i need to uri encode? Test by sending a name with a space or something
   createNewUser = () => {
     const newUser = {
       name: this.state.username,
@@ -82,6 +82,7 @@ class LandingPage extends React.Component {
       headers: {
         "content-type": "application/json",
         Authorization: `Bearer ${config.API_KEY}`,
+        credentials: "include",
       },
       body: JSON.stringify(newUser),
     };
