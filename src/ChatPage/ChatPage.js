@@ -258,7 +258,7 @@ class ChatPage extends React.Component {
           } on ${new Date().toLocaleDateString()}`,
           content_id: "",
           chatroom_id: resJson.id,
-          person_id: 3, // bixbot
+          person_id: 1, // bixbot
         };
         this.postMessage(newMessage);
       })
