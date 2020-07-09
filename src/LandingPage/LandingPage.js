@@ -3,6 +3,7 @@ import HeaderComponent from "../shared-components/HeaderComponent/HeaderComponen
 import DisplayMessage from "../shared-components/DisplayMessage/DisplayMessage";
 import "./LandingPage.css";
 import config from "../config";
+// TODO cookie import Cookies from "universal-cookie";
 
 class LandingPage extends React.Component {
   state = {
@@ -12,7 +13,10 @@ class LandingPage extends React.Component {
   };
 
   componentDidMount() {
-    // TODO check for cookie
+    // TODO cookie
+    // const cookies = new Cookies();
+    // console.log("cookies in mount", cookies.get());
+    // console.log("cookies in mount2", cookies.get("test"));
   }
 
   updateUsername = (username) => {
@@ -55,6 +59,10 @@ class LandingPage extends React.Component {
         throw Error(res.statusText);
       })
       .then((resJson) => {
+        // TODO cookies
+        // const cookies = new Cookies();
+        // console.log("cookies in submit", cookies.get());
+        // console.log("cookies in submit2", cookies.get("test"));
         // if the username already exists, pass it up to parent component
         if (resJson.id) {
           this.props.updateUsername(resJson.name, resJson.id);

@@ -7,6 +7,23 @@ class ChatConvo extends React.Component {
     currentChatroom: {},
   };
 
+  // Scroll to the bottom of the chat convo using the ref convoEnd
+  // convoEnd is just an empty div placed at the bottom of the convo
+  // Had to do this because accessing the DOM directly wasn't working
+  scrollToBottom = () => {
+    if (this.convoEnd) {
+      this.convoEnd.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  componentDidMount() {
+    this.scrollToBottom();
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+
   createMessageLi = (messageObj, i) => {
     const message = messageObj.username + ": " + messageObj.message;
 
@@ -59,6 +76,11 @@ class ChatConvo extends React.Component {
     return (
       <div className="chat-convo-div">
         <ol>{this.createConvoListElems()}</ol>
+        <div
+          ref={(elem) => {
+            this.convoEnd = elem;
+          }}
+        />
       </div>
     );
   }
