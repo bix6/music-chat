@@ -76,3 +76,24 @@
   - ON-KANBAN change hover color
 - Create chatrooms for individual songs
   - ON-KANBAN individual song chatroom
+
+## MVP Feedback
+
+### Alex (Grader)
+
+- All requirements met and a few bonuses as well, nice!
+- Optional ideas
+  - Live messaging with WebSockets or polling (setInterval, less elegant)
+    - I am implementing this now, been saving it for last
+  - Prevent Duplicates
+    - Don't allow username or chatname reuse
+    - I'll make an issue for this but probably won't implement it for now
+
+### Bussy
+
+- Looks nice. Grabs the name instead of the arrow to change chatrooms.
+  - I think the arrow is just the default select display. Grabbing the name or arrow provide the same functionality so should be fine.
+
+### Trevor
+
+- Super cool. Curious about the intention of the project.
