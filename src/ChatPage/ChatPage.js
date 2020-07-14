@@ -8,6 +8,10 @@ import DisplayMessage from "../shared-components/DisplayMessage/DisplayMessage";
 import "./ChatPage.css";
 import config from "../config";
 
+// TODO socket
+import io from "socket.io-client";
+const socket = io.connect(config.API_ENDPOINT);
+
 class ChatPage extends React.Component {
   state = {
     chatroomList: [],
@@ -174,6 +178,9 @@ class ChatPage extends React.Component {
         throw Error(res.statusText);
       })
       .then((resJson) => {
+        // TODO socket
+        console.log("emit");
+        socket.emit("chat message", JSON.stringify(message));
         // success; update messages in state
         this.getMessageById(resJson.id);
       })
