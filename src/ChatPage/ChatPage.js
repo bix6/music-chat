@@ -9,14 +9,14 @@ import "./ChatPage.css";
 import config from "../config";
 
 // TODO socket
-import io from "socket.io-client";
-const socket = io(config.API_ENDPOINT);
-socket.on("connect", () => {
-  socket.emit("connect message", "Hello!");
-  socket.on("connect message", (msg) => {
-    console.log("connect message: " + msg);
-  });
-});
+// import io from "socket.io-client";
+// const socket = io(config.API_ENDPOINT);
+// socket.on("connect", () => {
+//   socket.emit("connect message", "Hello!");
+//   socket.on("connect message", (msg) => {
+//     console.log("connect message: " + msg);
+//   });
+// });
 
 class ChatPage extends React.Component {
   state = {
@@ -185,13 +185,13 @@ class ChatPage extends React.Component {
       })
       .then((resJson) => {
         // TODO socket
-        console.log("emit");
-        console.log("socket");
-        console.log(socket);
-        console.log("stringify");
-        console.log(JSON.stringify(message));
-        console.log("done");
-        socket.emit("chat message", JSON.stringify(message));
+        // console.log("emit");
+        // console.log("socket");
+        // console.log(socket);
+        // console.log("stringify");
+        // console.log(JSON.stringify(message));
+        // console.log("done");
+        // socket.emit("chat message", JSON.stringify(message));
         // success; update messages in state
         this.getMessageById(resJson.id);
       })

@@ -10,6 +10,7 @@ class LandingPage extends React.Component {
     username: "",
     touched: false,
     errorMessage: "",
+    loadingMessage: "",
   };
 
   componentDidMount() {
@@ -24,6 +25,7 @@ class LandingPage extends React.Component {
       username: username,
       touched: true,
       errorMessage: "",
+      loadingMessage: "",
     });
   };
 
@@ -41,6 +43,7 @@ class LandingPage extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
+    this.setState({ loadingMessage: "Loading..." });
     // Check if the username exists
     const url = config.API_ENDPOINT + `/persons/name/${this.state.username}`;
     const options = {
@@ -141,6 +144,9 @@ class LandingPage extends React.Component {
             )}
             {this.state.errorMessage && (
               <DisplayMessage message={this.state.errorMessage} />
+            )}
+            {this.state.loadingMessage && (
+              <DisplayMessage message={this.state.loadingMessage} />
             )}
           </form>
         </main>
