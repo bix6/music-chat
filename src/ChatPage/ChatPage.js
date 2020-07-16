@@ -9,24 +9,22 @@ import "./ChatPage.css";
 import config from "../config";
 
 // TODO socket
-// import io from "socket.io-client";
-// const socket = io(config.API_ENDPOINT);
-// socket.on("connect", () => {
-//   socket.emit("connect message", "Hello!");
-//   socket.on("connect message", (msg) => {
-//     console.log("connect message: " + msg);
-//   });
-// });
+import io from "socket.io-client";
 
 class ChatPage extends React.Component {
-  state = {
-    chatroomList: [],
-    currentChatroom: {},
-    newChatroomDisplayed: false,
-    messages: {},
-    searchResults: null,
-    error: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      chatroomList: [],
+      currentChatroom: {},
+      newChatroomDisplayed: false,
+      messages: {},
+      searchResults: null,
+      error: null,
+      socket: io(config.API_ENDPOINT),
+    };
+    //const socket = io(config.API_ENDPOINT);
+  }
 
   // Clear error from state
   clearError = () => {
@@ -108,6 +106,16 @@ class ChatPage extends React.Component {
   componentDidMount() {
     this.initChatrooms();
     this.initMessages();
+    // TODO socket
+    this.state.socket.on("chat message", (msg) => {
+      console.log("chat message: " + msg);
+    });
+  }
+
+  // TODO sockets
+  componentWillUnmount() {
+    this.state.socket.off("get_data");
+    this.state.socket.off("change_data");
   }
 
   // Change to a different chatroom
