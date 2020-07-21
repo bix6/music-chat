@@ -7,7 +7,12 @@ import NewChatroom from "./NewChatroom/NewChatroom";
 import DisplayMessage from "../shared-components/DisplayMessage/DisplayMessage";
 import "./ChatPage.css";
 import config from "../config";
-import { receiveMessage, emitMessage, closeSocket } from "../socketApi";
+import {
+  openSocket,
+  closeSocket,
+  receiveMessage,
+  emitMessage,
+} from "../socketApi";
 
 class ChatPage extends React.Component {
   constructor(props) {
@@ -21,9 +26,10 @@ class ChatPage extends React.Component {
       error: null,
       // TODO Sockets
       // See note below about not binding in state
+      openSocket: openSocket,
+      closeSocket: closeSocket,
       receiveMessage: receiveMessage,
       emitMessage: emitMessage,
-      closeSocket: closeSocket,
     };
     // TODO Sockets
     // Can I bind these methods outside of state?
@@ -117,7 +123,8 @@ class ChatPage extends React.Component {
   componentDidMount() {
     this.initChatrooms();
     this.initMessages();
-    // Set socket listener
+    // Open socket and set the listener
+    this.state.openSocket();
     this.state.receiveMessage();
   }
 
@@ -174,6 +181,9 @@ class ChatPage extends React.Component {
         this.setState({
           messages: messages,
         });
+
+        // emit socket message
+        this.state.emitMessage(resJson[0]);
       })
       .catch((err) => {
         this.setError(err);
@@ -200,10 +210,6 @@ class ChatPage extends React.Component {
         throw Error(res.statusText);
       })
       .then((resJson) => {
-        // TODO socket
-        // Move this so the message contains the
-        // username and such
-        this.state.emitMessage(resJson);
         this.getMessageById(resJson.id);
       })
       .catch((err) => {
