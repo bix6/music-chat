@@ -7,10 +7,7 @@ import NewChatroom from "./NewChatroom/NewChatroom";
 import DisplayMessage from "../shared-components/DisplayMessage/DisplayMessage";
 import "./ChatPage.css";
 import config from "../config";
-import { receiveMessage, sendMessage } from "../socketApi";
-
-// TODO socket
-//import io from "socket.io-client";
+import { receiveMessage, emitMessage, closeSocket } from "../socketApi";
 
 class ChatPage extends React.Component {
   constructor(props) {
@@ -22,13 +19,22 @@ class ChatPage extends React.Component {
       messages: {},
       searchResults: null,
       error: null,
-      //socket: io(config.API_ENDPOINT),
+      // TODO Sockets
+      // See note below about not binding in state
       receiveMessage: receiveMessage,
-      sendMessage: sendMessage,
+      emitMessage: emitMessage,
+      closeSocket: closeSocket,
     };
-    //receiveMessage();
-    //sendMessage();
-    //const socket = io(config.API_ENDPOINT);
+    // TODO Sockets
+    // Can I bind these methods outside of state?
+    // All the below fail
+    // Instead of printing the message object
+    // they print the message itself
+    // instead of printing the object
+    // which is what happens when I bind in state ^
+    // this.receiveMessage = receiveMessage.bind(this);
+    // this.receiveMessage = receiveMessage;
+    // this.emitMessage = emitMessage;
   }
 
   // Clear error from state
@@ -111,17 +117,13 @@ class ChatPage extends React.Component {
   componentDidMount() {
     this.initChatrooms();
     this.initMessages();
-    // TODO socket
-    // this.state.socket.on("chat message", (msg) => {
-    //   console.log("chat message: " + msg);
-    // });
+    // Set socket listener
     this.state.receiveMessage();
   }
 
-  // TODO sockets
   componentWillUnmount() {
-    //this.state.socket.off("get_data");
-    //this.state.socket.off("change_data");
+    // close socket
+    this.state.closeSocket();
   }
 
   // Change to a different chatroom
@@ -199,15 +201,9 @@ class ChatPage extends React.Component {
       })
       .then((resJson) => {
         // TODO socket
-        // console.log("emit");
-        // console.log("socket");
-        // console.log(socket);
-        // console.log("stringify");
-        // console.log(JSON.stringify(message));
-        // console.log("done");
-        // socket.emit("chat message", JSON.stringify(message));
-        // success; update messages in state
-        this.state.sendMessage(resJson);
+        // Move this so the message contains the
+        // username and such
+        this.state.emitMessage(resJson);
         this.getMessageById(resJson.id);
       })
       .catch((err) => {
@@ -312,43 +308,8 @@ class ChatPage extends React.Component {
     });
   };
 
-  scrollChatPage() {
-    var chatConvoDiv = document.getElementsByClassName("chat-convo-div")[0];
-    if (chatConvoDiv) {
-      console.log("chatConvoDiv", chatConvoDiv);
-      console.log("scroll height", chatConvoDiv.scrollHeight);
-      console.log("scroll top", chatConvoDiv.scrollTop);
-      chatConvoDiv.scrollTop = chatConvoDiv.scrollHeight;
-      chatConvoDiv.scrollTop = 200;
-      console.log("scroll top", chatConvoDiv.scrollTop);
-    }
-  }
-
-  scrollChatPage2() {
-    console.log("lis", document.getElementsByClassName("chat-convo-li"));
-    console.log(
-      "li 0",
-      document.getElementsByClassName("chat-convo-li").item(0)
-    );
-    console.log("li 0", document.getElementsByClassName("chat-convo-li")[0]);
-    console.log(
-      "lis length",
-      document.getElementsByClassName("chat-convo-li").length
-    );
-    if (document.getElementsByClassName("chat-convo-li").length > 0) {
-      var chatConvoLi = document
-        .getElementsByClassName("chat-convo-li")
-        .item(chatConvoLi.length - 1);
-      console.log("chatConvoLi", chatConvoLi);
-    }
-  }
-
   // Render the Chat Page
   render() {
-    // TODO make scroll page work
-    // this.scrollChatPage();
-    // this.scrollChatPage2();
-
     return (
       <main className="chat-page-main">
         <ChatSelector

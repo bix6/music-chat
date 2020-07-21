@@ -3,17 +3,19 @@ import io from "socket.io-client";
 const socket = io("http://localhost:8003");
 
 function receiveMessage() {
-  console.log("receiveMessage init");
+  console.log("receiveMessage() init");
   socket.on("chat message", (msg) => {
     console.log("receiveMessage: ", msg);
   });
 }
 
-function sendMessage(msg) {
-  console.log("sendMessage() init");
+function emitMessage(msg) {
+  console.log("emitMessage() init");
   socket.emit("chat message", msg);
 }
 
-// TODO unmount socket
+function closeSocket() {
+  socket.close();
+}
 
-export { receiveMessage, sendMessage };
+export { receiveMessage, emitMessage, closeSocket };
