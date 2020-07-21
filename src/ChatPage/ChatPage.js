@@ -7,9 +7,10 @@ import NewChatroom from "./NewChatroom/NewChatroom";
 import DisplayMessage from "../shared-components/DisplayMessage/DisplayMessage";
 import "./ChatPage.css";
 import config from "../config";
+import { receiveMessage, sendMessage } from "../socketApi";
 
 // TODO socket
-import io from "socket.io-client";
+//import io from "socket.io-client";
 
 class ChatPage extends React.Component {
   constructor(props) {
@@ -21,8 +22,12 @@ class ChatPage extends React.Component {
       messages: {},
       searchResults: null,
       error: null,
-      socket: io(config.API_ENDPOINT),
+      //socket: io(config.API_ENDPOINT),
+      receiveMessage: receiveMessage,
+      sendMessage: sendMessage,
     };
+    //receiveMessage();
+    //sendMessage();
     //const socket = io(config.API_ENDPOINT);
   }
 
@@ -107,15 +112,16 @@ class ChatPage extends React.Component {
     this.initChatrooms();
     this.initMessages();
     // TODO socket
-    this.state.socket.on("chat message", (msg) => {
-      console.log("chat message: " + msg);
-    });
+    // this.state.socket.on("chat message", (msg) => {
+    //   console.log("chat message: " + msg);
+    // });
+    this.state.receiveMessage();
   }
 
   // TODO sockets
   componentWillUnmount() {
-    this.state.socket.off("get_data");
-    this.state.socket.off("change_data");
+    //this.state.socket.off("get_data");
+    //this.state.socket.off("change_data");
   }
 
   // Change to a different chatroom
@@ -201,6 +207,7 @@ class ChatPage extends React.Component {
         // console.log("done");
         // socket.emit("chat message", JSON.stringify(message));
         // success; update messages in state
+        this.state.sendMessage(resJson);
         this.getMessageById(resJson.id);
       })
       .catch((err) => {
