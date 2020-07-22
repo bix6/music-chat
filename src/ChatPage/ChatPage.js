@@ -40,7 +40,6 @@ class ChatPage extends React.Component {
     // All the below fail
     // Instead of printing the message object
     // they print the message itself
-    // instead of printing the object
     // which is what happens when I bind in state ^
     // this.receiveMessage = receiveMessage.bind(this);
     // this.receiveMessage = receiveMessag

@@ -123,8 +123,8 @@ class LandingPage extends React.Component {
           <p>
             Welcome to Your Musical Home on the Internet. Discuss music with
             friends and strangers across the globe. Swap between chat rooms at
-            your leisure and easily embed music from your favorite services.
-            Enter your name below to get started.
+            your leisure and easily embed music from YouTube. Enter your name
+            below to get started.
           </p>
           <form onSubmit={(e) => this.handleSubmit(e)}>
             <label htmlFor="choose-username">Name / Nickname</label>

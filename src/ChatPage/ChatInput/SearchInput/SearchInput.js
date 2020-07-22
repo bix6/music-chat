@@ -89,6 +89,7 @@ class SearchInput extends React.Component {
             name="search-input"
             onChange={(e) => this.updateUserInput(e.target.value)}
             value={this.state.userInput}
+            placeholder="Search by song, artist, etc."
           />
           <button
             type="submit"
