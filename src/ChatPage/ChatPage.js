@@ -12,6 +12,7 @@ import {
   closeSocket,
   receiveMessage,
   emitMessage,
+  receiveMessage2,
 } from "../socketApi";
 
 class ChatPage extends React.Component {
@@ -31,6 +32,9 @@ class ChatPage extends React.Component {
       receiveMessage: receiveMessage,
       emitMessage: emitMessage,
     };
+    receiveMessage2((err, msg) => {
+      console.log("set state: ", msg);
+    });
     // TODO Sockets
     // Can I bind these methods outside of state?
     // All the below fail
@@ -39,8 +43,10 @@ class ChatPage extends React.Component {
     // instead of printing the object
     // which is what happens when I bind in state ^
     // this.receiveMessage = receiveMessage.bind(this);
-    // this.receiveMessage = receiveMessage;
-    // this.emitMessage = emitMessage;
+    // this.receiveMessage = receiveMessag
+    // receiveMessage;
+    // receiveMessage();
+    // receiveMessage( () => {} );
   }
 
   // Clear error from state
