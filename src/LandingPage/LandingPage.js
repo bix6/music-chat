@@ -121,10 +121,10 @@ class LandingPage extends React.Component {
         <HeaderComponent />
         <main className="landing-page-main">
           <p>
-            Welcome to Your Musical Home on the Internet. Discuss music with
-            friends and strangers across the globe. Swap between chat rooms at
-            your leisure and easily embed music from YouTube. Enter your name
-            below to get started.
+            Welcome to Music Chat Worldwide! Discuss music with friends and
+            strangers across the globe. Swap between chat rooms at your leisure
+            and easily embed videos from YouTube. Enter your name below to get
+            started.
           </p>
           <form onSubmit={(e) => this.handleSubmit(e)}>
             <label htmlFor="choose-username">Name / Nickname</label>
