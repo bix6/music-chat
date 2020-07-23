@@ -138,6 +138,8 @@ class ChatPage extends React.Component {
     this.state.openSocket();
     this.state.receiveMessage();
     // TODO this works but throws an error
+    // I need this to handle when the user accidently jumps
+    // To /chat and doesn't have a username set
     // How can I accomplish this without the error?
     // if (!this.props.username) {
     //   console.log("no username set in component mount");

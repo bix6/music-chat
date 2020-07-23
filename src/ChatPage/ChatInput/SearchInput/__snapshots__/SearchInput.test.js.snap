@@ -16,6 +16,7 @@ exports[`SearchInput Component Snapshot Test: Default 1`] = `
       id="search-input"
       name="search-input"
       onChange={[Function]}
+      placeholder="Search by song, artist, etc."
       type="text"
       value=""
     />
