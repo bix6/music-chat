@@ -40,7 +40,7 @@ class MessageInput extends React.Component {
             name="message-input"
             onChange={(e) => this.updateUserInput(e.target.value)}
             value={this.state.userInput}
-            placeholder="Send a message to the chat"
+            placeholder="Send a message to chat"
           />
           <button
             type="submit"
