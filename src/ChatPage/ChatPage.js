@@ -121,28 +121,31 @@ class ChatPage extends React.Component {
   };
 
   // Navigate the user to the landing page
-  // If username doesn't exist
+  // if username doesn't exist.
+  // Return true so we can prevent other methods
+  // from being called in componentDidMount().
+  // This was causing a memory leak error because
+  // fetches were being called on the component
+  // even though it had already been unmounted.
   navigateHome = () => {
     if (!this.props.username) {
       this.props.history.push("/");
+      return true;
     }
   };
 
   // Init state on component mount
   componentDidMount() {
-    this.initChatrooms();
-    this.initMessages();
-    // TODO open socket?
-    // socket.open();
-    // Set the socket listener
-    this.receiveMessage();
-    // TODO Navigate home on no username
-    // this.navigateHome();
-  }
-
-  componentWillUnmount() {
-    // TODO close socket?
-    // socket.close();
+    // Only initialize if we don't need to navigate home
+    // due to username not being sent.
+    // Prevents memory leak error that was caused
+    // by fetching on the component after it was unmounted.
+    if (!this.navigateHome()) {
+      this.initChatrooms();
+      this.initMessages();
+      // Set the socket listener
+      this.receiveMessage();
+    }
   }
 
   // Change to a different chatroom
