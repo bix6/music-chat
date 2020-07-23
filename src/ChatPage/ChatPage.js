@@ -30,17 +30,54 @@ class ChatPage extends React.Component {
     error: null,
   };
 
+  // Init state on component mount and setup socket listener
+  componentDidMount() {
+    // Only initialize if we don't need to navigate home
+    // due to username not being sent.
+    // Prevents memory leak error that was caused
+    // by fetching on the component after it was unmounted.
+    if (!this.navigateHome()) {
+      this.initChatrooms();
+      this.initMessages();
+      // Set the socket listener
+      this.receiveMessage();
+    }
+  }
+
   // Socket emit message
-  emitMessage = (msg) => {
+  emitMessage = (message) => {
     console.log("emitMessage() running");
-    socket.emit("emit message from client", msg);
+    socket.emit("emit message from client", message);
   };
+
+  // TODO delete
+  //   // Socket receive error listener
+  //   receiveError = () => {
+  //     console.log("receiveError() running");
+  //     socket.on("error message from server", (error) => {
+  //       console.log("error: ", error);
+  //       this.setState({ error });
+  //     });
+  //   };
 
   // Socket receive message listener
   receiveMessage = () => {
     console.log("receiveMessage() running");
-    socket.on("emit message from server", (msg) => {
-      console.log("received message: ", msg);
+    socket.on("emit message from server", (message) => {
+      console.log("received message: ", message);
+      // Add to state
+      let messages = this.state.messages;
+      const chatroomId = message.chatroom_id;
+      // Need the else statement when creating a new chatroom
+      // since the chatroomId doesn't exist in the messages array yet
+      if (messages[chatroomId]) {
+        messages[chatroomId].push(message);
+      } else {
+        messages[chatroomId] = [message];
+      }
+      this.setState({
+        messages: messages,
+      });
     });
   };
 
@@ -134,20 +171,6 @@ class ChatPage extends React.Component {
     }
   };
 
-  // Init state on component mount
-  componentDidMount() {
-    // Only initialize if we don't need to navigate home
-    // due to username not being sent.
-    // Prevents memory leak error that was caused
-    // by fetching on the component after it was unmounted.
-    if (!this.navigateHome()) {
-      this.initChatrooms();
-      this.initMessages();
-      // Set the socket listener
-      this.receiveMessage();
-    }
-  }
-
   // Change to a different chatroom
   // Update the chatroom and GET messages
   updateCurrentChatroom = (chatroomId) => {
@@ -163,47 +186,45 @@ class ChatPage extends React.Component {
     this.setState({ currentChatroom: chatroom });
   };
 
-  // GET a message by id and add it to state
-  // Used with postMessage() when a new message is POSTed
-  getMessageById = (messageId) => {
-    this.clearError();
-    const url = config.API_ENDPOINT + `/messages/${messageId}`;
-    const options = {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${config.API_KEY}`,
-      },
-    };
-    fetch(url, options)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw Error(res.statusText);
-      })
-      .then((resJson) => {
-        let messages = this.state.messages;
-        const chatroomId = resJson[0].chatroom_id;
-        // Need the else statement when creating a new chatroom
-        // since the chatroomId doesn't exist in the messages array yet
-        if (messages[chatroomId]) {
-          messages[chatroomId].push(resJson[0]);
-        } else {
-          messages[chatroomId] = [resJson[0]];
-        }
+  // TODO delete
+  //   // GET a message by id and add it to state
+  //   // Used with postMessage() when a new message is POSTed
+  //   getMessageById = (messageId) => {
+  //     this.clearError();
+  //     const url = config.API_ENDPOINT + `/messages/${messageId}`;
+  //     const options = {
+  //       method: "GET",
+  //       headers: {
+  //         "content-type": "application/json",
+  //         Authorization: `Bearer ${config.API_KEY}`,
+  //       },
+  //     };
+  //     fetch(url, options)
+  //       .then((res) => {
+  //         if (res.ok) {
+  //           return res.json();
+  //         }
+  //         throw Error(res.statusText);
+  //       })
+  //       .then((resJson) => {
+  //         let messages = this.state.messages;
+  //         const chatroomId = resJson[0].chatroom_id;
+  //         // Need the else statement when creating a new chatroom
+  //         // since the chatroomId doesn't exist in the messages array yet
+  //         if (messages[chatroomId]) {
+  //           messages[chatroomId].push(resJson[0]);
+  //         } else {
+  //           messages[chatroomId] = [resJson[0]];
+  //         }
 
-        this.setState({
-          messages: messages,
-        });
-
-        // emit socket message
-        this.emitMessage(resJson[0]);
-      })
-      .catch((err) => {
-        this.setError(err);
-      });
-  };
+  //         this.setState({
+  //           messages: messages,
+  //         });
+  //       })
+  //       .catch((err) => {
+  //         this.setError(err);
+  //       });
+  //   };
 
   // POST a new message
   postMessage = (message) => {
@@ -225,14 +246,15 @@ class ChatPage extends React.Component {
         throw Error(res.statusText);
       })
       .then((resJson) => {
-        this.getMessageById(resJson.id);
+        // message POSTed, do nothing
+        // message gets added to state by emit
       })
       .catch((err) => {
         this.setError(err);
       });
   };
 
-  // Create a new message and send it to postMessage()
+  // Create a new message then emit and POST it
   sendMessage = (messageIn) => {
     const message = {
       content_type: "text",
@@ -240,11 +262,16 @@ class ChatPage extends React.Component {
       content_id: "",
       chatroom_id: this.state.currentChatroom.id,
       person_id: this.props.userId,
+      username: this.props.username,
     };
+    // emit to socket, POST to server
+    this.emitMessage(message);
+    // Don't include username for payload to postMessage()
+    delete message["username"];
     this.postMessage(message);
   };
 
-  // Create a new video embed message and send it to postMessage()
+  // Create a new video embed message then emit and POST it
   embedVideo = (index) => {
     const message = {
       content_type: "youtube video",
@@ -252,7 +279,11 @@ class ChatPage extends React.Component {
       content_id: this.state.searchResults[index].videoId,
       chatroom_id: this.state.currentChatroom.id,
       person_id: this.props.userId,
+      username: this.props.username,
     };
+    this.emitMessage(message);
+    // Don't include username for payload to postMessage()
+    delete message["username"];
     this.postMessage(message);
     this.setState({
       searchResults: null,
