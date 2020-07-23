@@ -38,25 +38,12 @@ class ChatPage extends React.Component {
 
   // Socket emit message
   emitMessage = (message) => {
-    console.log("emitMessage() running");
     socket.emit("emit message from client", message);
   };
 
-  // TODO delete
-  //   // Socket receive error listener
-  //   receiveError = () => {
-  //     console.log("receiveError() running");
-  //     socket.on("error message from server", (error) => {
-  //       console.log("error: ", error);
-  //       this.setState({ error });
-  //     });
-  //   };
-
   // Socket receive message listener
   receiveMessage = () => {
-    console.log("receiveMessage() running");
     socket.on("emit message from server", (message) => {
-      console.log("received message: ", message);
       // Add to state
       let messages = this.state.messages;
       const chatroomId = message.chatroom_id;
@@ -177,46 +164,6 @@ class ChatPage extends React.Component {
     this.getMessagesByChatroomId(chatroomId);
     this.setState({ currentChatroom: chatroom });
   };
-
-  // TODO delete
-  //   // GET a message by id and add it to state
-  //   // Used with postMessage() when a new message is POSTed
-  //   getMessageById = (messageId) => {
-  //     this.clearError();
-  //     const url = config.API_ENDPOINT + `/messages/${messageId}`;
-  //     const options = {
-  //       method: "GET",
-  //       headers: {
-  //         "content-type": "application/json",
-  //         Authorization: `Bearer ${config.API_KEY}`,
-  //       },
-  //     };
-  //     fetch(url, options)
-  //       .then((res) => {
-  //         if (res.ok) {
-  //           return res.json();
-  //         }
-  //         throw Error(res.statusText);
-  //       })
-  //       .then((resJson) => {
-  //         let messages = this.state.messages;
-  //         const chatroomId = resJson[0].chatroom_id;
-  //         // Need the else statement when creating a new chatroom
-  //         // since the chatroomId doesn't exist in the messages array yet
-  //         if (messages[chatroomId]) {
-  //           messages[chatroomId].push(resJson[0]);
-  //         } else {
-  //           messages[chatroomId] = [resJson[0]];
-  //         }
-
-  //         this.setState({
-  //           messages: messages,
-  //         });
-  //       })
-  //       .catch((err) => {
-  //         this.setError(err);
-  //       });
-  //   };
 
   // POST a new message
   postMessage = (message) => {

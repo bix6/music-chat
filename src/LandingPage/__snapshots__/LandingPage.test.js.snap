@@ -2,7 +2,13 @@
 
 exports[`LandingPage Component Snapshot Test: Default 1`] = `
 <Fragment>
-  <HeaderComponent />
+  <header
+    className="header-component"
+  >
+    <h1>
+      Music Chat
+    </h1>
+  </header>
   <main
     className="landing-page-main"
   >

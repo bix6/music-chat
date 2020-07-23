@@ -1,5 +1,4 @@
 import React from "react";
-import HeaderComponent from "../shared-components/HeaderComponent/HeaderComponent";
 import DisplayMessage from "../shared-components/DisplayMessage/DisplayMessage";
 import "./LandingPage.css";
 import config from "../config";
@@ -137,7 +136,9 @@ class LandingPage extends React.Component {
   render() {
     return (
       <>
-        <HeaderComponent />
+        <header className="header-component">
+          <h1>Music Chat</h1>
+        </header>
         <main className="landing-page-main">
           <p>
             Welcome to Music Chat Worldwide! Discuss music with friends and

@@ -1,4 +1,19 @@
 /* App Styles */
+.header-component {
+  text-align: center;
+}
+
+.header-component h1 {
+  font-size: 4rem;
+  font-family: monospace;
+  margin: 1.5rem 0 0 0;
+  color: #9708cc;
+}
+
+.header-component h1:hover {
+  color: #44ffd2;
+}
+
 .landing-page-main {
   text-align: center;
   padding: 0 1rem;

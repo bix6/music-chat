@@ -9,25 +9,8 @@ body {
   font-family: monospace;
   width: 100%;
   height: 100%;
-  border: 1px solid white; /* TODO why does this border force the scroll bars to disappear (which is what I want) */
+  /* TODO why does this border force the scroll bars to disappear? (which is what I want) */
+  /* Uncomment this if scroll bars start appearing again but for now seems to not be needed */
+  /* border: 1px solid white; */
   background-image: linear-gradient(135deg, #fccf31 10%, #f55555 100%);
-}
-
-/* Link Styles */
-a:link {
-  color: #9708cc;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #9708cc;
-}
-
-a:hover {
-  color: #9708cc;
-  color: #44ffd2;
-}
-
-a:active {
-  color: #43cbff;
 }
