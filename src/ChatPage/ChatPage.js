@@ -14,6 +14,7 @@ import {
   emitMessage,
   receiveMessage2,
 } from "../socketApi";
+import { Socket } from "socket.io-client";
 
 class ChatPage extends React.Component {
   constructor(props) {
@@ -27,14 +28,19 @@ class ChatPage extends React.Component {
       error: null,
       // TODO Sockets
       // See note below about not binding in state
+      //openSocket: () => {Socket.open()},
       openSocket: openSocket,
       closeSocket: closeSocket,
       receiveMessage: receiveMessage,
       emitMessage: emitMessage,
     };
+    // TODO TJ said delete this
+    // And move the entire API file in here
+    // Just declare the functions in here
     receiveMessage2((err, msg) => {
       console.log("set state: ", msg);
     });
+
     // TODO Sockets
     // Can I bind these methods outside of state?
     // All the below fail
@@ -131,11 +137,17 @@ class ChatPage extends React.Component {
     // Open socket and set the listener
     this.state.openSocket();
     this.state.receiveMessage();
+    // TODO this works but throws an error
+    // How can I accomplish this without the error?
+    // if (!this.props.username) {
+    //   console.log("no username set in component mount");
+    //   this.props.history.push("/");
+    // }
   }
 
   componentWillUnmount() {
     // close socket
-    this.state.closeSocket();
+    this.setState({ receiveMessage: null }, this.state.closeSocket());
   }
 
   // Change to a different chatroom

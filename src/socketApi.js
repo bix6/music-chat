@@ -9,10 +9,12 @@ const socket = io("http://localhost:8003");
 // right now it logs + 1 times
 // for every back button
 function openSocket() {
+  console.log("Socket Opened");
   socket.open();
 }
 
 function closeSocket() {
+  console.log("Socket Closed");
   socket.close();
 }
 
@@ -32,6 +34,11 @@ function receiveMessage2(cb) {
   console.log("receiveMessage2() running");
   socket.on("chat message", (msg) => cb(null, msg));
 }
+
+// emitMessage -> .emit('chat-send') -> BE
+// BE -> .on('chat-send') -> save to DB
+// BE -> .emit('new-chat') -> to all FE clients
+// FE -> .on('new-chat') -> adds to state
 
 export {
   openSocket,

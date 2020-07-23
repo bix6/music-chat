@@ -9,10 +9,23 @@ class App extends React.Component {
     userId: "",
   };
 
+  // Update the username and id in state
   updateUsername = (username, id) => {
     this.setState({ username: username, userId: id });
   };
 
+  // Check for username in local storage on mount
+  componentDidMount() {
+    const username = localStorage.getItem("username");
+    const userId = localStorage.getItem("userId");
+
+    if (username && userId) {
+      this.updateUsername(username, userId);
+    }
+  }
+
+  // Render LandingPage or ChatPage
+  // depending on the URL path
   render() {
     return (
       <Switch>
