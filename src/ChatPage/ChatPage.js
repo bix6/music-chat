@@ -10,15 +10,7 @@ import config from "../config";
 
 // Socket setup
 import io from "socket.io-client";
-// TODO Why doesn't this work?
-// const socket = io(config.API_ENDPOINT_FOR_SOCKET);
-// const socket = io();
-const socket = io("http://localhost:8003");
-
-// emitMessage -> .emit('chat-send') -> BE
-// BE -> .on('chat-send') -> save to DB
-// BE -> .emit('new-chat') -> to all FE clients
-// FE -> .on('new-chat') -> adds to state
+const socket = io(config.API_ENDPOINT_FOR_SOCKET);
 
 class ChatPage extends React.Component {
   state = {
