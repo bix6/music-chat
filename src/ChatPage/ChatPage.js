@@ -7,52 +7,42 @@ import NewChatroom from "./NewChatroom/NewChatroom";
 import DisplayMessage from "../shared-components/DisplayMessage/DisplayMessage";
 import "./ChatPage.css";
 import config from "../config";
-import {
-  openSocket,
-  closeSocket,
-  receiveMessage,
-  emitMessage,
-  receiveMessage2,
-} from "../socketApi";
-import { Socket } from "socket.io-client";
+
+// Socket setup
+import io from "socket.io-client";
+// TODO Why doesn't this work?
+// const socket = io(config.API_ENDPOINT_FOR_SOCKET);
+// const socket = io();
+const socket = io("http://localhost:8003");
+
+// emitMessage -> .emit('chat-send') -> BE
+// BE -> .on('chat-send') -> save to DB
+// BE -> .emit('new-chat') -> to all FE clients
+// FE -> .on('new-chat') -> adds to state
 
 class ChatPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      chatroomList: [],
-      currentChatroom: {},
-      newChatroomDisplayed: false,
-      messages: {},
-      searchResults: null,
-      error: null,
-      // TODO Sockets
-      // See note below about not binding in state
-      //openSocket: () => {Socket.open()},
-      openSocket: openSocket,
-      closeSocket: closeSocket,
-      receiveMessage: receiveMessage,
-      emitMessage: emitMessage,
-    };
-    // TODO TJ said delete this
-    // And move the entire API file in here
-    // Just declare the functions in here
-    receiveMessage2((err, msg) => {
-      console.log("set state: ", msg);
-    });
+  state = {
+    chatroomList: [],
+    currentChatroom: {},
+    newChatroomDisplayed: false,
+    messages: {},
+    searchResults: null,
+    error: null,
+  };
 
-    // TODO Sockets
-    // Can I bind these methods outside of state?
-    // All the below fail
-    // Instead of printing the message object
-    // they print the message itself
-    // which is what happens when I bind in state ^
-    // this.receiveMessage = receiveMessage.bind(this);
-    // this.receiveMessage = receiveMessag
-    // receiveMessage;
-    // receiveMessage();
-    // receiveMessage( () => {} );
-  }
+  // Socket emit message
+  emitMessage = (msg) => {
+    console.log("emitMessage() running");
+    socket.emit("emit message from client", msg);
+  };
+
+  // Socket receive message listener
+  receiveMessage = () => {
+    console.log("receiveMessage() running");
+    socket.on("emit message from server", (msg) => {
+      console.log("received message: ", msg);
+    });
+  };
 
   // Clear error from state
   clearError = () => {
@@ -130,6 +120,8 @@ class ChatPage extends React.Component {
     this.getMessagesByChatroomId(1);
   };
 
+  // Navigate the user to the landing page
+  // If username doesn't exist
   navigateHome = () => {
     if (!this.props.username) {
       this.props.history.push("/");
@@ -140,23 +132,17 @@ class ChatPage extends React.Component {
   componentDidMount() {
     this.initChatrooms();
     this.initMessages();
-    // Open socket and set the listener
-    this.state.openSocket();
-    this.state.receiveMessage();
-    // TODO this works but throws an error
-    // I need this to handle when the user accidently jumps
-    // To /chat and doesn't have a username set
-    // How can I accomplish this without the error?
-    // if (!this.props.username) {
-    //   console.log("no username set in component mount");
-    //   this.props.history.push("/");
-    // }
-    this.navigateHome();
+    // TODO open socket?
+    // socket.open();
+    // Set the socket listener
+    this.receiveMessage();
+    // TODO Navigate home on no username
+    // this.navigateHome();
   }
 
   componentWillUnmount() {
-    // close socket
-    this.setState({ receiveMessage: null }, this.state.closeSocket());
+    // TODO close socket?
+    // socket.close();
   }
 
   // Change to a different chatroom
@@ -209,7 +195,7 @@ class ChatPage extends React.Component {
         });
 
         // emit socket message
-        this.state.emitMessage(resJson[0]);
+        this.emitMessage(resJson[0]);
       })
       .catch((err) => {
         this.setError(err);
