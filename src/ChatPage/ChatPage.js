@@ -145,7 +145,12 @@ class ChatPage extends React.Component {
   // even though it had already been unmounted.
   navigateHome = () => {
     if (!this.props.username) {
-      this.props.history.push("/");
+      // Need the check on history to pass tests
+      // otherwise undefined error
+      if (this.props.history) {
+        this.props.history.push("/");
+      }
+
       return true;
     }
   };
