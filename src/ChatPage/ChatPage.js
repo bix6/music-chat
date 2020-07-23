@@ -130,6 +130,12 @@ class ChatPage extends React.Component {
     this.getMessagesByChatroomId(1);
   };
 
+  navigateHome = () => {
+    if (!this.props.username) {
+      this.props.history.push("/");
+    }
+  };
+
   // Init state on component mount
   componentDidMount() {
     this.initChatrooms();
@@ -145,6 +151,7 @@ class ChatPage extends React.Component {
     //   console.log("no username set in component mount");
     //   this.props.history.push("/");
     // }
+    this.navigateHome();
   }
 
   componentWillUnmount() {

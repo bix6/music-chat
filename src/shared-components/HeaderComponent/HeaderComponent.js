@@ -11,3 +11,6 @@ export default function HeaderComponent() {
     </header>
   );
 }
+
+// TODO just move this into LandingPage since
+// this is no longer used on chat page
