@@ -31,7 +31,8 @@ class ChatSelector extends React.Component {
             {this.createSelectOptions()}
           </select>
           <button type="button" onClick={this.props.displayNewChatroom}>
-            + Room
+            {/* nbsp to prevent line break on safari mobile view */}
+            +&nbsp;Room
           </button>
         </form>
         <h2 className="chat-selector-h2">
