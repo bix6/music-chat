@@ -32,6 +32,10 @@
   margin: 0 2rem 0 0.2rem;
 }
 
+.chat-selector-form button {
+  flex: 0 1 auto;
+}
+
 .chat-selector-h2 {
   text-align: center;
   width: 100%;
