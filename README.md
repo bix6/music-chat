@@ -17,16 +17,8 @@ This project is implemented using the PERN (PostgreSQL, Express, React, Node) st
 
 ## Setup
 
-Example `.env.local`; swap in TODO endpoints for production
-
-```
-REACT_APP_API_KEY=TODOuuid
-REACT_APP_YOUTUBE_API_KEY=TODOyoutubeAPIKey
-TODO_REACT_APP_API_ENDPOINT=https://TODOurl.herokuapp.com/api
-TODO_REACT_APP_API_ENDPOINT_FOR_SOCKET=https://TODOurl.herokuapp.com/
-REACT_APP_API_ENDPOINT=http://localhost:8000/api
-REACT_APP_API_ENDPOINT_FOR_SOCKET=http://localhost:8000/
-```
+- `mv example.env.local .env.local` and populate it
+  - Only 1 set of endpoints should be used at a time; localhost for local dev and heroku for prod
 
 ## Screenshot
 
