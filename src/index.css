@@ -1,7 +1,10 @@
 /* Base Styles */
 body {
   width: 100vw;
+  /* Fallback if browser doesn't support custom value */
   height: 100vh;
+  /* Create custom var --vh to handle mobile vh issues */
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 #root {

@@ -3,6 +3,24 @@ import { Route, Switch } from "react-router-dom";
 import LandingPage from "./LandingPage/LandingPage";
 import ChatPage from "./ChatPage/ChatPage";
 
+// Set the viewheight for CSS custom property
+// Handles issues with mobile vh not being accurate
+function setViewheight() {
+  // Get viewport height * 1% to get value of 1vh
+  let vh = window.innerHeight * 0.01;
+  // Set value in --vh custom property to root of doc
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+}
+
+// Run once on load
+setViewheight();
+
+// Listen for resize
+// Debounce this if it causes issues
+window.addEventListener("resize", () => {
+  setViewheight();
+});
+
 class App extends React.Component {
   state = {
     username: "",
