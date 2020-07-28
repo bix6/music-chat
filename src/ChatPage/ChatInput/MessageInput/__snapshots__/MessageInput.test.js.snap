@@ -16,7 +16,7 @@ exports[`MessageInput Component Snapshot Test: Default 1`] = `
       id="message-input"
       name="message-input"
       onChange={[Function]}
-      placeholder="Send a message to chat"
+      placeholder="Send a message"
       type="text"
       value=""
     />
