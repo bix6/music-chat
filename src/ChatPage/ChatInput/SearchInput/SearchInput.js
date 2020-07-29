@@ -82,7 +82,7 @@ class SearchInput extends React.Component {
     return (
       <form className="chat-input-form">
         <div className="chat-input-flex-div">
-          <label htmlFor="search-input">{"YouTube:"}</label>
+          <label htmlFor="search-input">{"Video:"}</label>
           <input
             type="text"
             id="search-input"
@@ -96,7 +96,7 @@ class SearchInput extends React.Component {
             onClick={(e) => this.handleSearchClicked(e)}
             disabled={!this.state.touched || this.validateUserInput()}
           >
-            Search
+            Find
           </button>
         </div>
         {!!this.state.error && <DisplayMessage message={this.state.error} />}
